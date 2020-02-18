@@ -1,0 +1,8 @@
+scheme("Secretly")
+devices(["iPhone 11 Pro"])
+
+reset_simulator(true)
+
+clean(true)
+
+skip_build(true) # Enable skip_build to skip debug builds for faster test performance
