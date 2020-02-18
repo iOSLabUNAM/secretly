@@ -6,9 +6,9 @@ case git.lines_of_code
 when 1..3
   message('😒 Is it really necessary?')
 when 3..500
-  warn("Please provide a summary in the Pull Request description") if github.pr_body.length > 10
+  warn('Please provide a summary in the Pull Request description') if github.pr_body.length < 10
 else
-  fail('Your pull request is too big')
+  fail('Your Pull Request is too big')
 end
 
 swiftlint.config_file = '.swiftlint.yml'
