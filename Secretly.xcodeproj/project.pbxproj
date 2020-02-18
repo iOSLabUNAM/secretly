@@ -14,6 +14,11 @@
 		E021985023FA35E20025C28E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E021984F23FA35E20025C28E /* Assets.xcassets */; };
 		E021985323FA35E20025C28E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E021985123FA35E20025C28E /* LaunchScreen.storyboard */; };
 		E021985E23FA35E20025C28E /* SecretlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021985D23FA35E20025C28E /* SecretlyTests.swift */; };
+		E04C2BCB23FB86F7005FE010 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCA23FB86F7005FE010 /* Client.swift */; };
+		E04C2BCD23FB8750005FE010 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCC23FB8750005FE010 /* HttpResponse.swift */; };
+		E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCE23FB8782005FE010 /* StatusCode.swift */; };
+		E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BD023FB87A2005FE010 /* Credentials.swift */; };
+		E04C2BD323FB88E8005FE010 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BD223FB88E8005FE010 /* RequestBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +43,11 @@
 		E021985923FA35E20025C28E /* SecretlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecretlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021985D23FA35E20025C28E /* SecretlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretlyTests.swift; sourceTree = "<group>"; };
 		E021985F23FA35E20025C28E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E04C2BCA23FB86F7005FE010 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		E04C2BCC23FB8750005FE010 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		E04C2BCE23FB8782005FE010 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
+		E04C2BD023FB87A2005FE010 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		E04C2BD223FB88E8005FE010 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +89,7 @@
 		E021984523FA35E00025C28E /* Secretly */ = {
 			isa = PBXGroup;
 			children = (
+				E04C2BC923FB7A5A005FE010 /* Network */,
 				E021984623FA35E00025C28E /* AppDelegate.swift */,
 				E021984823FA35E00025C28E /* SceneDelegate.swift */,
 				E021984A23FA35E00025C28E /* ViewController.swift */,
@@ -86,6 +97,7 @@
 				E021984F23FA35E20025C28E /* Assets.xcassets */,
 				E021985123FA35E20025C28E /* LaunchScreen.storyboard */,
 				E021985423FA35E20025C28E /* Info.plist */,
+				E04C2BD023FB87A2005FE010 /* Credentials.swift */,
 			);
 			path = Secretly;
 			sourceTree = "<group>";
@@ -97,6 +109,17 @@
 				E021985F23FA35E20025C28E /* Info.plist */,
 			);
 			path = SecretlyTests;
+			sourceTree = "<group>";
+		};
+		E04C2BC923FB7A5A005FE010 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				E04C2BCA23FB86F7005FE010 /* Client.swift */,
+				E04C2BCC23FB8750005FE010 /* HttpResponse.swift */,
+				E04C2BCE23FB8782005FE010 /* StatusCode.swift */,
+				E04C2BD223FB88E8005FE010 /* RequestBuilder.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +223,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E04C2BCD23FB8750005FE010 /* HttpResponse.swift in Sources */,
 				E021984B23FA35E00025C28E /* ViewController.swift in Sources */,
+				E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */,
+				E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
+				E04C2BCB23FB86F7005FE010 /* Client.swift in Sources */,
 				E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */,
+				E04C2BD323FB88E8005FE010 /* RequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
