@@ -2,7 +2,7 @@ declared_trivial = github.pr_title.include? '#trivial'
 
 warn('PR is classed as Work in Progress') if github.pr_title.include? '[WIP]'
 
-case github.lines_of_code
+case git.lines_of_code
 when 1..3
   message('😒 Is it really necessary?')
 when 3..500
