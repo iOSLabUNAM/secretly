@@ -14,9 +14,9 @@
 # update_fastlane
 
 default_platform(:ios)
-before_all do
-  xcversion(version: "11.3")
-end
+# before_all do
+#   xcversion(version: "11.3")
+# end
 
 platform :ios do
   desc 'Runs the tests'
