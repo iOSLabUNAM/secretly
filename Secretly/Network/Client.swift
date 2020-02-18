@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 class Client {
     static let fakestagram = Client(session: URLSession.shared, baseUrl: "https://secret-ly.herokuapp.com")
     let session: URLSession
@@ -20,25 +18,25 @@ class Client {
         self.baseUrl = baseUrl
     }
 
-    typealias successfulResponse = (Data?) -> Void
+    typealias SuccessfulResponse = (Data?) -> Void
 
-    func get(path: String, success: @escaping successfulResponse) {
+    func get(path: String, success: @escaping SuccessfulResponse) {
         request(method: "get", path: path, body: nil, success: success)
     }
 
-    func post(path: String, body: Data?, success: @escaping successfulResponse) {
+    func post(path: String, body: Data?, success: @escaping SuccessfulResponse) {
         request(method: "post", path: path, body: body, success: success)
     }
 
-    func put(path: String, body: Data?, success: @escaping successfulResponse) {
+    func put(path: String, body: Data?, success: @escaping SuccessfulResponse) {
         request(method: "put", path: path, body: body, success: success)
     }
 
-    func delete(path: String, success: @escaping successfulResponse) {
+    func delete(path: String, success: @escaping SuccessfulResponse) {
         request(method: "delete", path: path, body: nil, success: success)
     }
 
-    private func request(method: String, path: String, body: Data?, success: @escaping successfulResponse) {
+    private func request(method: String, path: String, body: Data?, success: @escaping SuccessfulResponse) {
         guard let req = buildRequest(method: method, path: path, body: body) else {
             debugPrint("Invalid request")
             return

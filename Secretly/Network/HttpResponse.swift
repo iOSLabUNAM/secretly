@@ -12,13 +12,11 @@ struct HttpResponse {
     let httpUrlResponse: HTTPURLResponse
 
     init(response: URLResponse?) {
-        self.httpUrlResponse = response as! HTTPURLResponse
+        self.httpUrlResponse = (response as? HTTPURLResponse) ?? HTTPURLResponse()
     }
 
     var status: StatusCode {
-        get {
-            return StatusCode(rawValue: self.httpUrlResponse.statusCode)
-        }
+        return StatusCode(rawValue: self.httpUrlResponse.statusCode)
     }
 
     func isSuccessful() -> Bool {
