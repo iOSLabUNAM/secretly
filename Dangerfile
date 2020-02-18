@@ -1,14 +1,17 @@
-# Sometimes it's a README fix, or something like that - which isn't relevant for
-# including in a project's CHANGELOG for example
-declared_trivial = github.pr_title.include? "#trivial"
+declared_trivial = github.pr_title.include? '#trivial'
 
-# Make it more obvious that a PR is a work in progress and shouldn't be merged yet
-warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
+warn('PR is classed as Work in Progress') if github.pr_title.include? '[WIP]'
 
-if github.pr_body.length < 3 && git.lines_of_code > 10
-  warn("Please provide a summary in the Pull Request description")
+case github.lines_of_code
+when 1..3
+  message('😒 Is it really necessary?')
+when 3..500
+  warn("Please provide a summary in the Pull Request description") if github.pr_body.length > 10
+else
+  fail('Your pull request is too big')
 end
-warn("Your PR is too big") if git.lines_of_code > 500
 
 swiftlint.config_file = '.swiftlint.yml'
 swiftlint.lint_files inline_mode: true
+
+commit_lint.check
