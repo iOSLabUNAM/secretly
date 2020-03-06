@@ -7,10 +7,22 @@
 //
 
 import UIKit
+import Alamofire
+
+struct Faker: Decodable {
+    let email: String
+    let username: String
+}
 
 class ViewController: UIViewController {
+    @IBOutlet weak var helloLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        AF.request("https://secretlyapi.herokuapp.com/api/v1/fake").responseDecodable(of: Faker.self) { [unowned self] response in
+            let fake = try? response.result.get()
+            DispatchQueue.main.async {
+                self.helloLbl.text = "Hello \(fake?.username ?? "Joe.Doe")!"
+            }
+        }
     }
 }

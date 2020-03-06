@@ -9,7 +9,7 @@
 import Foundation
 
 class Client {
-    static let fakestagram = Client(session: URLSession.shared, baseUrl: "https://secret-ly.herokuapp.com")
+    static let fakestagram = Client(session: URLSession.shared, baseUrl: "https://secretlyapi.herokuapp.com")
     let session: URLSession
     let baseUrl: String
 

@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (5.0.2)
+  - SAMKeychain (1.5.3)
+
+DEPENDENCIES:
+  - Alamofire (= 5.0.2)
+  - SAMKeychain
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - SAMKeychain
+
+SPEC CHECKSUMS:
+  Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  SAMKeychain: 483e1c9f32984d50ca961e26818a534283b4cd5c
+
+PODFILE CHECKSUM: 0142dbb59942befc9f4c6b812c13b680040f85a1
+
+COCOAPODS: 1.8.4

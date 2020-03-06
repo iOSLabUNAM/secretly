@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SAMKeychain
 
 enum Credentials {
     case userToken
@@ -14,21 +15,23 @@ enum Credentials {
     func get() -> String? {
         switch self {
         case .userToken:
-            return "user.json.web.token"
+            return SAMKeychain.password(forService: "mx.unam.secretly", account: "userToken")
         }
     }
 
     func set(value: String) -> Bool {
-//        switch self {
-//        case .userToken:
-//        }
+        switch self {
+        case .userToken:
+            SAMKeychain.setPassword(value, forService: "mx.unam.secretly", account: "userToken")
+        }
         return true
     }
 
     func destroy() -> Bool {
-//        switch self {
-//        case .userToken:
-//        }
+        switch self {
+        case .userToken:
+            SAMKeychain.deletePassword(forService: "mx.unam.secretly", account: "userToken")
+        }
         return true
     }
 }
