@@ -8,20 +8,20 @@
 
 import Foundation
 
-struct RequestBuilder {
+struct Request {
     enum ContentMode {
-        case jsonApp
+        case json
 
         func accept() -> String {
             switch self {
-            case .jsonApp:
+            case .json:
                 return "application/json"
             }
         }
 
         func contentType() -> String {
             switch self {
-            case .jsonApp:
+            case .json:
                 return "application/json"
             }
         }
@@ -32,20 +32,26 @@ struct RequestBuilder {
     public var path: String = "/"
     public var body: Data?
     public var headers: [String: String]?
-    public var contentMode: ContentMode = .jsonApp
+    public var contentMode: ContentMode = .json
 
     init(baseUrl: String) {
         self.urlComponents = URLComponents(string: baseUrl)!
     }
 
-    func url() -> URL? {
+    var urlRequest: URLRequest? {
+        get {
+            return build()
+        }
+    }
+
+    private func url() -> URL? {
         var comps = self.urlComponents
         comps.scheme = scheme
         comps.path = path
         return comps.url
     }
 
-    func request() -> URLRequest? {
+    private func build() -> URLRequest? {
         guard let url = url() else { return nil }
         var req = URLRequest(url: url)
         req.httpMethod = method
