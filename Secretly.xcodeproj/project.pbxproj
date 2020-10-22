@@ -21,6 +21,8 @@
 		E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCE23FB8782005FE010 /* StatusCode.swift */; };
 		E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BD023FB87A2005FE010 /* Credentials.swift */; };
 		E04C2BD323FB88E8005FE010 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BD223FB88E8005FE010 /* RequestBuilder.swift */; };
+		E057592A2541202E00F08FE4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05759292541202E00F08FE4 /* Config.swift */; };
+		E057592E2541211D00F08FE4 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057592D2541211D00F08FE4 /* ConfigTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		E04C2BCE23FB8782005FE010 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 		E04C2BD023FB87A2005FE010 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		E04C2BD223FB88E8005FE010 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		E05759292541202E00F08FE4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		E057592D2541211D00F08FE4 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		FB507B2DA6EA68BCD7670416 /* Pods-Secretly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Secretly.release.xcconfig"; path = "Target Support Files/Pods-Secretly/Pods-Secretly.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,6 +134,7 @@
 				E021985123FA35E20025C28E /* LaunchScreen.storyboard */,
 				E021985423FA35E20025C28E /* Info.plist */,
 				E04C2BD023FB87A2005FE010 /* Credentials.swift */,
+				E05759292541202E00F08FE4 /* Config.swift */,
 			);
 			path = Secretly;
 			sourceTree = "<group>";
@@ -138,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				E021985D23FA35E20025C28E /* SecretlyTests.swift */,
+				E057592D2541211D00F08FE4 /* ConfigTests.swift */,
 				E021985F23FA35E20025C28E /* Info.plist */,
 			);
 			path = SecretlyTests;
@@ -324,6 +330,7 @@
 			files = (
 				E04C2BCD23FB8750005FE010 /* HttpResponse.swift in Sources */,
 				E021984B23FA35E00025C28E /* ViewController.swift in Sources */,
+				E057592A2541202E00F08FE4 /* Config.swift in Sources */,
 				E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */,
 				E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
@@ -338,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E021985E23FA35E20025C28E /* SecretlyTests.swift in Sources */,
+				E057592E2541211D00F08FE4 /* ConfigTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
