@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import Alamofire
 
-struct Faker: Decodable {
+struct Faker: Codable {
     let email: String
     let username: String
 }
@@ -18,10 +17,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var helloLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        AF.request("https://secretlyapi.herokuapp.com/api/v1/fake").responseDecodable(of: Faker.self) { [unowned self] response in
-            let fake = try? response.result.get()
-            DispatchQueue.main.async {
+        let endpoint = Endpoint<Faker>(client: Client.api, path: "/api/v1/fake" )
+        endpoint.find { result in
+            switch result {
+            case .success(let fake):
                 self.helloLbl.text = "Hello \(fake?.username ?? "Joe.Doe")!"
+            case .failure(let err):
+                debugPrint("oups!: \(err)")
             }
         }
     }

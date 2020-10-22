@@ -14,7 +14,7 @@ struct ResponseClientError: Error {}
 struct ResponseServerError: Error {}
 
 class Client {
-    static let fakestagram = Client(session: URLSession.shared, baseUrl: Config.api.value)
+    static let api = Client(session: URLSession.shared, baseUrl: Config.api.value)
     let session: URLSession
     let baseUrl: String
 

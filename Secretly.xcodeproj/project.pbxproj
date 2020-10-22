@@ -22,6 +22,7 @@
 		E04C2BD323FB88E8005FE010 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BD223FB88E8005FE010 /* Request.swift */; };
 		E057592A2541202E00F08FE4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05759292541202E00F08FE4 /* Config.swift */; };
 		E057592E2541211D00F08FE4 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057592D2541211D00F08FE4 /* ConfigTests.swift */; };
+		E0575942254139E100F08FE4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0575941254139E100F08FE4 /* Endpoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		E04C2BD223FB88E8005FE010 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		E05759292541202E00F08FE4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E057592D2541211D00F08FE4 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
+		E0575941254139E100F08FE4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		FB507B2DA6EA68BCD7670416 /* Pods-Secretly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Secretly.release.xcconfig"; path = "Target Support Files/Pods-Secretly/Pods-Secretly.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 		E04C2BC923FB7A5A005FE010 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E0575941254139E100F08FE4 /* Endpoint.swift */,
 				E04C2BCA23FB86F7005FE010 /* Client.swift */,
 				E04C2BCE23FB8782005FE010 /* StatusCode.swift */,
 				E04C2BD223FB88E8005FE010 /* Request.swift */,
@@ -332,6 +335,7 @@
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
 				E04C2BCB23FB86F7005FE010 /* Client.swift in Sources */,
 				E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */,
+				E0575942254139E100F08FE4 /* Endpoint.swift in Sources */,
 				E04C2BD323FB88E8005FE010 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

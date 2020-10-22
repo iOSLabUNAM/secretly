@@ -14,7 +14,7 @@ enum Config {
     var value: String {
         switch self {
         case .api:
-            return "https://secretlyapi.herokuapp.com/api/v1/"
+            return "https://secretlyapi.herokuapp.com/"
         }
     }
 }

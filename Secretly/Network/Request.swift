@@ -44,7 +44,7 @@ struct Request {
         }
     }
 
-    private func url() -> URL? {
+    func url() -> URL? {
         var comps = self.urlComponents
         comps.scheme = scheme
         comps.path = path

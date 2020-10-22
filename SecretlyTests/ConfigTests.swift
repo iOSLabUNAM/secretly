@@ -11,6 +11,6 @@ import XCTest
 
 class ConfigTests: XCTestCase {
     func testApiValue() throws {
-        XCTAssertEqual("https://secretlyapi.herokuapp.com/api/v1/", Config.api.value)
+        XCTAssertEqual("https://secretlyapi.herokuapp.com/", Config.api.value)
     }
 }
