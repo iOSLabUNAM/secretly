@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		77577E8C14CD01CE63615DDF /* Pods_Secretly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58E32D575E4ACBAC2179C3 /* Pods_Secretly.framework */; };
 		B5544BF3D3901B3899D3007D /* Pods_SecretlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B467B84EBC98A802B4B44E0F /* Pods_SecretlyTests.framework */; };
+		E01C9C1325427EC9005CDE25 /* UIImage+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9C1125427EC9005CDE25 /* UIImage+Base64.swift */; };
+		E01C9C1425427EC9005CDE25 /* UIDevice+models.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9C1225427EC9005CDE25 /* UIDevice+models.swift */; };
+		E01C9C202542807C005CDE25 /* Checksum.m in Sources */ = {isa = PBXBuildFile; fileRef = E01C9C1F2542807C005CDE25 /* Checksum.m */; };
+		E01C9C342542817B005CDE25 /* CacheImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9C2E2542817B005CDE25 /* CacheImage.swift */; };
+		E01C9C352542817B005CDE25 /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9C2F2542817B005CDE25 /* StorageType.swift */; };
+		E01C9C362542817B005CDE25 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9C302542817B005CDE25 /* ImageStore.swift */; };
+		E01C9C382542817B005CDE25 /* DataContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01C9C322542817B005CDE25 /* DataContainer.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* ViewController.swift */; };
@@ -41,6 +48,15 @@
 		70DAE1AD8A20F2DE82F9BE9F /* Pods-SecretlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretlyTests.debug.xcconfig"; path = "Target Support Files/Pods-SecretlyTests/Pods-SecretlyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A426231322664F17788427AC /* Pods-SecretlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretlyTests.release.xcconfig"; path = "Target Support Files/Pods-SecretlyTests/Pods-SecretlyTests.release.xcconfig"; sourceTree = "<group>"; };
 		B467B84EBC98A802B4B44E0F /* Pods_SecretlyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SecretlyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E01C9C1125427EC9005CDE25 /* UIImage+Base64.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Base64.swift"; sourceTree = "<group>"; };
+		E01C9C1225427EC9005CDE25 /* UIDevice+models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+models.swift"; sourceTree = "<group>"; };
+		E01C9C1E2542807C005CDE25 /* Secretly-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Secretly-Bridging-Header.h"; sourceTree = "<group>"; };
+		E01C9C1F2542807C005CDE25 /* Checksum.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Checksum.m; sourceTree = "<group>"; };
+		E01C9C2325428095005CDE25 /* Checksum.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Checksum.h; sourceTree = "<group>"; };
+		E01C9C2E2542817B005CDE25 /* CacheImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheImage.swift; sourceTree = "<group>"; };
+		E01C9C2F2542817B005CDE25 /* StorageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageType.swift; sourceTree = "<group>"; };
+		E01C9C302542817B005CDE25 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
+		E01C9C322542817B005CDE25 /* DataContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataContainer.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +118,26 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E01C9C1025427E9B005CDE25 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9C1225427EC9005CDE25 /* UIDevice+models.swift */,
+				E01C9C1125427EC9005CDE25 /* UIImage+Base64.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E01C9C2C2542814C005CDE25 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				E01C9C302542817B005CDE25 /* ImageStore.swift */,
+				E01C9C322542817B005CDE25 /* DataContainer.swift */,
+				E01C9C2E2542817B005CDE25 /* CacheImage.swift */,
+				E01C9C2F2542817B005CDE25 /* StorageType.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
 		E021983A23FA35E00025C28E = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				E04C2BC923FB7A5A005FE010 /* Network */,
+				E01C9C2C2542814C005CDE25 /* DataSource */,
+				E01C9C1025427E9B005CDE25 /* Utils */,
 				E021984623FA35E00025C28E /* AppDelegate.swift */,
 				E021984823FA35E00025C28E /* SceneDelegate.swift */,
 				E021984A23FA35E00025C28E /* ViewController.swift */,
@@ -135,6 +173,9 @@
 				E021985423FA35E20025C28E /* Info.plist */,
 				E04C2BD023FB87A2005FE010 /* Credentials.swift */,
 				E05759292541202E00F08FE4 /* Config.swift */,
+				E01C9C1F2542807C005CDE25 /* Checksum.m */,
+				E01C9C2325428095005CDE25 /* Checksum.h */,
+				E01C9C1E2542807C005CDE25 /* Secretly-Bridging-Header.h */,
 			);
 			path = Secretly;
 			sourceTree = "<group>";
@@ -213,6 +254,7 @@
 				TargetAttributes = {
 					E021984223FA35E00025C28E = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1200;
 					};
 					E021985823FA35E20025C28E = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -328,15 +370,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E01C9C352542817B005CDE25 /* StorageType.swift in Sources */,
 				E021984B23FA35E00025C28E /* ViewController.swift in Sources */,
 				E057592A2541202E00F08FE4 /* Config.swift in Sources */,
 				E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */,
 				E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */,
+				E01C9C202542807C005CDE25 /* Checksum.m in Sources */,
+				E01C9C1325427EC9005CDE25 /* UIImage+Base64.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
 				E04C2BCB23FB86F7005FE010 /* Client.swift in Sources */,
+				E01C9C382542817B005CDE25 /* DataContainer.swift in Sources */,
 				E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */,
+				E01C9C362542817B005CDE25 /* ImageStore.swift in Sources */,
+				E01C9C342542817B005CDE25 /* CacheImage.swift in Sources */,
 				E0575942254139E100F08FE4 /* Endpoint.swift in Sources */,
 				E04C2BD323FB88E8005FE010 /* Request.swift in Sources */,
+				E01C9C1425427EC9005CDE25 /* UIDevice+models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -500,6 +549,7 @@
 			baseConfigurationReference = 535CB75CE8D7BCAA112CD998 /* Pods-Secretly.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3XL2U7DQC;
 				INFOPLIST_FILE = Secretly/Info.plist;
@@ -509,6 +559,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.ioslab.Secretly;
 				PRODUCT_NAME = Secretly;
+				SWIFT_OBJC_BRIDGING_HEADER = "Secretly/Secretly-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -519,6 +571,7 @@
 			baseConfigurationReference = FB507B2DA6EA68BCD7670416 /* Pods-Secretly.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = D3XL2U7DQC;
 				INFOPLIST_FILE = Secretly/Info.plist;
@@ -528,6 +581,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.ioslab.Secretly;
 				PRODUCT_NAME = Secretly;
+				SWIFT_OBJC_BRIDGING_HEADER = "Secretly/Secretly-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
