@@ -30,6 +30,10 @@
 		E057592A2541202E00F08FE4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05759292541202E00F08FE4 /* Config.swift */; };
 		E057592E2541211D00F08FE4 /* ConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E057592D2541211D00F08FE4 /* ConfigTests.swift */; };
 		E0575942254139E100F08FE4 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0575941254139E100F08FE4 /* Endpoint.swift */; };
+		E06534B12544649700DDD8BF /* AuthUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06534B02544649700DDD8BF /* AuthUser.swift */; };
+		E06534B52544652D00DDD8BF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06534B42544652D00DDD8BF /* Post.swift */; };
+		E06534B92544853400DDD8BF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06534B82544853400DDD8BF /* Image.swift */; };
+		E06534BD2544859800DDD8BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06534BC2544859800DDD8BF /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +79,10 @@
 		E05759292541202E00F08FE4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		E057592D2541211D00F08FE4 /* ConfigTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigTests.swift; sourceTree = "<group>"; };
 		E0575941254139E100F08FE4 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		E06534B02544649700DDD8BF /* AuthUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthUser.swift; sourceTree = "<group>"; };
+		E06534B42544652D00DDD8BF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		E06534B82544853400DDD8BF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		E06534BC2544859800DDD8BF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB507B2DA6EA68BCD7670416 /* Pods-Secretly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Secretly.release.xcconfig"; path = "Target Support Files/Pods-Secretly/Pods-Secretly.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,6 +169,7 @@
 		E021984523FA35E00025C28E /* Secretly */ = {
 			isa = PBXGroup;
 			children = (
+				E06534AF2544631C00DDD8BF /* Models */,
 				E04C2BC923FB7A5A005FE010 /* Network */,
 				E01C9C2C2542814C005CDE25 /* DataSource */,
 				E01C9C1025427E9B005CDE25 /* Utils */,
@@ -199,6 +208,17 @@
 				E04C2BD223FB88E8005FE010 /* Request.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E06534AF2544631C00DDD8BF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E06534B02544649700DDD8BF /* AuthUser.swift */,
+				E06534B42544652D00DDD8BF /* Post.swift */,
+				E06534B82544853400DDD8BF /* Image.swift */,
+				E06534BC2544859800DDD8BF /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,14 +396,18 @@
 				E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */,
 				E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */,
 				E01C9C202542807C005CDE25 /* Checksum.m in Sources */,
+				E06534B12544649700DDD8BF /* AuthUser.swift in Sources */,
 				E01C9C1325427EC9005CDE25 /* UIImage+Base64.swift in Sources */,
+				E06534BD2544859800DDD8BF /* User.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
 				E04C2BCB23FB86F7005FE010 /* Client.swift in Sources */,
 				E01C9C382542817B005CDE25 /* DataContainer.swift in Sources */,
 				E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */,
 				E01C9C362542817B005CDE25 /* ImageStore.swift in Sources */,
+				E06534B92544853400DDD8BF /* Image.swift in Sources */,
 				E01C9C342542817B005CDE25 /* CacheImage.swift in Sources */,
 				E0575942254139E100F08FE4 /* Endpoint.swift in Sources */,
+				E06534B52544652D00DDD8BF /* Post.swift in Sources */,
 				E04C2BD323FB88E8005FE010 /* Request.swift in Sources */,
 				E01C9C1425427EC9005CDE25 /* UIDevice+models.swift in Sources */,
 			);
