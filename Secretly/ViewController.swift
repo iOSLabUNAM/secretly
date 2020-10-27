@@ -17,11 +17,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var helloLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let endpoint = Endpoint<Faker>(client: Client.api, path: "/api/v1/fake" )
+        fetchUsername { username in
+            self.helloLbl.text = "Hello \(username)!"
+        }
+    }
+
+    func fetchUsername(completion: @escaping (String) -> Void) {
+        if let username = Credentials.username.get() {
+            completion(username)
+            return
+        }
+        let endpoint = Endpoint<Faker>(client: Client.api, path: "/api/v1/fake")
         endpoint.find { result in
             switch result {
             case .success(let fake):
-                self.helloLbl.text = "Hello \(fake?.username ?? "Joe.Doe")!"
+                if let username = fake?.username, Credentials.username.set(value: username) {
+                    completion(username)
+                } else {
+                    debugPrint("Unable to fetch username")
+                }
             case .failure(let err):
                 debugPrint("oups!: \(err)")
             }

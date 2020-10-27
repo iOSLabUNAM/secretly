@@ -34,6 +34,7 @@
 		E06534B52544652D00DDD8BF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06534B42544652D00DDD8BF /* Post.swift */; };
 		E06534B92544853400DDD8BF /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06534B82544853400DDD8BF /* Image.swift */; };
 		E06534BD2544859800DDD8BF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06534BC2544859800DDD8BF /* User.swift */; };
+		E06534C5254758B600DDD8BF /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06534C4254758B600DDD8BF /* KeychainPasswordItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		E06534B42544652D00DDD8BF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		E06534B82544853400DDD8BF /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		E06534BC2544859800DDD8BF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E06534C4254758B600DDD8BF /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		FB507B2DA6EA68BCD7670416 /* Pods-Secretly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Secretly.release.xcconfig"; path = "Target Support Files/Pods-Secretly/Pods-Secretly.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +133,7 @@
 			children = (
 				E01C9C1225427EC9005CDE25 /* UIDevice+models.swift */,
 				E01C9C1125427EC9005CDE25 /* UIImage+Base64.swift */,
+				E06534C4254758B600DDD8BF /* KeychainPasswordItem.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -232,7 +235,6 @@
 				E021983F23FA35E00025C28E /* Sources */,
 				E021984023FA35E00025C28E /* Frameworks */,
 				E021984123FA35E00025C28E /* Resources */,
-				A39AE415FEF9AE479FF66FB2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -366,23 +368,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A39AE415FEF9AE479FF66FB2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Secretly/Pods-Secretly-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Secretly/Pods-Secretly-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Secretly/Pods-Secretly-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -393,6 +378,7 @@
 				E01C9C352542817B005CDE25 /* StorageType.swift in Sources */,
 				E021984B23FA35E00025C28E /* ViewController.swift in Sources */,
 				E057592A2541202E00F08FE4 /* Config.swift in Sources */,
+				E06534C5254758B600DDD8BF /* KeychainPasswordItem.swift in Sources */,
 				E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */,
 				E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */,
 				E01C9C202542807C005CDE25 /* Checksum.m in Sources */,

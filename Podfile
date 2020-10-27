@@ -4,7 +4,6 @@ target 'Secretly' do
   use_frameworks!
 
   # Pods for Secretly
-  pod 'SAMKeychain'
 
   target 'SecretlyTests' do
     inherit! :search_paths

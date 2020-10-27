@@ -7,31 +7,57 @@
 //
 
 import Foundation
-import SAMKeychain
 
 enum Credentials {
+    static let serviceName = "com.3zcurdia.secretly"
+    case username
     case userToken
 
     func get() -> String? {
         switch self {
+        case .username:
+            return UserDefaults.standard.string(forKey: "username")
         case .userToken:
-            return SAMKeychain.password(forService: "mx.unam.secretly", account: "userToken")
+            guard let username = UserDefaults.standard.string(forKey: "username") else { return nil }
+            return try? KeychainPasswordItem(service: Credentials.serviceName, account: username).readPassword()
         }
     }
 
     func set(value: String) -> Bool {
         switch self {
+        case .username:
+            UserDefaults.standard.set(value, forKey: "username")
+            return true
         case .userToken:
-            SAMKeychain.setPassword(value, forService: "mx.unam.secretly", account: "userToken")
+            guard let username = UserDefaults.standard.string(forKey: "username") else { return false }
+            do {
+                try KeychainPasswordItem(service: Credentials.serviceName, account: username).savePassword(value)
+                return true
+            } catch let err {
+                #if DEBUG
+                debugPrint(err)
+                #endif
+                return false
+            }
         }
-        return true
     }
 
     func destroy() -> Bool {
         switch self {
+        case .username:
+            UserDefaults.standard.removeObject(forKey: "username")
+            return true
         case .userToken:
-            SAMKeychain.deletePassword(forService: "mx.unam.secretly", account: "userToken")
+            guard let username = UserDefaults.standard.string(forKey: "username") else { return false }
+            do {
+                try KeychainPasswordItem(service: Credentials.serviceName, account: username).deleteItem()
+                return true
+            } catch let err {
+                #if DEBUG
+                debugPrint(err)
+                #endif
+                return false
+            }
         }
-        return true
     }
 }
