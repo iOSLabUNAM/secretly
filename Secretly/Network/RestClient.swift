@@ -15,10 +15,7 @@
 
 import Foundation
 
-protocol Identifialbe {
-    func identifier() -> String
-}
-protocol Restable: Codable & Identifialbe {}
+typealias Restable = Codable & Identifiable
 
 struct RestClient<T: Restable> {
     let client: HttpClient
@@ -51,14 +48,14 @@ struct RestClient<T: Restable> {
 
     func update(model: T, complete: @escaping (Result<T?, Error>) -> Void) throws {
         let data = try encoder.encode(model)
-        client.put(path: "\(path)/\(model.identifier())", body: data) { result in
+        client.put(path: "\(path)/\(model.id)", body: data) { result in
             let newResult = result.flatMap { parse(data: $0) }
             complete(newResult)
         }
     }
 
     func delete(model: T, complete: @escaping (Result<T?, Error>) -> Void) {
-        client.delete(path: "\(path)/\(model.identifier())") { result in
+        client.delete(path: "\(path)/\(model.id)") { result in
             let newResult = result.flatMap { parse(data: $0) }
             complete(newResult)
         }

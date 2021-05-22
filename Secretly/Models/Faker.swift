@@ -9,10 +9,8 @@
 import Foundation
 
 struct Faker: Restable {
+    var id: String = ""
+    
     let username: String
     let email: String
-
-    func identifier() -> String {
-        return ""
-    }
 }
