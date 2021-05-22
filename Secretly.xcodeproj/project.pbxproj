@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
+		30FD0E7426596853006E309A /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E7326596853006E309A /* RequestError.swift */; };
+		30FD0E7626596862006E309A /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E7526596862006E309A /* ResponseError.swift */; };
+		30FD0E7826597C6F006E309A /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E7726597C6F006E309A /* RestClient.swift */; };
 		77577E8C14CD01CE63615DDF /* Pods_Secretly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E58E32D575E4ACBAC2179C3 /* Pods_Secretly.framework */; };
 		B5544BF3D3901B3899D3007D /* Pods_SecretlyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B467B84EBC98A802B4B44E0F /* Pods_SecretlyTests.framework */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
@@ -16,7 +20,7 @@
 		E021985023FA35E20025C28E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E021984F23FA35E20025C28E /* Assets.xcassets */; };
 		E021985323FA35E20025C28E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E021985123FA35E20025C28E /* LaunchScreen.storyboard */; };
 		E021985E23FA35E20025C28E /* SecretlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021985D23FA35E20025C28E /* SecretlyTests.swift */; };
-		E04C2BCB23FB86F7005FE010 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCA23FB86F7005FE010 /* Client.swift */; };
+		E04C2BCB23FB86F7005FE010 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCA23FB86F7005FE010 /* HttpClient.swift */; };
 		E04C2BCD23FB8750005FE010 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCC23FB8750005FE010 /* HttpResponse.swift */; };
 		E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCE23FB8782005FE010 /* StatusCode.swift */; };
 		E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BD023FB87A2005FE010 /* Credentials.swift */; };
@@ -35,6 +39,10 @@
 
 /* Begin PBXFileReference section */
 		1E58E32D575E4ACBAC2179C3 /* Pods_Secretly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Secretly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
+		30FD0E7326596853006E309A /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		30FD0E7526596862006E309A /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
+		30FD0E7726597C6F006E309A /* RestClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		535CB75CE8D7BCAA112CD998 /* Pods-Secretly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Secretly.debug.xcconfig"; path = "Target Support Files/Pods-Secretly/Pods-Secretly.debug.xcconfig"; sourceTree = "<group>"; };
 		70DAE1AD8A20F2DE82F9BE9F /* Pods-SecretlyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretlyTests.debug.xcconfig"; path = "Target Support Files/Pods-SecretlyTests/Pods-SecretlyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A426231322664F17788427AC /* Pods-SecretlyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretlyTests.release.xcconfig"; path = "Target Support Files/Pods-SecretlyTests/Pods-SecretlyTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -50,7 +58,7 @@
 		E021985923FA35E20025C28E /* SecretlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecretlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021985D23FA35E20025C28E /* SecretlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretlyTests.swift; sourceTree = "<group>"; };
 		E021985F23FA35E20025C28E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E04C2BCA23FB86F7005FE010 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		E04C2BCA23FB86F7005FE010 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		E04C2BCC23FB8750005FE010 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		E04C2BCE23FB8782005FE010 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
 		E04C2BD023FB87A2005FE010 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -78,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		30FD0E702659643F006E309A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				30FD0E712659645A006E309A /* Faker.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		61231DEC69AAA3BF634B529A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +137,7 @@
 		E021984523FA35E00025C28E /* Secretly */ = {
 			isa = PBXGroup;
 			children = (
+				30FD0E702659643F006E309A /* Models */,
 				E04C2BC923FB7A5A005FE010 /* Network */,
 				E021984623FA35E00025C28E /* AppDelegate.swift */,
 				E021984823FA35E00025C28E /* SceneDelegate.swift */,
@@ -146,10 +163,13 @@
 		E04C2BC923FB7A5A005FE010 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				E04C2BCA23FB86F7005FE010 /* Client.swift */,
+				30FD0E7726597C6F006E309A /* RestClient.swift */,
+				E04C2BCA23FB86F7005FE010 /* HttpClient.swift */,
 				E04C2BCC23FB8750005FE010 /* HttpResponse.swift */,
 				E04C2BCE23FB8782005FE010 /* StatusCode.swift */,
 				E04C2BD223FB88E8005FE010 /* RequestBuilder.swift */,
+				30FD0E7326596853006E309A /* RequestError.swift */,
+				30FD0E7526596862006E309A /* ResponseError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -325,9 +345,13 @@
 				E04C2BCD23FB8750005FE010 /* HttpResponse.swift in Sources */,
 				E021984B23FA35E00025C28E /* ViewController.swift in Sources */,
 				E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */,
+				30FD0E7826597C6F006E309A /* RestClient.swift in Sources */,
 				E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
-				E04C2BCB23FB86F7005FE010 /* Client.swift in Sources */,
+				30FD0E7626596862006E309A /* ResponseError.swift in Sources */,
+				30FD0E722659645A006E309A /* Faker.swift in Sources */,
+				30FD0E7426596853006E309A /* RequestError.swift in Sources */,
+				E04C2BCB23FB86F7005FE010 /* HttpClient.swift in Sources */,
 				E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */,
 				E04C2BD323FB88E8005FE010 /* RequestBuilder.swift in Sources */,
 			);

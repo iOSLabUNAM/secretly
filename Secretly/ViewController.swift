@@ -9,11 +9,6 @@
 import UIKit
 import Alamofire
 
-struct Faker: Decodable {
-    let email: String
-    let username: String
-}
-
 class ViewController: UIViewController {
     @IBOutlet weak var helloLbl: UILabel!
     override func viewDidLoad() {

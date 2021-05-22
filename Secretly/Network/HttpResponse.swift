@@ -19,7 +19,7 @@ struct HttpResponse {
         return StatusCode(rawValue: self.httpUrlResponse.statusCode)
     }
 
-    func isSuccessful() -> Bool {
-        return status == StatusCode.success
+    func result(for data: Data?) -> Result<Data?, Error> {
+        return status.result().map { _ in data }
     }
 }
