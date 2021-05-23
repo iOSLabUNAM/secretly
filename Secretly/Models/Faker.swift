@@ -8,11 +8,13 @@
 
 import Foundation
 
-struct Faker: Restable {
+struct Faker {
     let username: String
     let email: String
+}
 
-    func identifier() -> String {
-        return ""
+extension Faker: Restable {
+    var id: String {
+        ""
     }
 }
