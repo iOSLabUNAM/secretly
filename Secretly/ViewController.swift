@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+//import Alamofire
 
 class ViewController: UIViewController {
     @IBOutlet weak var helloLbl: UILabel!
