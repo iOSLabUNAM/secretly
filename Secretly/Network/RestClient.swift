@@ -21,8 +21,17 @@ struct RestClient<T: Restable> {
     let client: HttpClient
     let path: String
 
-    public var decoder = JSONDecoder()
-    public var encoder = JSONEncoder()
+    public var decoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+        return decoder
+    }()
+    public var encoder: JSONEncoder = {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        return encoder
+    }()
 
     func list(complete: @escaping (Result<[T], Error>) -> Void) {
         client.get(path: path) { result in

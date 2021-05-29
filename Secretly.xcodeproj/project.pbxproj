@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		307A30542661ABD60020DF8B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A30532661ABD60020DF8B /* Post.swift */; };
+		307A30562661AD480020DF8B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A30552661AD480020DF8B /* Image.swift */; };
+		307A30582661AD540020DF8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A30572661AD540020DF8B /* User.swift */; };
+		307A305B2661B7A20020DF8B /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A305A2661B7A20020DF8B /* FeedCollectionViewController.swift */; };
+		307A305E2661CD510020DF8B /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */; };
+		307A305F2661CD510020DF8B /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 307A305D2661CD510020DF8B /* PostCollectionViewCell.xib */; };
+		307A30622661E8A90020DF8B /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A30612661E8A90020DF8B /* UIColor+Hex.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
 		30FD0E7426596853006E309A /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E7326596853006E309A /* RequestError.swift */; };
 		30FD0E7626596862006E309A /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E7526596862006E309A /* ResponseError.swift */; };
@@ -36,6 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		307A30532661ABD60020DF8B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		307A30552661AD480020DF8B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		307A30572661AD540020DF8B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		307A305A2661B7A20020DF8B /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
+		307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		307A305D2661CD510020DF8B /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
+		307A30612661E8A90020DF8B /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		30FD0E7326596853006E309A /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		30FD0E7526596862006E309A /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
@@ -76,10 +90,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		307A30592661B73A0020DF8B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				307A305A2661B7A20020DF8B /* FeedCollectionViewController.swift */,
+				307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */,
+				307A305D2661CD510020DF8B /* PostCollectionViewCell.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		307A30602661E88C0020DF8B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				307A30612661E8A90020DF8B /* UIColor+Hex.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		30FD0E702659643F006E309A /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				30FD0E712659645A006E309A /* Faker.swift */,
+				307A30532661ABD60020DF8B /* Post.swift */,
+				307A30552661AD480020DF8B /* Image.swift */,
+				307A30572661AD540020DF8B /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -105,8 +140,10 @@
 		E021984523FA35E00025C28E /* Secretly */ = {
 			isa = PBXGroup;
 			children = (
+				307A30592661B73A0020DF8B /* ViewControllers */,
 				30FD0E702659643F006E309A /* Models */,
 				E04C2BC923FB7A5A005FE010 /* Network */,
+				307A30602661E88C0020DF8B /* Utils */,
 				E021984623FA35E00025C28E /* AppDelegate.swift */,
 				E021984823FA35E00025C28E /* SceneDelegate.swift */,
 				E021984A23FA35E00025C28E /* ViewController.swift */,
@@ -223,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				307A305F2661CD510020DF8B /* PostCollectionViewCell.xib in Resources */,
 				E021985323FA35E20025C28E /* LaunchScreen.storyboard in Resources */,
 				E021985023FA35E20025C28E /* Assets.xcassets in Resources */,
 				E021984E23FA35E00025C28E /* Main.storyboard in Resources */,
@@ -246,12 +284,18 @@
 				E04C2BCD23FB8750005FE010 /* HttpResponse.swift in Sources */,
 				E021984B23FA35E00025C28E /* ViewController.swift in Sources */,
 				E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */,
+				307A30622661E8A90020DF8B /* UIColor+Hex.swift in Sources */,
 				30FD0E7826597C6F006E309A /* RestClient.swift in Sources */,
+				307A30542661ABD60020DF8B /* Post.swift in Sources */,
 				E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
+				307A30562661AD480020DF8B /* Image.swift in Sources */,
+				307A30582661AD540020DF8B /* User.swift in Sources */,
 				30FD0E7626596862006E309A /* ResponseError.swift in Sources */,
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
 				30FD0E7426596853006E309A /* RequestError.swift in Sources */,
+				307A305E2661CD510020DF8B /* PostCollectionViewCell.swift in Sources */,
+				307A305B2661B7A20020DF8B /* FeedCollectionViewController.swift in Sources */,
 				E04C2BCB23FB86F7005FE010 /* HttpClient.swift in Sources */,
 				E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */,
 				E04C2BD323FB88E8005FE010 /* RequestBuilder.swift in Sources */,

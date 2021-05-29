@@ -14,7 +14,5 @@ struct Faker {
 }
 
 extension Faker: Restable {
-    var id: String {
-        ""
-    }
+    var id: String { "" }
 }

@@ -14,7 +14,7 @@ enum Credentials {
     func get() -> String? {
         switch self {
         case .userToken:
-            return "userToken"
+            return nil
         }
     }
 
