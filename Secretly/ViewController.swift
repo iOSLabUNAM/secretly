@@ -19,11 +19,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadFake()
+    }
+
+    func loadFake() {
         fakeEndpoint.show { [unowned self] result in
             let fake = try? result.get()
             DispatchQueue.main.async {
                 self.helloLbl.text = "Hello \(fake?.username ?? "Joe.Doe")!"
+//                "showFeedSegue"
+                self.performSegue(withIdentifier: "showFeedSegue", sender: self)
             }
+
         }
     }
 }
