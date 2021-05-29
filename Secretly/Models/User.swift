@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct User: Codable {
     let username: String
