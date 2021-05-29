@@ -15,6 +15,6 @@ struct Post: Restable {
     let image: Image?
     let user: User
     let commentsCount: Int
-    let createdAt: String
-    let updatedAt: String
+    let createdAt: Date
+    let updatedAt: Date
 }

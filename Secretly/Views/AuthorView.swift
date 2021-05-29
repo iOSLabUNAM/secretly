@@ -30,6 +30,7 @@ class AuthorView: UIView {
         let iv = UIImageView()
         iv.image = UIImage(systemName: "person.fill")
         iv.contentMode = .scaleAspectFill
+        iv.clipsToBounds = true
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
@@ -81,6 +82,7 @@ class AuthorView: UIView {
         NSLayoutConstraint.activate([
             avatarImg.widthAnchor.constraint(equalTo: avatarImg.heightAnchor)
         ])
+        avatarImg.layer.cornerRadius = self.frame.height / 2.0
     }
 
     func updateContent() {
