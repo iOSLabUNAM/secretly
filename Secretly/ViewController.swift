@@ -27,7 +27,6 @@ class ViewController: UIViewController {
             let fake = try? result.get()
             DispatchQueue.main.async {
                 self.helloLbl.text = "Hello \(fake?.username ?? "Joe.Doe")!"
-//                "showFeedSegue"
                 self.performSegue(withIdentifier: "showFeedSegue", sender: self)
             }
 

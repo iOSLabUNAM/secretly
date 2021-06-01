@@ -15,6 +15,7 @@ class PostCollectionViewCell: UICollectionViewCell {
            updateView()
         }
     }
+    @IBOutlet weak var authorView: AuthorView!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likeState: UIImageView!
@@ -26,14 +27,14 @@ class PostCollectionViewCell: UICollectionViewCell {
 
     func updateView() {
         guard let post = post else { return }
-        
-        print(post.backgroundColor)
-
         if let color = UIColor(hex: post.backgroundColor) {
             self.backgroundColor = color
         }
         self.contentLabel.text = post.content
         self.commentCounter.text = String(describing: post.commentsCount)
+        if let postImg = post.image {
+            ImageLoader.load(postImg.mediumUrl) { img in self.imageView.image = img }
+        }
+        self.authorView.author = post.user
     }
-
 }
