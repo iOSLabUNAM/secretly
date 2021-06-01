@@ -17,13 +17,13 @@ class FeedCollectionViewController: UICollectionViewController, UICollectionView
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
         let nib = UINib(nibName: String(describing: PostCollectionViewCell.self), bundle: nil)
         self.collectionView!.register(nib, forCellWithReuseIdentifier: PostCollectionViewCell.reuseIdentifier)
+        self.collectionView!.backgroundColor = .black
 
         loadPosts()
     }
