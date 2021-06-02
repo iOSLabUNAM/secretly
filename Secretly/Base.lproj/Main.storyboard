@@ -18,19 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello Joe Doe!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeL-i2-Qyb">
-                                <rect key="frame" x="20" y="435" width="374" height="26.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeL-i2-Qyb">
+                                <rect key="frame" x="20" y="440" width="374" height="26.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Jds-Fi-oCK">
+                                <rect key="frame" x="30" y="313" width="354" height="117.5"/>
+                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="Tun-YJ-GDn"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="120" id="cUL-Ih-3Qk"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fSg-Ed-IPl">
+                                <rect key="frame" x="30" y="328" width="354" height="88"/>
+                                <color key="tintColor" systemColor="secondaryLabelColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="IMV-M8-Bxj"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="91" id="nUt-Dy-PPg"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fSg-Ed-IPl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="2I3-LP-1da"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BeL-i2-Qyb" secondAttribute="trailing" constant="20" id="46I-rl-3EP"/>
+                            <constraint firstItem="BeL-i2-Qyb" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="55l-MF-1f6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fSg-Ed-IPl" secondAttribute="trailing" constant="30" id="9bw-4j-KVc"/>
                             <constraint firstItem="BeL-i2-Qyb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="MUe-Xv-sXO"/>
+                            <constraint firstItem="BeL-i2-Qyb" firstAttribute="top" secondItem="fSg-Ed-IPl" secondAttribute="bottom" constant="22.5" id="NXf-2d-o7E"/>
+                            <constraint firstItem="BeL-i2-Qyb" firstAttribute="top" secondItem="Jds-Fi-oCK" secondAttribute="bottom" constant="8" symbolic="YES" id="Q2m-jt-VaI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jds-Fi-oCK" secondAttribute="trailing" constant="30" id="Q9Q-xC-NSg"/>
                             <constraint firstItem="BeL-i2-Qyb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ni7-b0-VA5"/>
+                            <constraint firstItem="Jds-Fi-oCK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="prN-hj-bZv"/>
                         </constraints>
                     </view>
                     <connections>
@@ -40,14 +63,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="136"/>
+            <point key="canvasLocation" x="137.68115942028987" y="135.9375"/>
         </scene>
         <!--Feed Collection View Controller-->
         <scene sceneID="YyL-ep-XHZ">
             <objects>
-                <collectionViewController id="RtB-aA-XOx" customClass="FeedCollectionViewController" customModule="Secretly" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="RtB-aA-XOx" customClass="FeedCollectionViewController" customModule="Secretly" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="gXO-tf-Amf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ExN-jX-xNw">
@@ -79,6 +102,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="app" catalog="system" width="128" height="114"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
