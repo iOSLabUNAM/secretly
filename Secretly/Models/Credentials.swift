@@ -23,11 +23,22 @@ struct Credentials: Restable {
         self.token = nil
     }
 
-//    init(from decoder: Decoder) throws {
-//        solamente vamos a codifgicar token
-//        let token = try? decoder.container(keyedBy: )
-//    }
-//    func encode(to encoder: Encoder) throws {
-//        solamente username y password
-//    }
+    enum CodingKeys: String, CodingKey {
+        case token
+        case username
+        case password
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        token = try container.decode(String.self, forKey: .token)
+        username = nil
+        password = nil
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(password, forKey: .password)
+        try container.encode(username, forKey: .username)
+    }
 }
