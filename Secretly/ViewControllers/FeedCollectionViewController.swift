@@ -8,23 +8,26 @@
 
 import UIKit
 
-class FeedCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegateFlowLayout {
     var posts: [Post]? {
         didSet {
             self.collectionView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
+    let refreshControl = UIRefreshControl()
 
+    @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.prefetchDataSource = self
         let nib = UINib(nibName: String(describing: PostCollectionViewCell.self), bundle: nil)
-        self.collectionView!.register(nib, forCellWithReuseIdentifier: PostCollectionViewCell.reuseIdentifier)
-        self.collectionView!.backgroundColor = .black
+        collectionView.register(nib, forCellWithReuseIdentifier: PostCollectionViewCell.reuseIdentifier)
+        collectionView.addSubview(refreshControl)
 
+        refreshControl.addTarget(self, action: #selector(self.loadPosts), for: UIControl.Event.valueChanged)
         loadPosts()
     }
 
@@ -40,15 +43,15 @@ class FeedCollectionViewController: UICollectionViewController, UICollectionView
 
     // MARK: UICollectionViewDataSource
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts?.count ?? 0
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.reuseIdentifier, for: indexPath) as! PostCollectionViewCell
 
         cell.post = self.posts?[indexPath.row]
@@ -85,6 +88,13 @@ class FeedCollectionViewController: UICollectionViewController, UICollectionView
     
     }
     */
+    // MARK: UICollectionViewDataSourcePrefetching
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        guard let indexPath = indexPaths.last else { return }
+        print("=================================")
+        print("\(indexPath.row)")
+        print("=================================")
+    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 300)
@@ -97,6 +107,7 @@ class FeedCollectionViewController: UICollectionViewController, UICollectionView
         return RestClient<Post>(client: client, path: "/api/v1/posts")
     }()
 
+    @objc
     func loadPosts() {
         postEndpoint.list { [unowned self] result in
             guard let posts = try? result.get() else { return }
