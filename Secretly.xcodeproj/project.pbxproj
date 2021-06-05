@@ -25,6 +25,7 @@
 		30C77CB2266AD7B100A888DC /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB1266AD7B100A888DC /* ApiConfig.swift */; };
 		30C77CB4266AF47300A888DC /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB3266AF47300A888DC /* Credentials.swift */; };
 		30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB5266AF48300A888DC /* CurrentUser.swift */; };
+		30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB7266BD44300A888DC /* CreatePostViewController.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
 		30FD0E7426596853006E309A /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E7326596853006E309A /* RequestError.swift */; };
 		30FD0E7626596862006E309A /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E7526596862006E309A /* ResponseError.swift */; };
@@ -71,6 +72,7 @@
 		30C77CB1266AD7B100A888DC /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
 		30C77CB3266AF47300A888DC /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		30C77CB5266AF48300A888DC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
+		30C77CB7266BD44300A888DC /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		30FD0E7326596853006E309A /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		30FD0E7526596862006E309A /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				307A305A2661B7A20020DF8B /* FeedCollectionViewController.swift */,
 				307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */,
 				307A305D2661CD510020DF8B /* PostCollectionViewCell.xib */,
+				30C77CB7266BD44300A888DC /* CreatePostViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E04C2BCD23FB8750005FE010 /* HttpResponse.swift in Sources */,
+				30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */,
 				E021984B23FA35E00025C28E /* ViewController.swift in Sources */,
 				30BC8B9D2662ACBC00F7E6A5 /* ImageLoader.swift in Sources */,
 				E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */,
