@@ -5,7 +5,6 @@
 //  Created by LuisE on 2/17/20.
 //  Copyright © 2020 3zcurdia. All rights reserved.
 //
-//  let client = Client(session: URLSession.shared, baseUrl: "https://secretlyapi.herokuapp.com")
 
 import Foundation
 
@@ -53,7 +52,7 @@ struct HttpClient {
         builder.method = method
         builder.path = path
         builder.body = body
-        if let token = Credentials.userToken.get() {
+        if let token = ApiConfig.token.get() {
             builder.headers = ["Authorization": "Bearer \(token)"]
         }
         return builder.request()
