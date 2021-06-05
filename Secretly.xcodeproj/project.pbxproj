@@ -21,6 +21,10 @@
 		30BC8BA42662BDEF00F7E6A5 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC8BA32662BDEF00F7E6A5 /* ImageStore.swift */; };
 		30BC8BA62662C02300F7E6A5 /* CacheImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC8BA52662C02300F7E6A5 /* CacheImage.swift */; };
 		30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BC8BA72662CEBA00F7E6A5 /* Checksum.swift */; };
+		30C77CB0266AD69700A888DC /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CAF266AD69700A888DC /* CurrentUserService.swift */; };
+		30C77CB2266AD7B100A888DC /* ApiConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB1266AD7B100A888DC /* ApiConfig.swift */; };
+		30C77CB4266AF47300A888DC /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB3266AF47300A888DC /* Credentials.swift */; };
+		30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB5266AF48300A888DC /* CurrentUser.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
 		30FD0E7426596853006E309A /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E7326596853006E309A /* RequestError.swift */; };
 		30FD0E7626596862006E309A /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E7526596862006E309A /* ResponseError.swift */; };
@@ -35,7 +39,6 @@
 		E04C2BCB23FB86F7005FE010 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCA23FB86F7005FE010 /* HttpClient.swift */; };
 		E04C2BCD23FB8750005FE010 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCC23FB8750005FE010 /* HttpResponse.swift */; };
 		E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BCE23FB8782005FE010 /* StatusCode.swift */; };
-		E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BD023FB87A2005FE010 /* Credentials.swift */; };
 		E04C2BD323FB88E8005FE010 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04C2BD223FB88E8005FE010 /* RequestBuilder.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,10 @@
 		30BC8BA32662BDEF00F7E6A5 /* ImageStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		30BC8BA52662C02300F7E6A5 /* CacheImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheImage.swift; sourceTree = "<group>"; };
 		30BC8BA72662CEBA00F7E6A5 /* Checksum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checksum.swift; sourceTree = "<group>"; };
+		30C77CAF266AD69700A888DC /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
+		30C77CB1266AD7B100A888DC /* ApiConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConfig.swift; sourceTree = "<group>"; };
+		30C77CB3266AF47300A888DC /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		30C77CB5266AF48300A888DC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		30FD0E7326596853006E309A /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
 		30FD0E7526596862006E309A /* ResponseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
@@ -82,7 +89,6 @@
 		E04C2BCA23FB86F7005FE010 /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		E04C2BCC23FB8750005FE010 /* HttpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		E04C2BCE23FB8782005FE010 /* StatusCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
-		E04C2BD023FB87A2005FE010 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		E04C2BD223FB88E8005FE010 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +149,14 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
+		30C77CAE266AD65C00A888DC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				30C77CAF266AD69700A888DC /* CurrentUserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		30FD0E702659643F006E309A /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +164,8 @@
 				307A30532661ABD60020DF8B /* Post.swift */,
 				307A30552661AD480020DF8B /* Image.swift */,
 				307A30572661AD540020DF8B /* User.swift */,
+				30C77CB3266AF47300A888DC /* Credentials.swift */,
+				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -175,6 +191,7 @@
 		E021984523FA35E00025C28E /* Secretly */ = {
 			isa = PBXGroup;
 			children = (
+				30C77CAE266AD65C00A888DC /* Services */,
 				307A306326629B590020DF8B /* Views */,
 				307A30592661B73A0020DF8B /* ViewControllers */,
 				30FD0E702659643F006E309A /* Models */,
@@ -188,7 +205,6 @@
 				E021984F23FA35E20025C28E /* Assets.xcassets */,
 				E021985123FA35E20025C28E /* LaunchScreen.storyboard */,
 				E021985423FA35E20025C28E /* Info.plist */,
-				E04C2BD023FB87A2005FE010 /* Credentials.swift */,
 			);
 			path = Secretly;
 			sourceTree = "<group>";
@@ -205,6 +221,7 @@
 		E04C2BC923FB7A5A005FE010 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				30C77CB1266AD7B100A888DC /* ApiConfig.swift */,
 				30FD0E7726597C6F006E309A /* RestClient.swift */,
 				E04C2BCA23FB86F7005FE010 /* HttpClient.swift */,
 				E04C2BCC23FB8750005FE010 /* HttpResponse.swift */,
@@ -325,8 +342,8 @@
 				307A30622661E8A90020DF8B /* UIColor+Hex.swift in Sources */,
 				30FD0E7826597C6F006E309A /* RestClient.swift in Sources */,
 				307A30542661ABD60020DF8B /* Post.swift in Sources */,
-				E04C2BD123FB87A2005FE010 /* Credentials.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
+				30C77CB2266AD7B100A888DC /* ApiConfig.swift in Sources */,
 				307A30562661AD480020DF8B /* Image.swift in Sources */,
 				307A30582661AD540020DF8B /* User.swift in Sources */,
 				30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */,
@@ -339,9 +356,12 @@
 				E04C2BCB23FB86F7005FE010 /* HttpClient.swift in Sources */,
 				30BC8BA62662C02300F7E6A5 /* CacheImage.swift in Sources */,
 				307A306526629B990020DF8B /* AuthorView.swift in Sources */,
+				30C77CB4266AF47300A888DC /* Credentials.swift in Sources */,
 				30BC8BA22662BB0000F7E6A5 /* DataContainer.swift in Sources */,
 				E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */,
 				E04C2BD323FB88E8005FE010 /* RequestBuilder.swift in Sources */,
+				30C77CB0266AD69700A888DC /* CurrentUserService.swift in Sources */,
+				30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */,
 				30BC8BA42662BDEF00F7E6A5 /* ImageStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
