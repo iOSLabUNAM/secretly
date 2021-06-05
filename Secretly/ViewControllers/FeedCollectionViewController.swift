@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegateFlowLayout {
+class FeedCollectionViewController: UIViewController {
     var posts: [Post]? {
         didSet {
             self.collectionView.reloadData()
@@ -41,8 +41,21 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
     }
     */
 
-    // MARK: UICollectionViewDataSource
+    let client = HttpClient(session: URLSession.shared, baseUrl: "https://secretlyapi.herokuapp.com")
+    lazy var postEndpoint: RestClient<Post> = {
+        return RestClient<Post>(client: client, path: "/api/v1/posts")
+    }()
 
+    @objc
+    func loadPosts() {
+        postEndpoint.list { [unowned self] result in
+            guard let posts = try? result.get() else { return }
+            DispatchQueue.main.async { self.posts = posts }
+        }
+    }
+}
+
+extension FeedCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -57,8 +70,6 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
         cell.post = self.posts?[indexPath.row]
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
 
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
@@ -88,30 +99,19 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
     
     }
     */
-    // MARK: UICollectionViewDataSourcePrefetching
+}
+
+extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 300)
+    }
+}
+
+extension FeedCollectionViewController: UICollectionViewDataSourcePrefetching {
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         guard let indexPath = indexPaths.last else { return }
         print("=================================")
         print("\(indexPath.row)")
         print("=================================")
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 300)
-    }
-
-    // MARK: Rest logic
-
-    let client = HttpClient(session: URLSession.shared, baseUrl: "https://secretlyapi.herokuapp.com")
-    lazy var postEndpoint: RestClient<Post> = {
-        return RestClient<Post>(client: client, path: "/api/v1/posts")
-    }()
-
-    @objc
-    func loadPosts() {
-        postEndpoint.list { [unowned self] result in
-            guard let posts = try? result.get() else { return }
-            DispatchQueue.main.async { self.posts = posts }
-        }
     }
 }
