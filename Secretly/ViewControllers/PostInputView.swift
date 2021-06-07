@@ -9,10 +9,7 @@
 import Foundation
 import UIKit
 
-
-
 class PostInputView: UIView {
-    
     struct UIConstants {
         let standardPadding: CGFloat = 8
     }
@@ -31,7 +28,7 @@ class PostInputView: UIView {
     
     let postTextView: UITextView = {
         let view = UITextView()
-        view.backgroundColor = .gray
+        view.backgroundColor = .lightGray
         view.textColor = .white
         view.font = .boldSystemFont(ofSize: 20)
         view.textAlignment = .center
@@ -45,9 +42,9 @@ class PostInputView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Post", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .systemPink
+        button.backgroundColor = .gray
         button.layer.cornerRadius = 15
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.lightGray, for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 18)
         return button
     }()
@@ -89,6 +86,7 @@ class PostInputView: UIView {
         postTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -padding).isActive = true
         postTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding).isActive = true
         postTextView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.75).isActive = true
+        postTextView.delegate = self
         
         self.addSubview(colorPickerButton)
         colorPickerButton.topAnchor.constraint(equalTo: postTextView.topAnchor).isActive = true
@@ -101,6 +99,28 @@ class PostInputView: UIView {
         postButton.heightAnchor.constraint(equalTo: postTextView.heightAnchor, multiplier: 0.45).isActive = true
         postButton.leadingAnchor.constraint(equalTo: postTextView.trailingAnchor, constant: padding).isActive = true
         postButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding).isActive = true
+        postButton.isEnabled = false
+    }
+    
+    func clear() {
+        postTextView.text = ""
+        postTextView.backgroundColor = .lightGray
+        postButton.backgroundColor = .gray
+        postButton.setTitleColor(.lightGray, for: .normal)
+    }
+}
 
+extension PostInputView: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let isValidText = !textView.text.isEmptyORWhiteSpaces
+        postButton.isEnabled = isValidText
+        postButton.backgroundColor = isValidText ? .systemPink : .gray
+        postButton.setTitleColor(isValidText ? .white : .lightGray, for: .normal)
+    }
+}
+
+extension String {
+    var isEmptyORWhiteSpaces: Bool {
+        return self.isEmpty || self.trimmingCharacters(in: .whitespaces) == ""
     }
 }

@@ -132,6 +132,7 @@
                     <tabBarItem key="tabBarItem" title="Feed" image="text.bubble.fill" catalog="system" id="DmN-Vv-qbm"/>
                     <connections>
                         <outlet property="collectionView" destination="TPK-s3-R7J" id="EFZ-ci-ff1"/>
+                        <outlet property="postInputView" destination="s4y-Qt-znf" id="oTA-Mr-lk6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="svI-0p-kLa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
