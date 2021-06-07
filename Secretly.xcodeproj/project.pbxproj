@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D7D6FD1266DB42C005863AE /* PostInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7D6FD0266DB42C005863AE /* PostInputView.swift */; };
 		307A30542661ABD60020DF8B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A30532661ABD60020DF8B /* Post.swift */; };
 		307A30562661AD480020DF8B /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A30552661AD480020DF8B /* Image.swift */; };
 		307A30582661AD540020DF8B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307A30572661AD540020DF8B /* User.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D7D6FD0266DB42C005863AE /* PostInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInputView.swift; sourceTree = "<group>"; };
 		307A30532661ABD60020DF8B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		307A30552661AD480020DF8B /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		307A30572661AD540020DF8B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */,
 				307A305D2661CD510020DF8B /* PostCollectionViewCell.xib */,
 				30C77CB7266BD44300A888DC /* CreatePostViewController.swift */,
+				2D7D6FD0266DB42C005863AE /* PostInputView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				E04C2BCD23FB8750005FE010 /* HttpResponse.swift in Sources */,
 				30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */,
 				E021984B23FA35E00025C28E /* ViewController.swift in Sources */,
+				2D7D6FD1266DB42C005863AE /* PostInputView.swift in Sources */,
 				30BC8B9D2662ACBC00F7E6A5 /* ImageLoader.swift in Sources */,
 				E04C2BCF23FB8782005FE010 /* StatusCode.swift in Sources */,
 				307A30622661E8A90020DF8B /* UIColor+Hex.swift in Sources */,
