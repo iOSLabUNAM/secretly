@@ -1,5 +1,5 @@
 //
-//  Client.swift
+//  HttpClient.swift
 //  Secretly
 //
 //  Created by LuisE on 2/17/20.
@@ -7,13 +7,11 @@
 //
 
 import Foundation
-//let client = Client(session: URLSession.shared, baseUrl: "https://secretlyapi.herokuapp.com")
 
-
-struct HttpClient{
+struct HttpClient {
     let session: URLSession
     let baseUrl: String
-    
+
     typealias ResultResponse = (Result<Data?, Error>) -> Void
 
     func get(path: String, complete: @escaping ResultResponse) {
@@ -43,9 +41,9 @@ struct HttpClient{
                 complete(.failure(error))
                 return
             }
-
             let response = HttpResponse(response: response)
-            let result = response.result(for: data)
+            let result   = response.result(for: data)
+            complete(result)
         }.resume()
     }
 
@@ -54,7 +52,7 @@ struct HttpClient{
         builder.method = method
         builder.path = path
         builder.body = body
-        if let token = Credentials.userToken.get() {
+        if let token = ApiConfig.token.get() {
             builder.headers = ["Authorization": "Bearer \(token)"]
         }
         return builder.request()

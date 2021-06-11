@@ -33,6 +33,7 @@ enum StatusCode: Int {
             self = .unkown
         }
     }
+
     func result() -> Result<Int?, Error> {
         switch self {
         case .success:
@@ -40,9 +41,9 @@ enum StatusCode: Int {
         case .clientError:
             return .failure(ResponseError.clientError)
         case .serverError:
-            return .failure(ResponseError.clientError)
+            return .failure(ResponseError.serverError)
         default:
-            return .failure(ResponseError.clientError)
+            return .failure(ResponseError.invalidResponse)
         }
     }
 }

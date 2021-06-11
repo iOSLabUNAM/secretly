@@ -1,10 +1,11 @@
 //
-//  RestClient.swift
+//  CodableClient.swift
 //  Secretly
 //
-//  Created by Hernán Galileo Cabrera Garibaldi on 28/05/21.
+//  Created by Luis Ezcurdia on 22/05/21.
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
+
 // REST API ->
 // GET    /api/v1/posts(.:format)     #list
 // POST   /api/v1/posts(.:format)     #create
@@ -20,8 +21,17 @@ struct RestClient<T: Restable> {
     let client: HttpClient
     let path: String
 
-    public var decoder = JSONDecoder()
-    public var encoder = JSONEncoder()
+    public var decoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .iso8601
+        return decoder
+    }()
+    public var encoder: JSONEncoder = {
+        let encoder = JSONEncoder()
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+        return encoder
+    }()
 
     func list(complete: @escaping (Result<[T], Error>) -> Void) {
         client.get(path: path) { result in

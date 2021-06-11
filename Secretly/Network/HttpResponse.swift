@@ -18,12 +18,8 @@ struct HttpResponse {
     var status: StatusCode {
         return StatusCode(rawValue: self.httpUrlResponse.statusCode)
     }
-    
-    func result(for data: Data?) -> Result<Data?, Error>{
-        return status.result().map { _code in data }
-           /* .mapError { err in
-                print(err)
-                return err
-            }*/
+
+    func result(for data: Data?) -> Result<Data?, Error> {
+        return status.result().map { _ in data }
     }
 }

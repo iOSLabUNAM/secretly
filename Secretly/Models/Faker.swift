@@ -2,7 +2,7 @@
 //  Faker.swift
 //  Secretly
 //
-//  Created by Hernán Galileo Cabrera Garibaldi on 22/05/21.
+//  Created by Luis Ezcurdia on 22/05/21.
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
 
@@ -13,8 +13,6 @@ struct Faker {
     let email: String
 }
 
-extension Faker: Restable{
-    var id: String{
-        ""
-    }
+extension Faker: Restable {
+    var id: String { "" }
 }

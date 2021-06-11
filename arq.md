@@ -1,4 +1,4 @@
-# Arquitecture
+## Arquitecture
 
 - Modelos
   - User
@@ -11,6 +11,7 @@
   - Vista de coment
   - Creacion de post (validaciones -> Combine?)
   - Creacion de comment (validaciones???)
+
 - Network layer (fault tolerant <Result type>, codable)
 - Persitencia de datos en disco
   - Credenciales seguras(keychain)
