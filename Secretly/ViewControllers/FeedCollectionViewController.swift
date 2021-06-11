@@ -16,10 +16,20 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
         }
     }
     let refreshControl = UIRefreshControl()
-
+    
+    private var colorPicker = UIColorPickerViewController()
+    
+    @IBOutlet weak var postInputView: PostInputView!
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        loadPosts()
+    }
+
+    func setupUI() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.prefetchDataSource = self
@@ -28,7 +38,10 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
         collectionView.addSubview(refreshControl)
 
         refreshControl.addTarget(self, action: #selector(self.loadPosts), for: UIControl.Event.valueChanged)
-        loadPosts()
+        
+        colorPicker.delegate = self
+        postInputView.colorPickerButton.addTarget(self, action: #selector(colorPickerButtonTapped), for: .touchUpInside)
+        postInputView.postButton.addTarget(self, action: #selector(postButtonTapped), for: .touchUpInside)
     }
 
     /*
@@ -113,5 +126,65 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
             guard let posts = try? result.get() else { return }
             DispatchQueue.main.async { self.posts = posts }
         }
+    }
+}
+
+extension FeedCollectionViewController: UIColorPickerViewControllerDelegate {
+    @objc func colorPickerButtonTapped() {
+        colorPicker.selectedColor = postInputView.postTextView.backgroundColor ?? .clear
+        present(colorPicker, animated: true)
+    }
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        self.postInputView.postTextView.backgroundColor = viewController.selectedColor
+    }
+}
+
+//MARK: - Create and send Post
+extension FeedCollectionViewController {
+    @objc func postButtonTapped() {
+        createPost {
+            DispatchQueue.main.async { [weak self] in
+                self?.postInputView.clear()
+            }
+        }
+    }
+    
+    func createPost(onSuccess: (() -> Void)? = nil) {
+        guard
+            let postText = postInputView.postTextView.text,
+            let postColor = postInputView.postTextView.backgroundColor?.hexString
+        else {
+            debugPrint("invalid post detected")
+            return
+        }
+
+        let post = Post(content: postText, backgroundColor: postColor)
+        let client = HttpClient(session: URLSession.shared, baseUrl: ApiConfig.baseURL.get()!)
+        let postsEndpoint = RestClient<Post>(client: client, path: "/api/v1/posts")
+
+        do {
+            try postsEndpoint.create(model: post) { [unowned self] result in
+                switch result {
+                case .success(let post):
+                    print("there is a new post \(post?.id ?? 0)")
+                    onSuccess?()
+                case .failure(let err):
+                    DispatchQueue.main.async {
+                        self.errorAlert(err)
+                    }
+                }
+            }
+        } catch let err {
+            self.errorAlert(err)
+        }
+    }
+
+    func errorAlert(_ error: Error) {
+        let err = error as? Titleable
+        let alert = UIAlertController(title: (err?.title ?? "Server Error"), message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
