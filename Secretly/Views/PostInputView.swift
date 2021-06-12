@@ -36,9 +36,9 @@ class PostInputView: UIView {
 
     let placeholderLabel: UILabel = {
         let label = UILabel()
-        label.text = "What do you want to say?"
+        label.text = "What are you thinking?"
         label.textColor = .text
-        label.font = .systemFont(ofSize: 14, weight: .light)
+        label.font = .systemFont(ofSize: 16, weight: .regular)
         label.backgroundColor = .clear
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -48,7 +48,7 @@ class PostInputView: UIView {
     let postTextView: UITextView = {
         let view = UITextView()
         view.autocorrectionType = .no
-        view.backgroundColor = .tint
+        view.backgroundColor = .background
         view.textColor = .text
         view.font = .boldSystemFont(ofSize: 20)
         view.layer.cornerRadius = 25
@@ -96,7 +96,7 @@ class PostInputView: UIView {
         self.addSubview(placeholderLabel)
         NSLayoutConstraint.activate([
             placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: padding * 2),
-            placeholderLabel.heightAnchor.constraint(equalToConstant: padding * 1.5),
+            placeholderLabel.heightAnchor.constraint(equalToConstant: padding * 2),
             placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             placeholderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding)
         ])
@@ -140,7 +140,7 @@ class PostInputView: UIView {
 
     func clear() {
         postTextView.text = ""
-        postTextView.backgroundColor = .tint
+        postTextView.backgroundColor = .background
         postButton.backgroundColor = .foreground
     }
 

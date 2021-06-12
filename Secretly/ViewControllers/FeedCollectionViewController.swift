@@ -70,7 +70,6 @@ class FeedCollectionViewController: UIViewController {
         postInputView.locationSource = self
     }
 
-    // MARK: - Load posts logic
     let feedService = FeedService()
 
     @objc
@@ -78,80 +77,6 @@ class FeedCollectionViewController: UIViewController {
         feedService.load { [unowned self] posts in self.posts = posts }
     }
 }
-
-// MARK: UICollectionViewDataSource
-extension FeedCollectionViewController: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return posts?.count ?? 0
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.reuseIdentifier, for: indexPath) as! PostCollectionViewCell
-
-        cell.post = self.posts?[indexPath.row]
-        return cell
-    }
-}
-
-// MARK: UICollectionViewDelegate
-extension FeedCollectionViewController: UICollectionViewDelegate {
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-}
-
-// MARK: - UICollectionViewDelegateFlowLayout
-extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 300)
-    }
-}
-
-// MARK: - UICollectionViewDataSourcePrefetching
-extension FeedCollectionViewController: UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        guard let indexPath = indexPaths.last else { return }
-        print("================\(indexPath.row)=================")
-    }
-}
-
-extension FeedCollectionViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let lastLocation = locations.last else { return }
-        self.currentLocation = lastLocation.coordinate
-    }
-}
-
-extension FeedCollectionViewController: PostInputViewLocationSourceDelegate {}
 
 // MARK: - PostInputViewDelegate
 extension FeedCollectionViewController: PostInputViewDelegate {
@@ -173,7 +98,7 @@ extension FeedCollectionViewController: PostInputViewDelegate {
         }
     }
 
-    func errorAlert(_ error: Error) {
+    private func errorAlert(_ error: Error) {
         let err = error as? Titleable
         let alert = UIAlertController(title: (err?.title ?? "Server Error"), message: error.localizedDescription, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)

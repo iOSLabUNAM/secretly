@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2D7D6FD1266DB42C005863AE /* PostInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7D6FD0266DB42C005863AE /* PostInputView.swift */; };
+		30337955267536980066D94A /* FeedCollectionViewController+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30337954267536980066D94A /* FeedCollectionViewController+CLLocationManagerDelegate.swift */; };
+		30337957267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30337956267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift */; };
+		303379592675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift in Sources */ = {isa = PBXBuildFile; fileRef = 303379582675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift */; };
+		3033795B267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033795A267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift */; };
+		3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3033795C267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift */; };
 		304E06C42674133D00A99128 /* String+isBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E06C32674133D00A99128 /* String+isBlank.swift */; };
 		304E06C626741A5100A99128 /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E06C526741A5100A99128 /* UIColor+theme.swift */; };
 		304E06C826742BDA00A99128 /* CreatePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304E06C726742BDA00A99128 /* CreatePostService.swift */; };
@@ -62,6 +67,11 @@
 
 /* Begin PBXFileReference section */
 		2D7D6FD0266DB42C005863AE /* PostInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInputView.swift; sourceTree = "<group>"; };
+		30337954267536980066D94A /* FeedCollectionViewController+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedCollectionViewController+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
+		30337956267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedCollectionViewController+UICollectionViewDelegate.swift"; sourceTree = "<group>"; };
+		303379582675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedCollectionViewController+UICollectionViewDataSource .swift"; sourceTree = "<group>"; };
+		3033795A267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift"; sourceTree = "<group>"; };
+		3033795C267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift"; sourceTree = "<group>"; };
 		304E06C32674133D00A99128 /* String+isBlank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isBlank.swift"; sourceTree = "<group>"; };
 		304E06C526741A5100A99128 /* UIColor+theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 		304E06C726742BDA00A99128 /* CreatePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostService.swift; sourceTree = "<group>"; };
@@ -130,8 +140,13 @@
 			isa = PBXGroup;
 			children = (
 				E021984A23FA35E00025C28E /* WelcomeViewController.swift */,
-				307A305A2661B7A20020DF8B /* FeedCollectionViewController.swift */,
 				30C77CB7266BD44300A888DC /* CreatePostViewController.swift */,
+				307A305A2661B7A20020DF8B /* FeedCollectionViewController.swift */,
+				30337956267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift */,
+				303379582675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift */,
+				3033795A267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift */,
+				3033795C267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift */,
+				30337954267536980066D94A /* FeedCollectionViewController+CLLocationManagerDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -371,13 +386,16 @@
 				304E06C626741A5100A99128 /* UIColor+theme.swift in Sources */,
 				304E06C826742BDA00A99128 /* CreatePostService.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
+				30337955267536980066D94A /* FeedCollectionViewController+CLLocationManagerDelegate.swift in Sources */,
 				30C77CB2266AD7B100A888DC /* ApiConfig.swift in Sources */,
 				307A30562661AD480020DF8B /* Image.swift in Sources */,
 				307A30582661AD540020DF8B /* User.swift in Sources */,
+				3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */,
 				30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */,
 				30FD0E7626596862006E309A /* ResponseError.swift in Sources */,
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
 				30FD0E7426596853006E309A /* RequestError.swift in Sources */,
+				30337957267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift in Sources */,
 				307A305E2661CD510020DF8B /* PostCollectionViewCell.swift in Sources */,
 				30BC8BA02662B8A700F7E6A5 /* StorageType.swift in Sources */,
 				307A305B2661B7A20020DF8B /* FeedCollectionViewController.swift in Sources */,
@@ -394,6 +412,8 @@
 				304E06CF267468DA00A99128 /* UIColor+Pastel.swift in Sources */,
 				304E06C42674133D00A99128 /* String+isBlank.swift in Sources */,
 				30BC8BA42662BDEF00F7E6A5 /* ImageStore.swift in Sources */,
+				3033795B267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift in Sources */,
+				303379592675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift in Sources */,
 				304E06CA26742CC500A99128 /* FeedService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
