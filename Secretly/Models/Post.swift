@@ -17,15 +17,19 @@ struct Post: Restable {
     let imageData: String?
     let user: User?
     let commentsCount: Int?
+    let latitude: Double?
+    let longitude: Double?
     let createdAt: Date?
     let updatedAt: Date?
 
-    init(content: String, backgroundColor: String, image: UIImage? = nil) {
+    init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil) {
         self.content = content
         self.backgroundColor = backgroundColor
         self.id = nil
         self.image = nil
         self.imageData = image?.encodeBase64()
+        self.latitude = latitude
+        self.longitude = longitude
         self.user = nil
         self.commentsCount = nil
         self.createdAt = nil
@@ -37,5 +41,7 @@ struct Post: Restable {
         try container.encode(content, forKey: .content)
         try container.encode(backgroundColor, forKey: .backgroundColor)
         try container.encode(imageData, forKey: .imageData)
+        try container.encode(latitude, forKey: .latitude)
+        try container.encode(longitude, forKey: .longitude)
     }
 }
