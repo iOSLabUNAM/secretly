@@ -8,10 +8,15 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 protocol PostInputViewDelegate {
     func colorPickerPresent(_ colorPicker: UIColorPickerViewController)
     func onPostButtonTapped()
+}
+
+protocol PostInputViewLocationSourceDelegate {
+    var currentLocation: CLLocationCoordinate2D? { get }
 }
 
 struct EmptyPostError: Error {}
@@ -24,6 +29,8 @@ class PostInputView: UIView {
     private var colorPicker = UIColorPickerViewController()
 
     var delegate: PostInputViewDelegate?
+    var locationSource: PostInputViewLocationSourceDelegate?
+
     let contants = UIConstants()
     public var source: Post?
 
@@ -42,7 +49,7 @@ class PostInputView: UIView {
         let view = UITextView()
         view.autocorrectionType = .no
         view.backgroundColor = .tint
-        view.textColor = .white
+        view.textColor = .text
         view.font = .boldSystemFont(ofSize: 20)
         view.layer.cornerRadius = 25
         view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner]
@@ -150,7 +157,8 @@ class PostInputView: UIView {
         self.source = Post(
             content: postText,
             backgroundColor: postTextView.backgroundColor?.hexString ?? "#3366CC",
-            image: UIImage(named: "kawai")
+            latitude: locationSource?.currentLocation?.latitude,
+            longitude: locationSource?.currentLocation?.longitude
         )
     }
 }

@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import CoreLocation
 
-class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegateFlowLayout {
+class FeedCollectionViewController: UIViewController {
+    let createPostService = CreatePostService()
     var posts: [Post]? {
         didSet {
             self.collectionView.reloadData()
@@ -16,18 +18,42 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
             self.postInputView.clear()
         }
     }
-    let createPostService = CreatePostService()
+    let locationManager = CLLocationManager()
+    var currentLocation: CLLocationCoordinate2D?
 
     let refreshControl = UIRefreshControl()
-
     @IBOutlet weak var postInputView: PostInputView!
-
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
         loadPosts()
+        enableBasicLocationServices()
+    }
+
+    func enableBasicLocationServices() {
+        locationManager.delegate = self
+        switch locationManager.authorizationStatus {
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .restricted, .denied:
+            print("Disable location features")
+        case .authorizedWhenInUse, .authorizedAlways:
+            print("Enable location features")
+        @unknown default:
+            fatalError()
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        locationManager.startUpdatingLocation()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        locationManager.stopUpdatingLocation()
+        super.viewWillDisappear(animated)
     }
 
     func setupCollectionView() {
@@ -41,20 +67,20 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
         refreshControl.addTarget(self, action: #selector(self.loadPosts), for: UIControl.Event.valueChanged)
 
         postInputView.delegate = self
+        postInputView.locationSource = self
     }
 
-    /*
-    // MARK: - Navigation
+    // MARK: - Load posts logic
+    let feedService = FeedService()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    @objc
+    func loadPosts() {
+        feedService.load { [unowned self] posts in self.posts = posts }
     }
-    */
+}
 
-    // MARK: UICollectionViewDataSource
-
+// MARK: UICollectionViewDataSource
+extension FeedCollectionViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -69,9 +95,10 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
         cell.post = self.posts?[indexPath.row]
         return cell
     }
+}
 
-    // MARK: UICollectionViewDelegate
-
+// MARK: UICollectionViewDelegate
+extension FeedCollectionViewController: UICollectionViewDelegate {
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
@@ -100,26 +127,31 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
     
     }
     */
-    // MARK: UICollectionViewDataSourcePrefetching
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        guard let indexPath = indexPaths.last else { return }
-        print("=================================")
-        print("\(indexPath.row)")
-        print("=================================")
-    }
+}
 
+// MARK: - UICollectionViewDelegateFlowLayout
+extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 300)
     }
+}
 
-    // MARK: Rest logic
-    let feedService = FeedService()
-
-    @objc
-    func loadPosts() {
-        feedService.load { [unowned self] posts in self.posts = posts }
+// MARK: - UICollectionViewDataSourcePrefetching
+extension FeedCollectionViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        guard let indexPath = indexPaths.last else { return }
+        print("================\(indexPath.row)=================")
     }
 }
+
+extension FeedCollectionViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let lastLocation = locations.last else { return }
+        self.currentLocation = lastLocation.coordinate
+    }
+}
+
+extension FeedCollectionViewController: PostInputViewLocationSourceDelegate {}
 
 // MARK: - PostInputViewDelegate
 extension FeedCollectionViewController: PostInputViewDelegate {
