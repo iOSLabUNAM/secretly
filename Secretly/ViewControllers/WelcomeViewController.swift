@@ -8,12 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class WelcomeViewController: UIViewController {
     @IBOutlet weak var helloLbl: UILabel!
+    let service = CurrentUserService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        CurrentUserService().auth { [unowned self] currentUser in
+        service.auth { [unowned self] currentUser in
             self.helloLbl.text = "Hello \(currentUser.username)"
             self.performSegue(withIdentifier: "showFeedSegue", sender: self)
         }

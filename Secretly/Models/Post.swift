@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Post: Restable {
     var id: Int?
@@ -19,12 +20,12 @@ struct Post: Restable {
     let createdAt: Date?
     let updatedAt: Date?
 
-    init(content: String, backgroundColor: String) {
+    init(content: String, backgroundColor: String, image: UIImage? = nil) {
         self.content = content
         self.backgroundColor = backgroundColor
         self.id = nil
         self.image = nil
-        self.imageData = nil
+        self.imageData = image?.encodeBase64()
         self.user = nil
         self.commentsCount = nil
         self.createdAt = nil

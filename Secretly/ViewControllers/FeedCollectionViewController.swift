@@ -13,23 +13,24 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
         didSet {
             self.collectionView.reloadData()
             self.refreshControl.endRefreshing()
+            self.postInputView.clear()
         }
     }
+    let createPostService = CreatePostService()
+
     let refreshControl = UIRefreshControl()
-    
-    private var colorPicker = UIColorPickerViewController()
-    
+
     @IBOutlet weak var postInputView: PostInputView!
-    
+
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        setupCollectionView()
         loadPosts()
     }
 
-    func setupUI() {
+    func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.prefetchDataSource = self
@@ -38,10 +39,8 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
         collectionView.addSubview(refreshControl)
 
         refreshControl.addTarget(self, action: #selector(self.loadPosts), for: UIControl.Event.valueChanged)
-        
-        colorPicker.delegate = self
-        postInputView.colorPickerButton.addTarget(self, action: #selector(colorPickerButtonTapped), for: .touchUpInside)
-        postInputView.postButton.addTarget(self, action: #selector(postButtonTapped), for: .touchUpInside)
+
+        postInputView.delegate = self
     }
 
     /*
@@ -114,69 +113,31 @@ class FeedCollectionViewController: UIViewController, UICollectionViewDelegate, 
     }
 
     // MARK: Rest logic
-
-    let client = HttpClient(session: URLSession.shared, baseUrl: "https://secretlyapi.herokuapp.com")
-    lazy var postEndpoint: RestClient<Post> = {
-        return RestClient<Post>(client: client, path: "/api/v1/posts")
-    }()
+    let feedService = FeedService()
 
     @objc
     func loadPosts() {
-        postEndpoint.list { [unowned self] result in
-            guard let posts = try? result.get() else { return }
-            DispatchQueue.main.async { self.posts = posts }
-        }
+        feedService.load { [unowned self] posts in self.posts = posts }
     }
 }
 
-extension FeedCollectionViewController: UIColorPickerViewControllerDelegate {
-    @objc func colorPickerButtonTapped() {
-        colorPicker.selectedColor = postInputView.postTextView.backgroundColor ?? .clear
+// MARK: - PostInputViewDelegate
+extension FeedCollectionViewController: PostInputViewDelegate {
+    func colorPickerPresent(_ colorPicker: UIColorPickerViewController) {
         present(colorPicker, animated: true)
     }
-    
-    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        self.postInputView.postTextView.backgroundColor = viewController.selectedColor
-    }
-}
 
-//MARK: - Create and send Post
-extension FeedCollectionViewController {
-    @objc func postButtonTapped() {
-        createPost {
-            DispatchQueue.main.async { [weak self] in
-                self?.postInputView.clear()
-            }
-        }
-    }
-    
-    func createPost(onSuccess: (() -> Void)? = nil) {
-        guard
-            let postText = postInputView.postTextView.text,
-            let postColor = postInputView.postTextView.backgroundColor?.hexString
-        else {
-            debugPrint("invalid post detected")
-            return
-        }
-
-        let post = Post(content: postText, backgroundColor: postColor)
-        let client = HttpClient(session: URLSession.shared, baseUrl: ApiConfig.baseURL.get()!)
-        let postsEndpoint = RestClient<Post>(client: client, path: "/api/v1/posts")
-
-        do {
-            try postsEndpoint.create(model: post) { [unowned self] result in
-                switch result {
-                case .success(let post):
-                    print("there is a new post \(post?.id ?? 0)")
-                    onSuccess?()
-                case .failure(let err):
-                    DispatchQueue.main.async {
-                        self.errorAlert(err)
-                    }
+    func onPostButtonTapped() {
+        guard let post = postInputView.source else { return }
+        createPostService.create(post) { [unowned self] result in
+            switch result {
+            case .success(let post):
+                if let upost = post {
+                    self.posts?.insert(upost, at: 0)
                 }
+            case .failure(let err):
+                self.errorAlert(err)
             }
-        } catch let err {
-            self.errorAlert(err)
         }
     }
 
