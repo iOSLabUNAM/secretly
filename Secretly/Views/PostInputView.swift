@@ -162,7 +162,7 @@ extension PostInputView: UIColorPickerViewControllerDelegate {
     }
 
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        postTextView.backgroundColor = viewController.selectedColor
+        postTextView.backgroundColor = viewController.selectedColor.pastel()
     }
 }
 
