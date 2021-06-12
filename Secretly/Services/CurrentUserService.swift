@@ -9,10 +9,10 @@
 import Foundation
 
 struct CurrentUserService {
-    let client: HttpClient
-    var fakeEndpoint: RestClient<Faker>
-    var signInEndpoint: RestClient<Credentials>
-    var signUpEndpoint: RestClient<Credentials>
+    private let client: HttpClient
+    private var fakeEndpoint: RestClient<Faker>
+    private var signInEndpoint: RestClient<Credentials>
+    private var signUpEndpoint: RestClient<Credentials>
 
     init() {
         client = HttpClient(session: URLSession.shared, baseUrl: ApiConfig.baseURL.get()!)
