@@ -8,10 +8,15 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 protocol PostInputViewDelegate {
     func colorPickerPresent(_ colorPicker: UIColorPickerViewController)
     func onPostButtonTapped()
+}
+
+protocol PostInputViewLocationSourceDelegate {
+    var currentLocation: CLLocationCoordinate2D? { get }
 }
 
 struct EmptyPostError: Error {}
@@ -24,14 +29,16 @@ class PostInputView: UIView {
     private var colorPicker = UIColorPickerViewController()
 
     var delegate: PostInputViewDelegate?
+    var locationSource: PostInputViewLocationSourceDelegate?
+
     let contants = UIConstants()
     public var source: Post?
 
     let placeholderLabel: UILabel = {
         let label = UILabel()
-        label.text = "What do you want to say?"
+        label.text = "What are you thinking?"
         label.textColor = .text
-        label.font = .systemFont(ofSize: 14, weight: .light)
+        label.font = .systemFont(ofSize: 16, weight: .regular)
         label.backgroundColor = .clear
         label.textAlignment = .left
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -41,8 +48,8 @@ class PostInputView: UIView {
     let postTextView: UITextView = {
         let view = UITextView()
         view.autocorrectionType = .no
-        view.backgroundColor = .tint
-        view.textColor = .white
+        view.backgroundColor = .background
+        view.textColor = .text
         view.font = .boldSystemFont(ofSize: 20)
         view.layer.cornerRadius = 25
         view.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner]
@@ -89,7 +96,7 @@ class PostInputView: UIView {
         self.addSubview(placeholderLabel)
         NSLayoutConstraint.activate([
             placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: padding * 2),
-            placeholderLabel.heightAnchor.constraint(equalToConstant: padding * 1.5),
+            placeholderLabel.heightAnchor.constraint(equalToConstant: padding * 2),
             placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             placeholderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding)
         ])
@@ -133,7 +140,7 @@ class PostInputView: UIView {
 
     func clear() {
         postTextView.text = ""
-        postTextView.backgroundColor = .tint
+        postTextView.backgroundColor = .background
         postButton.backgroundColor = .foreground
     }
 
@@ -150,7 +157,8 @@ class PostInputView: UIView {
         self.source = Post(
             content: postText,
             backgroundColor: postTextView.backgroundColor?.hexString ?? "#3366CC",
-            image: UIImage(named: "kawai")
+            latitude: locationSource?.currentLocation?.latitude,
+            longitude: locationSource?.currentLocation?.longitude
         )
     }
 }
@@ -162,7 +170,7 @@ extension PostInputView: UIColorPickerViewControllerDelegate {
     }
 
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
-        postTextView.backgroundColor = viewController.selectedColor
+        postTextView.backgroundColor = viewController.selectedColor.pastel()
     }
 }
 
