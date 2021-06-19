@@ -23,7 +23,6 @@ enum ApiConfig {
     }
 
     func set(_ value: String) -> Bool {
-        print(value)
         switch self {
         case .token:
             // TODO : Store in keychain
