@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Amaca
 
 struct Faker {
     let username: String

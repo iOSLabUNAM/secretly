@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Amaca
 
 class CurrentUser {
     static func load() -> CurrentUser? {

@@ -7,14 +7,13 @@
 //
 
 import Foundation
+import Amaca
 
 struct FeedService {
-    private let client: HttpClient
     private var endpoint: RestClient<Post>
 
     init() {
-        client = HttpClient(session: URLSession.shared, baseUrl: ApiConfig.baseURL.get()!)
-        endpoint = RestClient<Post>(client: client, path: "/api/v1/posts")
+        endpoint = RestClient<Post>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts")
     }
 
     func load(completion: @escaping ([Post]) -> Void) {

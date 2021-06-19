@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Amaca
 
 struct Post: Restable {
     var id: Int?

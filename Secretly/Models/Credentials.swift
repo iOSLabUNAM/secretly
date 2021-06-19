@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Amaca
 
 struct Credentials: Restable {
     let username: String?
