@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class FeedCollectionViewController: UIViewController, UINavigationControllerDelegate {
+class FeedCollectionViewController: UIViewController {
     let feedService = FeedService()
     var posts: [Post]? {
         didSet {
