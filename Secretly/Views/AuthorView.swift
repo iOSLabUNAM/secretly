@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 class AuthorView: UIView {
     var author: User? {
         didSet {

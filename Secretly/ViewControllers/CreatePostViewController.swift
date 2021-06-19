@@ -20,8 +20,7 @@ class CreatePostViewController: UIViewController {
     @IBAction
     func createPost(_ sender: Any?) {
         let post = Post(content: contentField.text!, backgroundColor: colorField.text!)
-        let client = HttpClient(session: URLSession.shared, baseUrl: ApiConfig.baseURL.get()!)
-        let postsEndpoint = RestClient<Post>(client: client, path: "/api/v1/posts")
+        let postsEndpoint = RestClient<Post>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts")
 
         do {
             try postsEndpoint.create(model: post) { [unowned self] result in
