@@ -137,12 +137,16 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
         guard let postText = contentTxt.text else {
             throw EmptyPostError()
         }
-        return Post(
+        var post = Post(
             content: postText,
             backgroundColor: previewPost.backgroundColor?.hexString ?? "#3366CC",
             latitude: currentLocation?.latitude,
             longitude: currentLocation?.longitude
         )
+        if let uimage = previewPost.image {
+            post.imageData = uimage.encodeBase64()
+        }
+        return post
     }
 
     private func errorAlert(_ error: Error) {

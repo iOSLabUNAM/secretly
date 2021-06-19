@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		302B5844267E658E007133E6 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583C267E658E007133E6 /* ResponseError.swift */; };
 		302B5845267E658E007133E6 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583D267E658E007133E6 /* HttpResponse.swift */; };
 		302B5846267E658E007133E6 /* AmacaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583E267E658E007133E6 /* AmacaConfig.swift */; };
 		302B5847267E658E007133E6 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583F267E658E007133E6 /* StatusCode.swift */; };
@@ -15,6 +14,7 @@
 		302B5849267E658E007133E6 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B5841267E658E007133E6 /* RequestError.swift */; };
 		302B584A267E658E007133E6 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B5842267E658E007133E6 /* RestClient.swift */; };
 		302B584B267E658E007133E6 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B5843267E658E007133E6 /* RequestBuilder.swift */; };
+		302B5859267E720B007133E6 /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B5850267E720B007133E6 /* ResponseError.swift */; };
 		302BB610267C658600FD74F5 /* Amaca.plist in Resources */ = {isa = PBXBuildFile; fileRef = 302BB60F267C658600FD74F5 /* Amaca.plist */; };
 		302BB61C267D7CC800FD74F5 /* PreviewPostVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BB61B267D7CC800FD74F5 /* PreviewPostVIew.swift */; };
 		302BB61F267E316900FD74F5 /* PostInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302BB61D267E316900FD74F5 /* PostInputViewController.swift */; };
@@ -72,14 +72,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		302B583C267E658E007133E6 /* ResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseError.swift; path = ../../../Amaca/Sources/Amaca/ResponseError.swift; sourceTree = "<group>"; };
-		302B583D267E658E007133E6 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpResponse.swift; path = ../../../Amaca/Sources/Amaca/HttpResponse.swift; sourceTree = "<group>"; };
-		302B583E267E658E007133E6 /* AmacaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AmacaConfig.swift; path = ../../../Amaca/Sources/Amaca/AmacaConfig.swift; sourceTree = "<group>"; };
-		302B583F267E658E007133E6 /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StatusCode.swift; path = ../../../Amaca/Sources/Amaca/StatusCode.swift; sourceTree = "<group>"; };
-		302B5840267E658E007133E6 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HttpClient.swift; path = ../../../Amaca/Sources/Amaca/HttpClient.swift; sourceTree = "<group>"; };
-		302B5841267E658E007133E6 /* RequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestError.swift; path = ../../../Amaca/Sources/Amaca/RequestError.swift; sourceTree = "<group>"; };
-		302B5842267E658E007133E6 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestClient.swift; path = ../../../Amaca/Sources/Amaca/RestClient.swift; sourceTree = "<group>"; };
-		302B5843267E658E007133E6 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RequestBuilder.swift; path = ../../../Amaca/Sources/Amaca/RequestBuilder.swift; sourceTree = "<group>"; };
+		302B583D267E658E007133E6 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		302B583E267E658E007133E6 /* AmacaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmacaConfig.swift; sourceTree = "<group>"; };
+		302B583F267E658E007133E6 /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
+		302B5840267E658E007133E6 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		302B5841267E658E007133E6 /* RequestError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		302B5842267E658E007133E6 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
+		302B5843267E658E007133E6 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		302B5850267E720B007133E6 /* ResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		302BB60F267C658600FD74F5 /* Amaca.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Amaca.plist; sourceTree = "<group>"; };
 		302BB61B267D7CC800FD74F5 /* PreviewPostVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewPostVIew.swift; sourceTree = "<group>"; };
 		302BB61D267E316900FD74F5 /* PostInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInputViewController.swift; sourceTree = "<group>"; };
@@ -287,12 +287,12 @@
 			isa = PBXGroup;
 			children = (
 				302B583E267E658E007133E6 /* AmacaConfig.swift */,
+				302B5842267E658E007133E6 /* RestClient.swift */,
 				302B5840267E658E007133E6 /* HttpClient.swift */,
 				302B583D267E658E007133E6 /* HttpResponse.swift */,
+				302B5850267E720B007133E6 /* ResponseError.swift */,
 				302B5843267E658E007133E6 /* RequestBuilder.swift */,
 				302B5841267E658E007133E6 /* RequestError.swift */,
-				302B583C267E658E007133E6 /* ResponseError.swift */,
-				302B5842267E658E007133E6 /* RestClient.swift */,
 				302B583F267E658E007133E6 /* StatusCode.swift */,
 			);
 			path = Network;
@@ -411,6 +411,7 @@
 				302B584A267E658E007133E6 /* RestClient.swift in Sources */,
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
 				30BC8B9D2662ACBC00F7E6A5 /* ImageLoader.swift in Sources */,
+				302B5859267E720B007133E6 /* ResponseError.swift in Sources */,
 				307A30622661E8A90020DF8B /* UIColor+Hex.swift in Sources */,
 				307A30542661ABD60020DF8B /* Post.swift in Sources */,
 				304E06C626741A5100A99128 /* UIColor+theme.swift in Sources */,
@@ -424,7 +425,6 @@
 				302BB61C267D7CC800FD74F5 /* PreviewPostVIew.swift in Sources */,
 				3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */,
 				30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */,
-				302B5844267E658E007133E6 /* ResponseError.swift in Sources */,
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
 				30337957267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift in Sources */,
 				307A305E2661CD510020DF8B /* PostCollectionViewCell.swift in Sources */,
