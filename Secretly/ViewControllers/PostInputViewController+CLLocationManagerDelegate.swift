@@ -1,5 +1,5 @@
 //
-//  FeedCollectionViewController+UICollectionViewDataSource.swift
+//  PostInputViewController+UICollectionViewDataSource.swift
 //  Secretly
 //
 //  Created by Luis Ezcurdia on 12/06/21.
@@ -9,11 +9,9 @@
 import UIKit
 import CoreLocation
 
-extension FeedCollectionViewController: CLLocationManagerDelegate {
+extension PostInputViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let lastLocation = locations.last else { return }
         self.currentLocation = lastLocation.coordinate
     }
 }
-
-extension FeedCollectionViewController: PostInputViewLocationSourceDelegate {}

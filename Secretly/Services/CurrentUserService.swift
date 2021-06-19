@@ -9,16 +9,14 @@
 import Foundation
 
 struct CurrentUserService {
-    private let client: HttpClient
     private var fakeEndpoint: RestClient<Faker>
     private var signInEndpoint: RestClient<Credentials>
     private var signUpEndpoint: RestClient<Credentials>
 
     init() {
-        client = HttpClient(session: URLSession.shared, baseUrl: ApiConfig.baseURL.get()!)
-        fakeEndpoint = RestClient<Faker>(client: client, path: "/api/v1/fake")
-        signInEndpoint = RestClient<Credentials>(client: client, path: "/api/v1/sign_in")
-        signUpEndpoint = RestClient<Credentials>(client: client, path: "/api/v1/sign_up")
+        fakeEndpoint = RestClient<Faker>(client: AmacaConfig.shared.httpClient, path: "/api/v1/fake")
+        signInEndpoint = RestClient<Credentials>(client: AmacaConfig.shared.httpClient, path: "/api/v1/sign_in")
+        signUpEndpoint = RestClient<Credentials>(client: AmacaConfig.shared.httpClient, path: "/api/v1/sign_up")
     }
 
     func auth(_ completion: @escaping (CurrentUser) -> Void) {
@@ -49,6 +47,6 @@ struct CurrentUserService {
 
     fileprivate func storeToken(_ result: Result<Credentials?, Error>) {
         guard let res = try? result.get(), let token = res.token else { return }
-        _ = ApiConfig.token.set(token)
+        AmacaConfig.shared.setApiToken(token)
     }
 }
