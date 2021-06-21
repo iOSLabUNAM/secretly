@@ -31,7 +31,7 @@ enum ImageStore {
     }
 
     func write(_ filename: String, image: UIImage) -> Bool {
-        guard let data = image.jpegData(compressionQuality: 0.9) else { return false }
+        guard let data = image.pngData() else { return false }
         CacheImage.shared.write(key: filename, image: image)
         return container.write(filename, data: data)
     }

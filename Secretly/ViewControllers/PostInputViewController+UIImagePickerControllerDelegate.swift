@@ -12,7 +12,8 @@ import AVFoundation
 extension PostInputViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            self.previewPost.image = img
+//            self.previewPost.image = img
+            ImageProcessor(width: 512, heigth: 512).process(img) { self.previewPost.image = $0 }
             picker.dismiss(animated: true)
         }
     }
