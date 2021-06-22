@@ -22,6 +22,7 @@ class PreviewPostView: UIView {
     let imgView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .clear
+        iv.contentMode = .scaleToFill
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
