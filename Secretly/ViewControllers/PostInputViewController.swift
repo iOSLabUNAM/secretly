@@ -26,7 +26,7 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
 
     let locationManager = CLLocationManager()
     var currentLocation: CLLocationCoordinate2D?
-    
+
     let imgPicker: UIImagePickerController = {
         let view = UIImagePickerController()
         view.mediaTypes = ["public.image"]
@@ -87,20 +87,20 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
     func didTapImagePicker(_ sender: Any) {
         present(imageSourceSelectAlert, animated: true)
     }
-    
+
     private lazy var imageSourceSelectAlert: UIAlertController = {
         let alert = UIAlertController(title: "Select source", message: "Select the image source for your post.", preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: openCamera)
         let libraryAction = UIAlertAction(title: "Library", style: .default, handler: openLibrary)
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
+
         alert.addAction(cameraAction)
         alert.addAction(libraryAction)
         alert.addAction(cancelAction)
-        
+
         return alert
     }()
-    
+
     private func openCamera(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             self.imgPicker.sourceType = .camera
@@ -109,7 +109,7 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
         }
         self.present(imgPicker, animated: true)
     }
-    
+
     private func openLibrary(_ sender: Any) {
         self.imgPicker.sourceType = .savedPhotosAlbum
         self.present(imgPicker, animated: true)
@@ -156,7 +156,7 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
     }
-    
+
     public func clear() {
         source = nil
         contentTxt?.text = ""
