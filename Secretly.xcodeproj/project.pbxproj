@@ -60,6 +60,9 @@
 		E021985023FA35E20025C28E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E021984F23FA35E20025C28E /* Assets.xcassets */; };
 		E021985323FA35E20025C28E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E021985123FA35E20025C28E /* LaunchScreen.storyboard */; };
 		E021985E23FA35E20025C28E /* SecretlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021985D23FA35E20025C28E /* SecretlyTests.swift */; };
+		F17F4C76268650A60070BB2A /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4C75268650A60070BB2A /* LikeService.swift */; };
+		F17F4C7A2686521C0070BB2A /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4C792686521C0070BB2A /* Like.swift */; };
+		F17F4C7E268654160070BB2A /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = F17F4C7D268654160070BB2A /* Author.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,6 +133,9 @@
 		E021985923FA35E20025C28E /* SecretlyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SecretlyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021985D23FA35E20025C28E /* SecretlyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecretlyTests.swift; sourceTree = "<group>"; };
 		E021985F23FA35E20025C28E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F17F4C75268650A60070BB2A /* LikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeService.swift; sourceTree = "<group>"; };
+		F17F4C792686521C0070BB2A /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		F17F4C7D268654160070BB2A /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +226,7 @@
 				30C77CAF266AD69700A888DC /* CurrentUserService.swift */,
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
+				F17F4C75268650A60070BB2A /* LikeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -233,6 +240,8 @@
 				307A30572661AD540020DF8B /* User.swift */,
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
+				F17F4C792686521C0070BB2A /* Like.swift */,
+				F17F4C7D268654160070BB2A /* Author.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -419,12 +428,14 @@
 				307A30622661E8A90020DF8B /* UIColor+Hex.swift in Sources */,
 				307A30542661ABD60020DF8B /* Post.swift in Sources */,
 				304E06C626741A5100A99128 /* UIColor+theme.swift in Sources */,
+				F17F4C76268650A60070BB2A /* LikeService.swift in Sources */,
 				304E06C826742BDA00A99128 /* CreatePostService.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
 				30337955267536980066D94A /* PostInputViewController+CLLocationManagerDelegate.swift in Sources */,
 				307A30562661AD480020DF8B /* Image.swift in Sources */,
 				307A30582661AD540020DF8B /* User.swift in Sources */,
 				302B5849267E658E007133E6 /* RequestError.swift in Sources */,
+				F17F4C7E268654160070BB2A /* Author.swift in Sources */,
 				302B5846267E658E007133E6 /* AmacaConfig.swift in Sources */,
 				302BB61C267D7CC800FD74F5 /* PreviewPostVIew.swift in Sources */,
 				3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */,
@@ -448,6 +459,7 @@
 				302BB624267E3A8700FD74F5 /* PostInputViewController+UIColorPickerViewControllerDelegate.swift in Sources */,
 				304E06CF267468DA00A99128 /* UIColor+Pastel.swift in Sources */,
 				304E06C42674133D00A99128 /* String+isBlank.swift in Sources */,
+				F17F4C7A2686521C0070BB2A /* Like.swift in Sources */,
 				30BC8BA42662BDEF00F7E6A5 /* ImageStore.swift in Sources */,
 				3033795B267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				303379592675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift in Sources */,
