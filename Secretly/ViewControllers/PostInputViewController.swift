@@ -149,7 +149,7 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
         return post
     }
 
-    private func errorAlert(_ error: Error) {
+    func errorAlert(_ error: Error) {
         let err = error as? Titleable
         let alert = UIAlertController(title: (err?.title ?? "Server Error"), message: error.localizedDescription, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)
