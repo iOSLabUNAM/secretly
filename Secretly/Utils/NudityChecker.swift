@@ -12,21 +12,32 @@ struct NSFWContentError: Error, Titleable {
     var title: String {
         get { "The image contains nudity" }
     }
+
+    var localizedDescription: String {
+        get { "The image has a \(prob)% of NSFW contnet." }
+    }
+    let prob: Double
+
+    init(_ prob: Double?) {
+        self.prob = (prob ?? 0.0) * 100.0
+    }
 }
 
 struct NudityChecker {
     let model = Nudity()
     private let size = CGSize(width: 224, height: 224)
 
-    func validate(_ image: UIImage?) throws {
-        guard let image = image else { return }
-
+    func validate(_ image: UIImage) throws {
         guard let buffer = image.resize(to: size)?.pixelBuffer() else { return }
 
         let result = try model.prediction(data: buffer)
+        #if DEBUG
+        debugPrint(result.classLabel)
+        debugPrint(result.prob)
+        #endif
 
         if result.classLabel == "NSFW" && (result.prob["NSFW"] ?? 0) > 0.6 {
-            throw NSFWContentError()
+            throw NSFWContentError(result.prob["NSFW"])
         }
     }
 }

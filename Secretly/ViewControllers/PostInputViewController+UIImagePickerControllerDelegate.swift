@@ -12,12 +12,15 @@ import AVFoundation
 extension PostInputViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         if let img = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            ImageProcessor(width: 512, heigth: 512).process(img) {
-                do {
-                    try NudityChecker().validate(img)
+            do {
+                try NudityChecker().validate(img)
+                self.previewPost.image = img
+                ImageProcessor(width: 512, heigth: 512).process(img) {
                     self.previewPost.image = $0
                     self.previewPost.backgroundColor = .black
-                } catch let err {
+                }
+            } catch let err {
+                DispatchQueue.main.async {
                     self.errorAlert(err)
                 }
             }
