@@ -18,7 +18,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var authorView: AuthorView!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var likeState: UIImageView!
+    @IBOutlet weak var likeState: UIButton!
     @IBOutlet weak var commentCounter: UILabel!
     @IBOutlet weak var likeMsm: UILabel!
     
@@ -39,11 +39,25 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
         self.authorView.author = post.user
         self.likeMsm.text = getLikeMessage(post: post)
-        // self.likeState = setLikeState(post: post)
+        self.likeState.isEnabled = setLikeState(post: post)
+    }
+    
+    func setLikeState(post: Post) -> Bool {
+        let userName = post.user?.username ?? ""
+        let likeAuthors = post.likes ?? []
+        
+        let userLikedItsPhoto = likeAuthors.filter({$0.author?.name == userName})
+        
+        var buttonStatus = true
+        if(userLikedItsPhoto.count == 1){
+            buttonStatus = false
+        }
+        
+        return buttonStatus
     }
     
     func getLikeMessage(post: Post) -> String {
-        let likeCount = post.likesCount ?? 0
+        let likeCount = post.likes?.count ?? 0
         let likeAuthors = post.likes
         
         var authorsResume = ""
@@ -60,18 +74,4 @@ class PostCollectionViewCell: UICollectionViewCell {
         
         return authorsResume
     }
-    
-    /* func setLikeState(post: Post) -> UIImageView {
-        let userName = post.user?.username
-        let likeAuthors = post.likes
-        
-        let userLikedItsPhoto = likeAuthors!.filter({$0.author?.name == userName})
-        
-        var image = UIImageView(named: "image")
-        if(userLikedItsPhoto.count == 1){
-            image =
-        }
-        
-        return image
-    } */
 }
