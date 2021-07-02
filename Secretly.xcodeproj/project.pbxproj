@@ -186,16 +186,10 @@
 		307A30602661E88C0020DF8B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				30B9B93A268CA9E6007B1942 /* UIImage+PixelBuffer.swift */,
-				304E06C32674133D00A99128 /* String+isBlank.swift */,
-				307A30612661E8A90020DF8B /* UIColor+Hex.swift */,
-				304E06C526741A5100A99128 /* UIColor+theme.swift */,
+				30B9B93C268CB063007B1942 /* NudityChecker.swift */,
+				3072FBDE2680FA5A00B35C8C /* ImageProcessor.swift */,
 				30BC8B9C2662ACBC00F7E6A5 /* ImageLoader.swift */,
 				30BC8BA72662CEBA00F7E6A5 /* Checksum.swift */,
-				304E06CB2674442800A99128 /* UIImage+encodeBase64.swift */,
-				304E06CE267468DA00A99128 /* UIColor+Pastel.swift */,
-				3072FBDE2680FA5A00B35C8C /* ImageProcessor.swift */,
-				30B9B93C268CB063007B1942 /* NudityChecker.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -230,6 +224,19 @@
 				304E06C926742CC500A99128 /* FeedService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		30E7709B268FC62C00EAD9A8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				304E06C32674133D00A99128 /* String+isBlank.swift */,
+				307A30612661E8A90020DF8B /* UIColor+Hex.swift */,
+				304E06C526741A5100A99128 /* UIColor+theme.swift */,
+				304E06CB2674442800A99128 /* UIImage+encodeBase64.swift */,
+				30B9B93A268CA9E6007B1942 /* UIImage+PixelBuffer.swift */,
+				304E06CE267468DA00A99128 /* UIColor+Pastel.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		30FD0E702659643F006E309A /* Models */ = {
@@ -274,6 +281,7 @@
 				E04C2BC923FB7A5A005FE010 /* Network */,
 				30BC8B9E2662B85200F7E6A5 /* Storage */,
 				307A30602661E88C0020DF8B /* Utils */,
+				30E7709B268FC62C00EAD9A8 /* Extensions */,
 				E021984623FA35E00025C28E /* AppDelegate.swift */,
 				E021984823FA35E00025C28E /* SceneDelegate.swift */,
 				E021984C23FA35E00025C28E /* Main.storyboard */,

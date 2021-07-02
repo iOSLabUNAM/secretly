@@ -20,9 +20,8 @@ extension PostInputViewController: UIImagePickerControllerDelegate {
                     self.previewPost.backgroundColor = .black
                 }
             } catch let err {
-                DispatchQueue.main.async {
-                    self.errorAlert(err)
-                }
+                self.previewPost.image = nil
+                DispatchQueue.main.async { self.errorAlert(err) }
             }
             picker.dismiss(animated: true)
         }

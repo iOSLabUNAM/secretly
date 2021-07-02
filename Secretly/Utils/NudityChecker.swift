@@ -36,7 +36,7 @@ struct NudityChecker {
         debugPrint(result.prob)
         #endif
 
-        if result.classLabel == "NSFW" && (result.prob["NSFW"] ?? 0) > 0.6 {
+        if result.classLabel == "NSFW" || (result.prob["NSFW"] ?? 0) > 0.55 {
             throw NSFWContentError(result.prob["NSFW"])
         }
     }
