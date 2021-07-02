@@ -21,6 +21,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeState: UIButton!
     @IBOutlet weak var commentCounter: UILabel!
     @IBOutlet weak var likeMsm: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -73,5 +74,67 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
         
         return authorsResume
+    }
+    
+    func like(){
+        let likeEndpoint = RestClient<Like>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(String(describing: post?.id))/likes")
+
+        do {
+            try likeEndpoint.create() { [unowned self] result in
+                switch result {
+                case .success(let like):
+                    print("there is a new like \(like?.author?.name ?? "")")
+                case .failure(let err):
+                    DispatchQueue.main.async {
+                        self.errorAlert(err)
+                    }
+                }
+            }
+        } catch let err {
+            self.errorAlert(err)
+        }
+    }
+    
+    func unlike(){
+        let likeEndpoint = RestClient<Like>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(String(describing: post?.id))/likes")
+
+        do {
+            try likeEndpoint.delete() { [unowned self] result in
+                switch result {
+                case .success( _):
+                    print("Like deleted")
+                case .failure(let err):
+                    DispatchQueue.main.async {
+                        self.errorAlert(err)
+                    }
+                }
+            }
+        } catch let err {
+            self.errorAlert(err)
+        }
+    }
+    
+    func errorAlert(_ error: Error) {
+        let err = error as? Titleable
+        let alert = UIAlertController(title: (err?.title ?? "Server Error"), message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(okAction)
+    }
+    
+    @IBAction func likeAction(_ sender: Any) {
+        print("like: \(self.likeState.isEnabled)")
+        if self.likeState.isEnabled == true {
+            //like()
+            self.likeState.isEnabled = false
+            
+        } else {
+            //unlike()
+            self.likeState.isEnabled = true
+        }
+    }
+    
+    
+    @IBAction func commentAction(_ sender: Any) {
+        print("Comment")
     }
 }
