@@ -16,10 +16,10 @@ struct ImageProcessor {
     func process(_ image: UIImage, completion: @escaping (UIImage) -> Void) {
         DispatchQueue.global(qos: .userInitiated).async {
             guard let resized = resize(image, for: CGSize(width: width, height: heigth)),
-                  let result  = blur(resized, radius: 30)
+                  let blured  = blur(resized, radius: 30)
                   else { return }
             DispatchQueue.main.async {
-                completion(UIImage(cgImage: result))
+                completion(UIImage(cgImage: blured))
             }
         }
     }
