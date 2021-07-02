@@ -21,24 +21,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="lorem ipsum dolor quet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh0-Gr-U1B">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="lorem ipsum dolor quet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh0-Gr-U1B">
                         <rect key="frame" x="20" y="70.5" width="360" height="29"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1200 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ier-Sw-bbQ">
-                        <rect key="frame" x="370" y="282" width="27" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1200 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ier-Sw-bbQ">
+                        <rect key="frame" x="370" y="275" width="27" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-yt-vKP" customClass="AuthorView" customModule="Secretly" customModuleProvider="target">
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-yt-vKP" customClass="AuthorView" customModule="Secretly" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Maria an 100 more liked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIB-BR-OGe">
-                        <rect key="frame" x="27" y="282" width="115" height="12"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maria an 100 more liked" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIB-BR-OGe">
+                        <rect key="frame" x="27" y="275" width="115" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -54,8 +55,8 @@
                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooC-3N-09H">
-                        <rect key="frame" x="344" y="278" width="22" height="22"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ooC-3N-09H">
+                        <rect key="frame" x="345" y="275" width="22" height="22"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" image="message.fill" catalog="system">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,14 +66,19 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="ier-Sw-bbQ" firstAttribute="leading" secondItem="ooC-3N-09H" secondAttribute="trailing" constant="3" id="32g-RD-Tbg"/>
                 <constraint firstItem="ier-Sw-bbQ" firstAttribute="leading" secondItem="ooC-3N-09H" secondAttribute="trailing" constant="8" symbolic="YES" id="8T5-R0-aWm"/>
-                <constraint firstItem="ooC-3N-09H" firstAttribute="top" secondItem="Mh0-Gr-U1B" secondAttribute="bottom" constant="8" symbolic="YES" id="8Ul-Oa-TQc"/>
                 <constraint firstAttribute="bottom" secondItem="ooC-3N-09H" secondAttribute="bottom" constant="3" id="EP2-b1-xUV"/>
                 <constraint firstItem="SIB-BR-OGe" firstAttribute="leading" secondItem="gPA-ER-Dlk" secondAttribute="trailing" constant="3" id="JHz-H1-PkC"/>
+                <constraint firstAttribute="trailing" secondItem="ier-Sw-bbQ" secondAttribute="trailing" constant="3" id="JjA-Lx-wza"/>
+                <constraint firstItem="ier-Sw-bbQ" firstAttribute="top" secondItem="Mh0-Gr-U1B" secondAttribute="bottom" constant="175.5" id="P7n-NV-HTB"/>
                 <constraint firstItem="gPA-ER-Dlk" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="QJD-sl-b6A"/>
-                <constraint firstItem="ooC-3N-09H" firstAttribute="leading" secondItem="SIB-BR-OGe" secondAttribute="trailing" constant="8" symbolic="YES" id="UNt-l4-7rm"/>
+                <constraint firstItem="ooC-3N-09H" firstAttribute="top" secondItem="Mh0-Gr-U1B" secondAttribute="bottom" constant="175.5" id="X8t-6b-hgr"/>
+                <constraint firstAttribute="bottom" secondItem="ooC-3N-09H" secondAttribute="bottom" constant="3" id="kYX-Rq-KWX"/>
+                <constraint firstAttribute="bottom" secondItem="ooC-3N-09H" secondAttribute="bottom" constant="3" id="kn2-LH-Pff"/>
+                <constraint firstItem="ier-Sw-bbQ" firstAttribute="leading" secondItem="ooC-3N-09H" secondAttribute="trailing" constant="3" id="m4z-UU-7oP"/>
+                <constraint firstItem="SIB-BR-OGe" firstAttribute="top" secondItem="Mh0-Gr-U1B" secondAttribute="bottom" constant="175.5" id="us9-ri-m3k"/>
                 <constraint firstAttribute="bottom" secondItem="gPA-ER-Dlk" secondAttribute="bottom" constant="3" id="vOg-9V-Cfk"/>
-                <constraint firstItem="gPA-ER-Dlk" firstAttribute="top" secondItem="gUg-yt-vKP" secondAttribute="bottom" constant="175.5" id="yC1-8m-WsB"/>
             </constraints>
             <size key="customSize" width="400" height="300"/>
             <connections>
