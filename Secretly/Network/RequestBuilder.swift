@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RequestBuilder {
+struct RequestBuilder: CustomDebugStringConvertible {
     enum ContentMode {
         case jsonApp
 
@@ -34,6 +34,11 @@ struct RequestBuilder {
     public var headers: [String: String]?
     public var contentMode: ContentMode = .jsonApp
 
+    var debugDescription: String {
+        let currentUrl = url()?.debugDescription ?? "Not valid URL"
+        let currentHeaders = headers?.debugDescription ?? ""
+        return "Request to: \(method.uppercased()) - \(currentUrl) -H \(currentHeaders ) with the body: \(String(describing: body))"
+    }
     init(baseUrl: String) {
         self.urlComponents = URLComponents(string: baseUrl)!
     }

@@ -53,12 +53,8 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBAction func likeAction(_ sender: Any) {
         if likeService?.action() ?? false {
             likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            let postCount = post?.likesCount ?? 0 + 1
-            self.likeMsm.text = "\(postCount) likes"
         } else {
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-            let postCount = post?.likesCount ?? 0 + 1
-            self.likeMsm.text = "\(postCount) likes"
         }
     }
     

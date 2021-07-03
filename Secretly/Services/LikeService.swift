@@ -22,13 +22,14 @@ struct LikeService {
     }
     
     mutating func action() -> Bool {
+        print("GOES HERE \(self.active)")
         if self.active {
-            try? endpoint?.create(){ result in
-                
+            endpoint?.delete() { result in
+                print("DELETE: --------: \(result)")
             }
         } else {
-            endpoint?.delete() { result in
-                
+            try? endpoint?.create(){ result in
+                print("POST: --------: \(result)")
             }
         }
         self.active = !self.active
