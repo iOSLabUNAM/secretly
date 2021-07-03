@@ -9,31 +9,30 @@
 import Foundation
 
 struct LikeService {
-    private var likeEndpoint: RestClient<Like>
-    private var postId: Int
-
-    init(postId: Int) {
-        self.postId = postId
-        likeEndpoint = RestClient<Like>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(self.postId)/like")
+    let endpoint: RestClient<Like>?
+    var active = false
+    
+    init(post: Post?){
+        guard let post = post, let postId = post.id else {
+            self.endpoint = nil
+            return
+        }
+        self.endpoint = RestClient<Like>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(postId)/likes")
+        self.active = post.liked ?? false
     }
     
-    func delete(_ model: Like, complete: @escaping (Result<Like?, Error>) -> Void ) {
-        likeEndpoint.delete(model: model) { result in
-            DispatchQueue.main.async { complete(result) }
+    mutating func action() -> Bool {
+        if self.active {
+            try? endpoint?.create(){ result in
+                
+            }
+        } else {
+            endpoint?.delete() { result in
+                
+            }
         }
-    }
-    
-    func load(completion: @escaping ([Like]) -> Void) {
-        likeEndpoint.list { result in
-            guard let likes = try? result.get() else { return }
-            DispatchQueue.main.async { completion(likes) }
-        }
-    }
-    
-    func create(_ model: Like, complete: @escaping (Result<Like?, Error>) -> Void ) {
-        try? likeEndpoint.create(model: model) {
-            result in
-            DispatchQueue.main.async { complete(result) }
-        }
+        self.active = !self.active
+        
+        return active
     }
 }

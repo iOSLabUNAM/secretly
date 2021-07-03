@@ -10,9 +10,11 @@ import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "feedPostCell"
+    var likeService: LikeService?
     var post: Post? {
         didSet {
            updateView()
+            likeService = LikeService(post: post)
         }
     }
     @IBOutlet weak var authorView: AuthorView!
@@ -39,97 +41,24 @@ class PostCollectionViewCell: UICollectionViewCell {
             ImageLoader.load(postImg.mediumUrl) { img in self.imageView.image = img }
         }
         self.authorView.author = post.user
-        self.likeMsm.text = getLikeMessage(post: post)
-        self.likeState.isEnabled = setLikeState(post: post)
-    }
-    
-    func setLikeState(post: Post) -> Bool {
-        let userName = post.user?.username ?? ""
-        let likeAuthors = post.likes ?? []
+        self.likeMsm.text = "\(post.likesCount ?? 0) likes"
         
-        let userLikedItsPhoto = likeAuthors.filter({$0.author?.name == userName})
-        
-        var buttonStatus = true
-        if(userLikedItsPhoto.count == 1){
-            buttonStatus = false
+        if post.liked ?? false {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
-        
-        return buttonStatus
-    }
-    
-    func getLikeMessage(post: Post) -> String {
-        let likeCount = post.likes?.count ?? 0
-        let likeAuthors = post.likes
-        
-        var authorsResume = ""
-        
-        if(likeCount == 1) {
-            authorsResume = "\(likeAuthors?[0].author?.name ?? "") has liked this photo"
-        }
-        
-        if(likeCount >= 2){
-            let nameOne = likeAuthors?[0].author?.name ?? ""
-            let nameTwo = likeAuthors?[1].author?.name ?? ""
-            authorsResume = "\(nameOne), \(nameTwo) and \(likeCount) more, liked this photo"
-        }
-        
-        return authorsResume
-    }
-    
-    func like(){
-        let likeEndpoint = RestClient<Like>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(String(describing: post?.id))/likes")
-
-        do {
-            try likeEndpoint.create() { [unowned self] result in
-                switch result {
-                case .success(let like):
-                    print("there is a new like \(like?.author?.name ?? "")")
-                case .failure(let err):
-                    DispatchQueue.main.async {
-                        self.errorAlert(err)
-                    }
-                }
-            }
-        } catch let err {
-            self.errorAlert(err)
-        }
-    }
-    
-    func unlike(){
-        let likeEndpoint = RestClient<Like>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(String(describing: post?.id))/likes")
-
-        do {
-            try likeEndpoint.delete() { [unowned self] result in
-                switch result {
-                case .success( _):
-                    print("Like deleted")
-                case .failure(let err):
-                    DispatchQueue.main.async {
-                        self.errorAlert(err)
-                    }
-                }
-            }
-        } catch let err {
-            self.errorAlert(err)
-        }
-    }
-    
-    func errorAlert(_ error: Error) {
-        let err = error as? Titleable
-        let alert = UIAlertController(title: (err?.title ?? "Server Error"), message: error.localizedDescription, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(okAction)
     }
     
     @IBAction func likeAction(_ sender: Any) {
-        print("like: \(self.likeState.isEnabled)")
-        if self.likeState.isEnabled == true {
-            //like()
-            self.likeState.isEnabled = false
-            
+        if likeService?.action() ?? false {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            let postCount = post?.likesCount ?? 0 + 1
+            self.likeMsm.text = "\(postCount) likes"
         } else {
-            //unlike()
-            self.likeState.isEnabled = true
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            let postCount = post?.likesCount ?? 0 + 1
+            self.likeMsm.text = "\(postCount) likes"
         }
     }
     

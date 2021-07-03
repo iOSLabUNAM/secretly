@@ -21,9 +21,10 @@ struct Post: Restable {
     let longitude: Double?
     let createdAt: Date?
     let updatedAt: Date?
-    let likes: [Like]?
+    let likesCount: Int?
+    let liked: Bool?
 
-    init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil, likes: [Like]? = nil) {
+    init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil) {
         self.content = content
         self.backgroundColor = backgroundColor
         self.id = nil
@@ -35,7 +36,8 @@ struct Post: Restable {
         self.commentsCount = nil
         self.createdAt = nil
         self.updatedAt = nil
-        self.likes = likes
+        self.likesCount = nil
+        self.liked = nil
     }
 
     func encode(to encoder: Encoder) throws {

@@ -9,18 +9,10 @@
 import Foundation
 import UIKit
 
-struct Like {
-    let author: Author?
-    let createdAt: Date?
-    let updatedAt: Date?
-    
-    init(createdAt: Date, updatedAt: Date) {
-        self.createdAt = createdAt
-        self.updatedAt = updatedAt
-        self.author = nil
-    }
+struct Like: Restable {
+    let id, userID: Int
+    let likeableType: String
+    let likeableID: Int
+    let createdAt, updatedAt: String
 }
 
-extension Like: Restable {
-    var id: String { "" }
-}
