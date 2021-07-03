@@ -37,8 +37,27 @@ struct RequestBuilder: CustomDebugStringConvertible {
     var debugDescription: String {
         let currentUrl = url()?.debugDescription ?? "Not valid URL"
         let currentHeaders = headers?.debugDescription ?? ""
-        return "Request to: \(method.uppercased()) - \(currentUrl) -H \(currentHeaders ) with the body: \(String(describing: body))"
+        if let ubody = body, let currentBody = String(data: ubody, encoding: .utf8) {
+            return "Request to: \(method.uppercased()) - \(currentUrl) -H \(currentHeaders) -d \(currentBody)"
+        } else {
+            return "Request to: \(method.uppercased()) - \(currentUrl) -H \(currentHeaders)"
+        }
     }
+    
+    static func build(method: String, baseUrl: String, path: String, body: Data?) -> URLRequest? {
+        var builder = RequestBuilder(baseUrl: baseUrl)
+        builder.method = method
+        builder.path = path
+        builder.body = body
+        if let token = AmacaConfig.shared.apiToken {
+            builder.headers = ["Authorization": "Bearer \(token)"]
+        }
+        #if DEBUD
+        debugPrint(builder.debugDescription)
+        #endif
+        return builder.request()
+    }
+    
     init(baseUrl: String) {
         self.urlComponents = URLComponents(string: baseUrl)!
     }
