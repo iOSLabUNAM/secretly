@@ -69,6 +69,74 @@
             </objects>
             <point key="canvasLocation" x="1167" y="879"/>
         </scene>
+        <!--Coments-->
+        <scene sceneID="bCN-YU-Hqg">
+            <objects>
+                <viewController id="rYd-VY-Amq" customClass="CommentViewController" customModule="Secretly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1Jl-TL-Dct">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6tF-IE-59E">
+                                <rect key="frame" x="0.0" y="56" width="414" height="659"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="commentCell" id="9AL-Q2-X1e" customClass="CommentViewCellTableViewCell" customModule="Secretly" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9AL-Q2-X1e" id="jaU-hX-fhe">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPh-70-Wox">
+                                <rect key="frame" x="0.0" y="715" width="414" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="SHt-nC-z6h"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" id="0eC-01-C4N">
+                                        <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="I7T-p3-Pmt">
+                                            <rect key="frame" x="20" y="5" width="340" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="qNd-Ma-rau"/>
+                                    <barButtonItem title="Item" image="paperplane.fill" catalog="system" id="RYt-JI-uy0">
+                                        <connections>
+                                            <action selector="didTapSendComment:" destination="rYd-VY-Amq" id="XX6-sR-WiJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="23m-FA-dN8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6tF-IE-59E" firstAttribute="trailing" secondItem="23m-FA-dN8" secondAttribute="trailing" id="2po-jX-CNI"/>
+                            <constraint firstItem="yPh-70-Wox" firstAttribute="top" secondItem="6tF-IE-59E" secondAttribute="bottom" id="JkJ-Nf-5w5"/>
+                            <constraint firstItem="yPh-70-Wox" firstAttribute="bottom" secondItem="23m-FA-dN8" secondAttribute="bottom" id="MWE-83-vdc"/>
+                            <constraint firstItem="6tF-IE-59E" firstAttribute="top" secondItem="23m-FA-dN8" secondAttribute="top" id="O2r-he-2Du"/>
+                            <constraint firstItem="6tF-IE-59E" firstAttribute="leading" secondItem="23m-FA-dN8" secondAttribute="leading" id="Qna-Yi-IB2"/>
+                            <constraint firstItem="yPh-70-Wox" firstAttribute="leading" secondItem="23m-FA-dN8" secondAttribute="leading" id="UbZ-nC-S6a"/>
+                            <constraint firstItem="yPh-70-Wox" firstAttribute="trailing" secondItem="23m-FA-dN8" secondAttribute="trailing" id="x33-xq-Hgy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Coments" id="aZp-eN-gGN"/>
+                    <connections>
+                        <outlet property="CommentToolBar" destination="yPh-70-Wox" id="b5P-k1-6XU"/>
+                        <outlet property="commentTextField" destination="I7T-p3-Pmt" id="2zx-LR-aNC"/>
+                        <outlet property="tableView" destination="6tF-IE-59E" id="Tvj-KL-FVX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OER-c9-FZp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3847.826086956522" y="135.9375"/>
+        </scene>
         <!--Feed-->
         <scene sceneID="gKD-R1-dE4">
             <objects>
@@ -101,10 +169,14 @@
                         <viewLayoutGuide key="safeArea" id="7sz-vS-vke"/>
                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="TPK-s3-R7J" firstAttribute="trailing" secondItem="7sz-vS-vke" secondAttribute="trailing" id="DjO-b8-4OC"/>
                             <constraint firstItem="TPK-s3-R7J" firstAttribute="top" secondItem="7sz-vS-vke" secondAttribute="top" id="Gf0-mf-0D7"/>
                             <constraint firstItem="TPK-s3-R7J" firstAttribute="leading" secondItem="7sz-vS-vke" secondAttribute="leading" id="MHQ-c2-o06"/>
+                            <constraint firstItem="TPK-s3-R7J" firstAttribute="leading" secondItem="7sz-vS-vke" secondAttribute="leading" id="VqH-Ix-hnK"/>
+                            <constraint firstItem="TPK-s3-R7J" firstAttribute="bottom" secondItem="7sz-vS-vke" secondAttribute="bottom" id="e8Y-LO-86c"/>
                             <constraint firstItem="TPK-s3-R7J" firstAttribute="trailing" secondItem="7sz-vS-vke" secondAttribute="trailing" id="edX-Kb-hLW"/>
                             <constraint firstItem="TPK-s3-R7J" firstAttribute="bottom" secondItem="7sz-vS-vke" secondAttribute="bottom" id="jKr-7I-p9N"/>
+                            <constraint firstItem="TPK-s3-R7J" firstAttribute="top" secondItem="7sz-vS-vke" secondAttribute="top" id="zbc-yi-kqK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="tAD-Oa-Yyq">
@@ -121,6 +193,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="TPK-s3-R7J" id="EFZ-ci-ff1"/>
+                        <segue destination="rYd-VY-Amq" kind="show" identifier="commentSegue" id="mno-0M-0CG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="svI-0p-kLa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -170,6 +243,7 @@
     </scenes>
     <resources>
         <image name="logo-white" width="256" height="256"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="text.bubble.fill" catalog="system" width="128" height="110"/>

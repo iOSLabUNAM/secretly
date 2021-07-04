@@ -19,8 +19,10 @@ extension FeedCollectionViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.reuseIdentifier, for: indexPath) as! PostCollectionViewCell
-
+        cell.delegate = self
         cell.post = self.posts?[indexPath.row]
         return cell
     }
+    
+    
 }
