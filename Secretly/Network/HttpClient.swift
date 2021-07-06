@@ -30,6 +30,7 @@ struct HttpClient {
         request(method: "delete", path: path, body: nil, complete: complete)
     }
 
+
     private func request(method: String, path: String, body: Data?, complete: @escaping ResultResponse) {
         guard let req = buildRequest(method: method, path: path, body: body) else {
             complete(.failure(RequestError.invalidRequest))
