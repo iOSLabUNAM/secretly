@@ -21,18 +21,20 @@ struct LikeService {
         self.active = post.liked ?? false
     }
     
-    mutating func action() -> Bool {
+    mutating func action(complete: @escaping (Result<Like?, Error>) -> Void) {
+        print("ssssssssss: \(self.active)")
         if self.active {
+            self.active = !self.active
+            print("DELETE: \(self.active)")
             endpoint?.delete() { result in
-                print("Unliked")
+                DispatchQueue.main.async { complete(result) }
             }
         } else {
-            try? endpoint?.create(){ result in
-                print("Liked")
+            self.active = !self.active
+            print("CREATE: \(self.active)")
+            try? endpoint?.create() { result in
+                DispatchQueue.main.async { complete(result) }
             }
         }
-        self.active = !self.active
-        
-        return active
     }
 }
