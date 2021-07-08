@@ -35,6 +35,7 @@ extension FeedCollectionViewController: UICollectionViewDelegate {
     
     }
     */
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //TODO: TAP To Like
     }
@@ -48,6 +49,7 @@ extension FeedCollectionViewController: UICollectionViewDelegate {
     
 }
 extension FeedCollectionViewController: goCommentDelegate{
+    
     func goComment(post: Post) {
         performSegue(withIdentifier: "commentSegue", sender: post)
     }

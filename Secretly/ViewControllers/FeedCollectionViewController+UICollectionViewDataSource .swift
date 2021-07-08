@@ -21,6 +21,9 @@ extension FeedCollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.reuseIdentifier, for: indexPath) as! PostCollectionViewCell
         cell.delegate = self
         cell.post = self.posts?[indexPath.row]
+        CommentService.count(post: self.posts![indexPath.row], completion: {comments in
+            cell.updateCountedLikes(numLikes: comments.count)
+        })
         return cell
     }
     

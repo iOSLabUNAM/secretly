@@ -12,7 +12,6 @@ class CommentViewCellTableViewCell: UITableViewCell {
     
     var comment: Comment? {
         didSet{
-            print("Primero se realiza la asignaciòn")
             guard let unwrapComment = comment else { return }
             usernameLabel.text = unwrapComment.autor?.username ?? "Anonymous"
             commentLabel.text = unwrapComment.content

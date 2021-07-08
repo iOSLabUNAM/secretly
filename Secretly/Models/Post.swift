@@ -20,7 +20,7 @@ struct Post: Restable {
     let latitude: Double?
     let longitude: Double?
     let createdAt: Date?
-    let updatedAt: Date?
+    var updatedAt: Date?
 
     init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil) {
         self.content = content

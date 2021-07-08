@@ -14,7 +14,7 @@ struct Comment: Restable{
     var createdAt:Date?
     var uptadedAt:Date?
     var content:String
-    //, autor: User? = nil, createdAt: Date? = nil, uptadedAt: Date? = nil
+    // autor: User? = nil, createdAt: Date? = nil, uptadedAt: Date? = nil
     init(content: String){
         self.id = nil
         self.autor = nil

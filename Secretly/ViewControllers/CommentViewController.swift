@@ -15,8 +15,7 @@ import UIKit
 */
 class CommentViewController: UIViewController{
 
-    var createCommentService:CreateCommentService? = nil
-    var fetchCommentService:CommentServie?
+    var commentService:CommentService? = nil
     
     @IBOutlet var CommentToolBar: UIToolbar!
     @IBOutlet var tableView: UITableView!
@@ -27,14 +26,13 @@ class CommentViewController: UIViewController{
     var post:Post? {
         didSet{
             guard let postito = post else { return }
-            createCommentService = CreateCommentService(post: postito)
-            fetchCommentService = CommentServie(post: postito)
+            commentService = CommentService(post: postito)
             reloadComments()
         }
     }
     
     func reloadComments(){
-        fetchCommentService?.load { [unowned self] comments in
+        commentService?.load { [unowned self] comments in
            self.comments = comments
         }
     }
@@ -67,7 +65,7 @@ class CommentViewController: UIViewController{
         self.commentTextField.endEditing(true)
     }
     
-    private func errorAlert(_ error: Error) {
+    func errorAlert(_ error: Error) {
         let err = error as? Titleable
         let alert = UIAlertController(title: (err?.title ?? "Error Servidor"), message: error.localizedDescription, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
@@ -81,7 +79,8 @@ class CommentViewController: UIViewController{
     private func createComment() throws {
         let comment = try self.buildComment()
         guard let commmentM = comment else { return }
-        createCommentService?.create(commmentM) { [unowned self] result in
+        
+        commentService?.create(commmentM) { [unowned self] result in
             switch result {
             case .success(let commmentM):
                 self.showAlert(title: "Comentario publicado", message: commmentM?.content ?? "")
@@ -95,8 +94,8 @@ class CommentViewController: UIViewController{
     private func buildComment() throws -> Comment? {
         if let commentText = commentTextField.text{
             print(CurrentUser.load()?.username ?? "No hay current user")
-            let comment = Comment(content: commentText)
-            //comment.autor = CurrentUser.load() as? User
+            var comment = Comment(content: commentText)
+            //comment.autor = CurrentUser.load()
             return comment
         } else{
             let alert = UIAlertController(title: "Sin comentarios", message: "Llena por favor el comentario", preferredStyle: .alert)

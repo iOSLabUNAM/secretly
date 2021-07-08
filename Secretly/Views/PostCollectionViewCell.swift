@@ -22,6 +22,7 @@ class PostCollectionViewCell: UICollectionViewCell {
            updateView()
         }
     }
+    
     @IBOutlet weak var authorView: AuthorView!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -36,6 +37,10 @@ class PostCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    func updateCountedLikes(numLikes:Int){
+        commentButton.setTitle("\(numLikes)", for: .normal)
     }
     
     func updateView() {
