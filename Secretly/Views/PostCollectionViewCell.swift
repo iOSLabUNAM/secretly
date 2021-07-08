@@ -51,41 +51,13 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func likeAction(_ sender: Any) {
-        do {
-            try self.like()
-        } catch let err {
-            self.errorAlert(err)
-        }
-    }
-    
-    func like() throws {
         likeService?.action() { [unowned self] result in
-            switch result {
-            case .success(_ ):
-                print("Like or unlike")
-            case .failure(let err):
-                self.errorAlert(err)
-            }
+            print("ffffff: \(result)")
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
     }
     
     @IBAction func commentAction(_ sender: Any) {
         print("Comment")
     }
-    
-    func errorAlert(_ error: Error) {
-        let err = error as? Titleable
-        let alert = UIAlertController(title: (err?.title ?? "Server Error"), message: error.localizedDescription, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(okAction)
-        // self.present(alert, animated: true, completion: nil)
-    }
 }
-
-/*
- {
-     likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
- } else {
-     likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
- }
- */

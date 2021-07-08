@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 
 struct Like: Restable {
-    let id, userId: Int
+    let id: Int
     let likeableType: String
     let likeableId: Int
     let createdAt, updatedAt: String
+    let user: User
 }
 
