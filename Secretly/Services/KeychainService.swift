@@ -18,6 +18,9 @@ enum KeychainError: Error {
 }
 
 
+
+
+
 struct KeychainService{
     
     public let serviceName:String?
@@ -31,14 +34,14 @@ struct KeychainService{
     }
     
 
-    public func setItem(key :String, value: String) -> Bool {
+    public func setItem(key :String, value: String, accesibility: CFString? = nil) -> Bool {
         let encodedValue = value.data(using: String.Encoding.utf8)!
-        return self.set(key: key, value: encodedValue)
+        return self.set(key: key, value: encodedValue, accesibility: accesibility)
     }
     
     
-    private func set(key :String, value: Data) -> Bool{
-        var query = self.setUpKeychainDic(key: key)
+    private func set(key :String, value: Data, accesibility: CFString? = nil) -> Bool{
+        var query = self.setUpKeychainDic(key: key,accesibility: accesibility)
         
         query[kSecValueData as String] = value
         
@@ -46,15 +49,15 @@ struct KeychainService{
         if status == errSecSuccess {
             return true
         } else if status == errSecDuplicateItem {
-            return self.updateItem(key: key, value: value)
+            return self.updateItem(key: key, value: value, accesibility: accesibility)
         } else {
             return false
         }
     }
     
-    private func updateItem(key:String, value:Data) -> Bool {
+    private func updateItem(key:String, value:Data, accesibility: CFString? = nil) -> Bool {
     
-        let query = self.setUpKeychainDic(key: key)
+        let query = self.setUpKeychainDic(key: key, accesibility: accesibility)
         let update:[String:Any] = [kSecValueData as String:value]
         
         let status = SecItemUpdate(query as CFDictionary, update as CFDictionary)
@@ -91,8 +94,8 @@ struct KeychainService{
     }
     
 
-    public func deleteItem(forKey key: String) -> Bool{
-        var query = self.setUpKeychainDic(key: key)
+    public func deleteItem(forKey key: String, accesibility: CFString? = nil) -> Bool{
+        let query = self.setUpKeychainDic(key: key, accesibility: accesibility)
         let status: OSStatus = SecItemDelete(query as CFDictionary)
         if status == errSecSuccess {
             return true
@@ -115,7 +118,7 @@ struct KeychainService{
         }
     }
     
-    private func setUpKeychainDic(key: String) -> [String:Any]{
+    private func setUpKeychainDic(key: String, accesibility: CFString? = nil) -> [String:Any]{
         var keychainQueryDictionary: [String:Any] = [String: Any]()
         // Uniquely identify this keychain accessor
         let encodedIdentifier: Data? = key.data(using: String.Encoding.utf8)
@@ -123,6 +126,12 @@ struct KeychainService{
         keychainQueryDictionary[kSecAttrDescription as String] = encodedIdentifier
         keychainQueryDictionary[kSecAttrAccount as String] = encodedIdentifier
         keychainQueryDictionary[kSecAttrServer as String] = self.serviceName ?? self.defaultServiceName
+        
+        if let accessString = accesibility {
+            keychainQueryDictionary[kSecAttrAccessible as String] = accessString
+        }
+        
+        
         return keychainQueryDictionary
     }
     

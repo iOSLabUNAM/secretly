@@ -10,14 +10,13 @@ import XCTest
 
 @testable import Secretly
 
+
 class KeychainServiceTest: XCTestCase {
-    
-    var keychain : KeychainService?
+    let serviceName = "test.secretly"
     let testString = "testString"
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        self.keychain = KeychainService(serviceName:"test.secretly")
         let encodedIdentifier = self.testString.data(using: .utf8)
         let encodedValue = self.testString.data(using: .utf8)
         var query:[String:Any] = [:]
@@ -27,11 +26,7 @@ class KeychainServiceTest: XCTestCase {
         query[kSecAttrAccount as String] = encodedIdentifier
         query[kSecValueData as String] = encodedValue
         
-        let status = SecItemAdd(query as CFDictionary, nil)
-        
-
-    
-        
+        _ = SecItemAdd(query as CFDictionary, nil)
     }
     
     override func tearDownWithError() throws {
@@ -40,46 +35,76 @@ class KeychainServiceTest: XCTestCase {
         query[kSecAttrServer as String] = "test.secretly"
         
         let status: OSStatus = SecItemDelete(query as CFDictionary)
-        self.keychain = nil
 
     }
     
     
     func testSaveValueToKeychain(){
-        let result = self.keychain?.setItem(key:"string1", value:"string1")
+        let test = "string1"
+        let keychain = KeychainService(serviceName:self.serviceName)
         
-        XCTAssertTrue(result ?? false)
+        let result = keychain.setItem(key:test, value:test)
+        
+        XCTAssertTrue(result)
     }
     
     
     func testReadValueFromKeyChain(){
-        do {
-            let result = try self.keychain?.getItem(forKey: self.testString)
-            XCTAssertEqual(result, self.testString)
-        } catch {
-            print("Ocurrió un error durante la lectura \(error.localizedDescription) ")
+        let keychain = KeychainService(serviceName:self.serviceName)
+        
+        
+        let result = try? keychain.getItem(forKey: self.testString)
+        XCTAssertEqual(result, self.testString)
+ 
+    }
+    
+    func testUpdateValueInKeychain(){
+        let value = "test2"
+        let keychain = KeychainService(serviceName:self.serviceName)
+        
+        let updated = keychain.setItem(key: self.testString, value: value)
+        
+        XCTAssertTrue(updated)
+        let result = try? keychain.getItem(forKey: self.testString)
+        XCTAssertEqual(result, value)
+        
+    }
+    
+    
+    func testReadNoValueFromKeyChain(){
+        let keychain = KeychainService(serviceName:self.serviceName)
+        let key = "test2"
+        
+        XCTAssertThrowsError(try keychain.getItem(forKey: key)) {
+            switch $0{
+            case KeychainError.noItem:
+                XCTAssertTrue(true)
+            default:
+                XCTAssertTrue(false)
+            }
         }
     }
     
+    
     func testDeleteAnItemFromKeyChain(){
-        let result = self.keychain?.deleteItem(forKey:self.testString)
-        XCTAssertTrue(result ?? false)
-        var thrownError:Error? = nil
-        XCTAssertThrowsError(try self.keychain?.getItem(forKey: self.testString)) {
-            thrownError = $0
-        }
+        let keychain = KeychainService(serviceName:self.serviceName)
+        
+        let result = keychain.deleteItem(forKey:self.testString)
+        
+        XCTAssertTrue(result)
+        XCTAssertThrowsError(try keychain.getItem(forKey: self.testString))
     }
     
     
     func testDeleteAllValuesFromKeyChain(){
-        let result = self.keychain?.deleteAllItems()
-        XCTAssertTrue(result ?? false)
-        var thrownError:Error? = nil
-        XCTAssertThrowsError(try self.keychain?.getItem(forKey: self.testString)) {
-            thrownError = $0
-        }
+        let keychain = KeychainService(serviceName:self.serviceName)
+        
+        let result = keychain.deleteAllItems()
+        XCTAssertTrue(result)
+        XCTAssertThrowsError(try keychain.getItem(forKey: self.testString))
     }
     
     
 
 }
+
