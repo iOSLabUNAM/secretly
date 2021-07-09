@@ -52,8 +52,18 @@ class PostCollectionViewCell: UICollectionViewCell {
     
     @IBAction func likeAction(_ sender: Any) {
         likeService?.action() { [unowned self] result in
-            print("ffffff: \(result)")
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            switch result {
+            case .success(nil):
+                likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+                let newLikesCount = post?.likesCount ?? 0
+                self.likeMsm.text = "\(newLikesCount - 1) likes"
+            case .success( _):
+                likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                let newLikesCount = post?.likesCount ?? 0
+                self.likeMsm.text = "\(newLikesCount + 1) likes"
+            case .failure(_):
+                print("Request fail")
+            }
         }
     }
     

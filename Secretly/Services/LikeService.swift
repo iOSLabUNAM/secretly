@@ -22,16 +22,13 @@ struct LikeService {
     }
     
     mutating func action(complete: @escaping (Result<Like?, Error>) -> Void) {
-        print("ssssssssss: \(self.active)")
         if self.active {
             self.active = !self.active
-            print("DELETE: \(self.active)")
             endpoint?.delete() { result in
                 DispatchQueue.main.async { complete(result) }
             }
         } else {
             self.active = !self.active
-            print("CREATE: \(self.active)")
             try? endpoint?.create() { result in
                 DispatchQueue.main.async { complete(result) }
             }
