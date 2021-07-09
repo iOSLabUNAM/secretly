@@ -20,6 +20,13 @@ struct HttpResponse {
     }
 
     func result(for data: Data?) -> Result<Data?, Error> {
+        #if DEBUG
+               debugPrint(status)
+               print("\(self.httpUrlResponse.statusCode) \(httpUrlResponse.url!)")
+               if let unwrapedData = data, let currentData = String(data: unwrapedData, encoding: .utf8) {
+                   print(currentData)
+               }
+        #endif
         return status.result().map { _ in data }
     }
 }
