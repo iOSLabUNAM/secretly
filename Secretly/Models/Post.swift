@@ -21,6 +21,8 @@ struct Post: Restable {
     let longitude: Double?
     let createdAt: Date?
     let updatedAt: Date?
+    var likesCount: Int? //New
+    let liked: Bool? //new Optional because of creating a post but it has no likes already
 
     init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil) {
         self.content = content
@@ -34,6 +36,8 @@ struct Post: Restable {
         self.commentsCount = nil
         self.createdAt = nil
         self.updatedAt = nil
+        self.likesCount = nil
+        self.liked = nil
     }
 
     func encode(to encoder: Encoder) throws {

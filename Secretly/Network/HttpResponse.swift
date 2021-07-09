@@ -20,6 +20,18 @@ struct HttpResponse {
     }
 
     func result(for data: Data?) -> Result<Data?, Error> {
-        return status.result().map { _ in data }
-    }
+            //#if DEGUB
+            if let udata = data, !udata.isEmpty {
+                let currentData = String(data: udata, encoding: .utf8)
+                debugPrint("Response: \(status) \(self.httpUrlResponse.statusCode) \(self.httpUrlResponse.url!) -d \(String(describing: currentData))")
+            } else {
+                debugPrint("Response: \(status) \(self.httpUrlResponse.statusCode) \(self.httpUrlResponse.url!)")
+            }
+            //#endif
+            if let udata = data, !udata.isEmpty {
+                return status.result().map { _ in data }
+            } else {
+                return status.result().map { _ in nil }
+            }
+        }
 }
