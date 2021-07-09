@@ -16,6 +16,8 @@ import UIKit
 class CommentViewController: UIViewController{
 
     var commentService:CommentService? = nil
+    var currentUserService:CurrentUserService? = nil
+    let fakeEndpoint = RestClient<Faker>(client: AmacaConfig.shared.httpClient, path: "/api/v1/fake")
     
     @IBOutlet var CommentToolBar: UIToolbar!
     @IBOutlet var tableView: UITableView!
@@ -34,6 +36,9 @@ class CommentViewController: UIViewController{
     func reloadComments(){
         commentService?.load { [unowned self] comments in
            self.comments = comments
+            comments.forEach({ comn in
+                print(comn.autor)
+            })
         }
     }
     
@@ -73,9 +78,6 @@ class CommentViewController: UIViewController{
         self.present(alert, animated: true, completion: nil)
     }
     
-    
-    /// createComment:
-    /// - Throws: The method is sent to be called through the TapAction on the submit button, it throws an exception if the construction of the model fails.
     private func createComment() throws {
         let comment = try self.buildComment()
         guard let commmentM = comment else { return }
@@ -95,7 +97,8 @@ class CommentViewController: UIViewController{
         if let commentText = commentTextField.text{
             print(CurrentUser.load()?.username ?? "No hay current user")
             var comment = Comment(content: commentText)
-            //comment.autor = CurrentUser.load()
+            let autor = User(username: CurrentUser.load()?.username ?? "", avatarUrl: "")
+            comment.autor = autor
             return comment
         } else{
             let alert = UIAlertController(title: "Sin comentarios", message: "Llena por favor el comentario", preferredStyle: .alert)
@@ -112,47 +115,3 @@ class CommentViewController: UIViewController{
     }
 }
 
-extension CommentViewController: UITextFieldDelegate{
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.commentTextField.endEditing(true)
-    }
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            textField.resignFirstResponder()
-            return true
-    }
-}
-
-
-extension CommentViewController{
-    func adjustInputText() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                tableView.contentInset = UIEdgeInsets(top: keyboardSize.height - view.safeAreaInsets.top, left: 0, bottom: 0, right: 0)
-                self.view.frame.origin.y -= keyboardSize.height - view.safeAreaInsets.bottom
-                
-            }
-        }
-    }
-
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-            tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            
-        }
-    }
-    
-    func showAlert(title: String, message: String){
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertVC.addAction(okAction)
-        present(alertVC, animated: true, completion: nil)
-    }
-    
-}

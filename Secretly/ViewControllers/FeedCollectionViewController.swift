@@ -54,6 +54,7 @@ class FeedCollectionViewController: UIViewController {
         postInputView.clear()
         present(postInputView, animated: true)
     }
+    
 }
 
 extension FeedCollectionViewController: PostInputViewDelegate {

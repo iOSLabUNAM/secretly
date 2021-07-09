@@ -118,11 +118,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6tF-IE-59E" firstAttribute="trailing" secondItem="23m-FA-dN8" secondAttribute="trailing" id="2po-jX-CNI"/>
+                            <constraint firstItem="yPh-70-Wox" firstAttribute="top" secondItem="6tF-IE-59E" secondAttribute="bottom" id="4Fg-ci-zza"/>
+                            <constraint firstItem="6tF-IE-59E" firstAttribute="leading" secondItem="23m-FA-dN8" secondAttribute="leading" id="9Yn-0a-PAP"/>
                             <constraint firstItem="yPh-70-Wox" firstAttribute="top" secondItem="6tF-IE-59E" secondAttribute="bottom" id="JkJ-Nf-5w5"/>
+                            <constraint firstItem="6tF-IE-59E" firstAttribute="trailing" secondItem="23m-FA-dN8" secondAttribute="trailing" id="KFJ-EQ-QJt"/>
                             <constraint firstItem="yPh-70-Wox" firstAttribute="bottom" secondItem="23m-FA-dN8" secondAttribute="bottom" id="MWE-83-vdc"/>
                             <constraint firstItem="6tF-IE-59E" firstAttribute="top" secondItem="23m-FA-dN8" secondAttribute="top" id="O2r-he-2Du"/>
                             <constraint firstItem="6tF-IE-59E" firstAttribute="leading" secondItem="23m-FA-dN8" secondAttribute="leading" id="Qna-Yi-IB2"/>
                             <constraint firstItem="yPh-70-Wox" firstAttribute="leading" secondItem="23m-FA-dN8" secondAttribute="leading" id="UbZ-nC-S6a"/>
+                            <constraint firstItem="6tF-IE-59E" firstAttribute="top" secondItem="23m-FA-dN8" secondAttribute="top" id="awN-uA-zKK"/>
                             <constraint firstItem="yPh-70-Wox" firstAttribute="trailing" secondItem="23m-FA-dN8" secondAttribute="trailing" id="x33-xq-Hgy"/>
                         </constraints>
                     </view>
@@ -155,13 +159,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="feedPostCell" id="ONf-lQ-zoe">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="feedPostCell" id="ONf-lQ-zoe" customClass="PostCollectionViewCell" customModule="Secretly" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="dLf-VO-Qyo">
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="128"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -169,14 +174,10 @@
                         <viewLayoutGuide key="safeArea" id="7sz-vS-vke"/>
                         <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="TPK-s3-R7J" firstAttribute="trailing" secondItem="7sz-vS-vke" secondAttribute="trailing" id="DjO-b8-4OC"/>
-                            <constraint firstItem="TPK-s3-R7J" firstAttribute="top" secondItem="7sz-vS-vke" secondAttribute="top" id="Gf0-mf-0D7"/>
-                            <constraint firstItem="TPK-s3-R7J" firstAttribute="leading" secondItem="7sz-vS-vke" secondAttribute="leading" id="MHQ-c2-o06"/>
-                            <constraint firstItem="TPK-s3-R7J" firstAttribute="leading" secondItem="7sz-vS-vke" secondAttribute="leading" id="VqH-Ix-hnK"/>
-                            <constraint firstItem="TPK-s3-R7J" firstAttribute="bottom" secondItem="7sz-vS-vke" secondAttribute="bottom" id="e8Y-LO-86c"/>
-                            <constraint firstItem="TPK-s3-R7J" firstAttribute="trailing" secondItem="7sz-vS-vke" secondAttribute="trailing" id="edX-Kb-hLW"/>
-                            <constraint firstItem="TPK-s3-R7J" firstAttribute="bottom" secondItem="7sz-vS-vke" secondAttribute="bottom" id="jKr-7I-p9N"/>
-                            <constraint firstItem="TPK-s3-R7J" firstAttribute="top" secondItem="7sz-vS-vke" secondAttribute="top" id="zbc-yi-kqK"/>
+                            <constraint firstItem="TPK-s3-R7J" firstAttribute="leading" secondItem="7sz-vS-vke" secondAttribute="leading" id="Gpz-cl-qPp"/>
+                            <constraint firstItem="TPK-s3-R7J" firstAttribute="bottom" secondItem="7sz-vS-vke" secondAttribute="bottom" id="LMv-Ma-wKt"/>
+                            <constraint firstItem="TPK-s3-R7J" firstAttribute="top" secondItem="7sz-vS-vke" secondAttribute="top" id="Mzo-hu-tTa"/>
+                            <constraint firstItem="TPK-s3-R7J" firstAttribute="trailing" secondItem="7sz-vS-vke" secondAttribute="trailing" id="ysy-Me-1Kw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Feed" id="tAD-Oa-Yyq">

@@ -23,6 +23,17 @@ struct CommentService {
         }
     }
     
+    func delete(_ model: Comment, complete: @escaping (Result<Comment?, Error>) -> Void ) {
+        let deleteEndpoint = RestClient<Comment>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(post?.id ?? 1)/comments/\(model.id ?? -1)")
+        print(deleteEndpoint.path)
+        print(model)
+        deleteEndpoint.delete(model: model, complete: { result in
+            DispatchQueue.main.async {
+                complete(result)
+            }
+        })
+    }
+    
     func update(_ model: Comment, complete: @escaping (Result<Comment?, Error>) -> Void ) {
         let updateEndpoint = RestClient<Comment>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(post?.id ?? 1)/comments/\(model.id ?? -1)")
         print(updateEndpoint.path)
@@ -34,15 +45,7 @@ struct CommentService {
         }
     }
     
-    func delete(_ model: Comment, complete: @escaping (Result<Comment?, Error>) -> Void ) {
-        let deleteEndpoint = RestClient<Comment>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(post?.id ?? 1)/comments/\(model.id ?? -1)")
-        print(deleteEndpoint.path)
-        deleteEndpoint.delete(model: model, complete: { result in
-            DispatchQueue.main.async {
-                complete(result)
-            }
-        })
-    }
+    
     
     func load(completion: @escaping ([Comment]) -> Void) {
         endpoint.list { result in

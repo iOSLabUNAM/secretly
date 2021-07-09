@@ -63,6 +63,9 @@
 		54A1CC5B268FD21E00E2B643 /* CommentViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1CC5A268FD21E00E2B643 /* CommentViewControllerDelegate.swift */; };
 		54A1CC5D268FD55900E2B643 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1CC5C268FD55900E2B643 /* Comment.swift */; };
 		54A1CC5F268FED3800E2B643 /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1CC5E268FED3800E2B643 /* CommentService.swift */; };
+		54C7AAF22698B7AE00A6340E /* ViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C7AAF12698B7AE00A6340E /* ViewTest.swift */; };
+		54C7AAF42698C84400A6340E /* CommentView+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C7AAF32698C84400A6340E /* CommentView+UITextFieldDelegate.swift */; };
+		54C7AAF62698CD2500A6340E /* CommentView+UISwipeGestures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C7AAF52698CD2500A6340E /* CommentView+UISwipeGestures.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -139,6 +142,9 @@
 		54A1CC5A268FD21E00E2B643 /* CommentViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewControllerDelegate.swift; sourceTree = "<group>"; };
 		54A1CC5C268FD55900E2B643 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		54A1CC5E268FED3800E2B643 /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		54C7AAF12698B7AE00A6340E /* ViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewTest.swift; sourceTree = "<group>"; };
+		54C7AAF32698C84400A6340E /* CommentView+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentView+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
+		54C7AAF52698CD2500A6340E /* CommentView+UISwipeGestures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CommentView+UISwipeGestures.swift"; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,8 +200,10 @@
 				302BB623267E3A8700FD74F5 /* PostInputViewController+UIColorPickerViewControllerDelegate.swift */,
 				302BB625267E447900FD74F5 /* PostInputViewController+UITextFieldDelegate.swift */,
 				54A1CC56268FA72A00E2B643 /* CommentViewController.swift */,
+				54C7AAF32698C84400A6340E /* CommentView+UITextFieldDelegate.swift */,
 				54A1CC58268FB44F00E2B643 /* CommentViewControllerDataSource.swift */,
 				54A1CC5A268FD21E00E2B643 /* CommentViewControllerDelegate.swift */,
+				54C7AAF52698CD2500A6340E /* CommentView+UISwipeGestures.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -319,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				E021985D23FA35E20025C28E /* SecretlyTests.swift */,
+				54C7AAF12698B7AE00A6340E /* ViewTest.swift */,
 				E021985F23FA35E20025C28E /* Info.plist */,
 			);
 			path = SecretlyTests;
@@ -454,6 +463,7 @@
 				54A1CC59268FB44F00E2B643 /* CommentViewControllerDataSource.swift in Sources */,
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
 				30B9B93D268CB063007B1942 /* NudityChecker.swift in Sources */,
+				54C7AAF42698C84400A6340E /* CommentView+UITextFieldDelegate.swift in Sources */,
 				30BC8B9D2662ACBC00F7E6A5 /* ImageLoader.swift in Sources */,
 				54A1CC57268FA72A00E2B643 /* CommentViewController.swift in Sources */,
 				302B5859267E720B007133E6 /* ResponseError.swift in Sources */,
@@ -499,6 +509,7 @@
 				3033795B267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				30B9B93B268CA9E6007B1942 /* UIImage+PixelBuffer.swift in Sources */,
 				303379592675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift in Sources */,
+				54C7AAF62698CD2500A6340E /* CommentView+UISwipeGestures.swift in Sources */,
 				304E06CA26742CC500A99128 /* FeedService.swift in Sources */,
 				302BB61F267E316900FD74F5 /* PostInputViewController.swift in Sources */,
 			);
@@ -508,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54C7AAF22698B7AE00A6340E /* ViewTest.swift in Sources */,
 				E021985E23FA35E20025C28E /* SecretlyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

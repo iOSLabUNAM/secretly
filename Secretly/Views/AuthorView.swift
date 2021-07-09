@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+@IBDesignable
 class AuthorView: UIView {
     var author: User? {
         didSet {
@@ -56,14 +58,6 @@ class AuthorView: UIView {
         super.init(coder: coder)
         setupConstraints()
     }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
     func setupConstraints() {
         self.backgroundColor = .clear

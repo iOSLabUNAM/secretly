@@ -44,15 +44,11 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     func updateView() {
-        imageView.image = nil
         guard let post = post else { return }
         if let color = UIColor(hex: post.backgroundColor) {
-            self.backgroundColor = color
+            self.imageView.backgroundColor = color
         }
         self.contentLabel.text = post.content
-        
-        self.commentButton.titleLabel?.text = "Hola"
-        //self.commentCounter.text = String(describing: post.commentsCount ?? 0)
         if let postImg = post.image {
             ImageLoader.load(postImg.mediumUrl) { img in self.imageView.image = img }
         }
