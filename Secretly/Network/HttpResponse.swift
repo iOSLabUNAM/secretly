@@ -21,12 +21,20 @@ struct HttpResponse {
 
     func result(for data: Data?) -> Result<Data?, Error> {
         //#if DEGUB
-        if let udata = data, let currentData = String(data: udata, encoding: .utf8) {
-            debugPrint("Response: \(status) \(self.httpUrlResponse.statusCode) \(self.httpUrlResponse.url!) -d \(currentData)")
+        if let udata = data, !udata.isEmpty {
+            print("vvvvvvvvv: \(udata.isEmpty)")
+            let currentData = String(data: udata, encoding: .utf8)
+            
+            debugPrint("Response: \(status) \(self.httpUrlResponse.statusCode) \(self.httpUrlResponse.url!) -d \(String(describing: currentData))")
         } else {
+            print("ELSE DATA")
             debugPrint("Response: \(status) \(self.httpUrlResponse.statusCode) \(self.httpUrlResponse.url!)")
         }
         //#endif
-        return status.result().map { _ in data }
+        if let udata = data, !udata.isEmpty {
+            return status.result().map { _ in data }
+        } else {
+            return status.result().map { _ in nil }
+        }
     }
 }
