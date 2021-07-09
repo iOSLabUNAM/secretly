@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0409C25B26981ADA008301E0 /* UpdatePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409C25A26981ADA008301E0 /* UpdatePostService.swift */; };
+		0409C25D26981AE9008301E0 /* CreateLikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409C25C26981AE9008301E0 /* CreateLikeService.swift */; };
+		0409C25F26981AF9008301E0 /* DeleteLikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409C25E26981AF9008301E0 /* DeleteLikeService.swift */; };
+		0409C26126981B15008301E0 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0409C26026981B15008301E0 /* Like.swift */; };
 		302B5845267E658E007133E6 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583D267E658E007133E6 /* HttpResponse.swift */; };
 		302B5846267E658E007133E6 /* AmacaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583E267E658E007133E6 /* AmacaConfig.swift */; };
 		302B5847267E658E007133E6 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583F267E658E007133E6 /* StatusCode.swift */; };
@@ -76,6 +80,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0409C25A26981ADA008301E0 /* UpdatePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostService.swift; sourceTree = "<group>"; };
+		0409C25C26981AE9008301E0 /* CreateLikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLikeService.swift; sourceTree = "<group>"; };
+		0409C25E26981AF9008301E0 /* DeleteLikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLikeService.swift; sourceTree = "<group>"; };
+		0409C26026981B15008301E0 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		302B583D267E658E007133E6 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		302B583E267E658E007133E6 /* AmacaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmacaConfig.swift; sourceTree = "<group>"; };
 		302B583F267E658E007133E6 /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
@@ -222,6 +230,9 @@
 				30C77CAF266AD69700A888DC /* CurrentUserService.swift */,
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
+				0409C25A26981ADA008301E0 /* UpdatePostService.swift */,
+				0409C25C26981AE9008301E0 /* CreateLikeService.swift */,
+				0409C25E26981AF9008301E0 /* DeleteLikeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,6 +259,7 @@
 				307A30572661AD540020DF8B /* User.swift */,
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
+				0409C26026981B15008301E0 /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -446,6 +458,7 @@
 				302B5846267E658E007133E6 /* AmacaConfig.swift in Sources */,
 				302BB61C267D7CC800FD74F5 /* PreviewPostVIew.swift in Sources */,
 				3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */,
+				0409C26126981B15008301E0 /* Like.swift in Sources */,
 				30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */,
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
 				30B9B939268CA989007B1942 /* Nudity.mlmodel in Sources */,
@@ -454,10 +467,12 @@
 				302BB626267E447900FD74F5 /* PostInputViewController+UITextFieldDelegate.swift in Sources */,
 				30BC8BA02662B8A700F7E6A5 /* StorageType.swift in Sources */,
 				307A305B2661B7A20020DF8B /* FeedCollectionViewController.swift in Sources */,
+				0409C25B26981ADA008301E0 /* UpdatePostService.swift in Sources */,
 				304E06CC2674442800A99128 /* UIImage+encodeBase64.swift in Sources */,
 				30BC8BA62662C02300F7E6A5 /* CacheImage.swift in Sources */,
 				302B5847267E658E007133E6 /* StatusCode.swift in Sources */,
 				302B584B267E658E007133E6 /* RequestBuilder.swift in Sources */,
+				0409C25F26981AF9008301E0 /* DeleteLikeService.swift in Sources */,
 				307A306526629B990020DF8B /* AuthorView.swift in Sources */,
 				30C77CB4266AF47300A888DC /* Credentials.swift in Sources */,
 				30BC8BA22662BB0000F7E6A5 /* DataContainer.swift in Sources */,
@@ -467,6 +482,7 @@
 				302BB624267E3A8700FD74F5 /* PostInputViewController+UIColorPickerViewControllerDelegate.swift in Sources */,
 				304E06CF267468DA00A99128 /* UIColor+Pastel.swift in Sources */,
 				304E06C42674133D00A99128 /* String+isBlank.swift in Sources */,
+				0409C25D26981AE9008301E0 /* CreateLikeService.swift in Sources */,
 				30BC8BA42662BDEF00F7E6A5 /* ImageStore.swift in Sources */,
 				3033795B267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				30B9B93B268CA9E6007B1942 /* UIImage+PixelBuffer.swift in Sources */,
@@ -635,13 +651,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D3XL2U7DQC;
+				DEVELOPMENT_TEAM = KE5G7XBPRL;
 				INFOPLIST_FILE = Secretly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.ioslab.Secretly;
+				PRODUCT_BUNDLE_IDENTIFIER = Toun.Secretly;
 				PRODUCT_NAME = Secretly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

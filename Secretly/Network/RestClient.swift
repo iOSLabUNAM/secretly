@@ -61,14 +61,14 @@ struct RestClient<T: Restable> {
 
     func update(model: T, complete: @escaping (Result<T?, Error>) -> Void) throws {
         let data = try encoder.encode(model)
-        client.put(path: "\(path)/\(model.id)", body: data) { result in
+        client.put(path: path, body: data) { result in
             let newResult = result.flatMap { parse(data: $0) }
             complete(newResult)
         }
     }
 
     func delete(model: T, complete: @escaping (Result<T?, Error>) -> Void) {
-        client.delete(path: "\(path)/\(model.id)") { result in
+        client.delete(path: path) { result in
             let newResult = result.flatMap { parse(data: $0) }
             complete(newResult)
         }
