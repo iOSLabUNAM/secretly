@@ -55,12 +55,12 @@ class PostCollectionViewCell: UICollectionViewCell {
             switch result {
             case .success(nil):
                 likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
-                let newLikesCount = post?.likesCount ?? 0
-                self.likeMsm.text = "\(newLikesCount - 1) likes"
+                post?.unlike()
+                self.likeMsm.text = "\(post?.likesCount ?? 0) likes"
             case .success( _):
                 likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                let newLikesCount = post?.likesCount ?? 0
-                self.likeMsm.text = "\(newLikesCount + 1) likes"
+                post?.like()
+                self.likeMsm.text = "\(post?.likesCount ?? 0) likes"
             case .failure(_):
                 print("Request fail")
             }
