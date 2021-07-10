@@ -100,6 +100,7 @@
                 <outlet property="commentCounter" destination="ier-Sw-bbQ" id="Kr2-a4-New"/>
                 <outlet property="contentLabel" destination="Mh0-Gr-U1B" id="tTs-p1-j7k"/>
                 <outlet property="imageView" destination="LcI-IM-E3b" id="vWk-OE-zm9"/>
+                <outlet property="likeCounter" destination="bxG-u9-JQ0" id="7YX-RF-Jdg"/>
                 <outlet property="likeState" destination="qBu-h3-372" id="Qyd-rc-8ZQ"/>
             </connections>
             <point key="canvasLocation" x="389.85507246376812" y="182.8125"/>
