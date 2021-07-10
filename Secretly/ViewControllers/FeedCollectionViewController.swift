@@ -6,22 +6,22 @@
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
 
-import UIKit
 import CoreLocation
+import UIKit
 
 class FeedCollectionViewController: UIViewController {
     let feedService = FeedService()
     var posts: [Post]? {
         didSet {
-            self.collectionView.reloadData()
-            self.refreshControl.endRefreshing()
+            collectionView.reloadData()
+            refreshControl.endRefreshing()
         }
     }
 
     let refreshControl = UIRefreshControl()
     let postInputView = PostInputViewController()
 
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet var collectionView: UICollectionView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class FeedCollectionViewController: UIViewController {
         collectionView.register(nib, forCellWithReuseIdentifier: PostCollectionViewCell.reuseIdentifier)
         collectionView.addSubview(refreshControl)
 
-        refreshControl.addTarget(self, action: #selector(self.loadPosts), for: UIControl.Event.valueChanged)
+        refreshControl.addTarget(self, action: #selector(loadPosts), for: UIControl.Event.valueChanged)
     }
 
     @objc
@@ -47,7 +47,7 @@ class FeedCollectionViewController: UIViewController {
     }
 
     @IBAction
-    func onTapAdd(_ sender: Any) {
+    func onTapAdd(_: Any) {
         postInputView.clear()
         present(postInputView, animated: true)
     }
@@ -56,6 +56,6 @@ class FeedCollectionViewController: UIViewController {
 extension FeedCollectionViewController: PostInputViewDelegate {
     func didCreatePost(post: Post?) {
         guard let upost = post else { return }
-        self.posts?.insert(upost, at: 0)
+        posts?.insert(upost, at: 0)
     }
 }

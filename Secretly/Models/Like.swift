@@ -16,4 +16,3 @@ struct Like: Restable {
     let createdAt, updatedAt: String
     let user: User
 }
-

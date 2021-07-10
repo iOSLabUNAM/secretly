@@ -12,8 +12,8 @@ import UIKit
 struct Author: Restable {
     let name: String?
     let id: String?
-    
-    init(id: String, name: String){
+
+    init(id: String, name: String) {
         self.name = name
         self.id = id
     }

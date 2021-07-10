@@ -12,23 +12,23 @@ struct HttpResponse {
     let httpUrlResponse: HTTPURLResponse
 
     init(response: URLResponse?) {
-        self.httpUrlResponse = (response as? HTTPURLResponse) ?? HTTPURLResponse()
+        httpUrlResponse = (response as? HTTPURLResponse) ?? HTTPURLResponse()
     }
 
     var status: StatusCode {
-        return StatusCode(rawValue: self.httpUrlResponse.statusCode)
+        return StatusCode(rawValue: httpUrlResponse.statusCode)
     }
 
     func result(for data: Data?) -> Result<Data?, Error> {
-        //#if DEGUB
+        // #if DEGUB
         if let udata = data, !udata.isEmpty {
             let currentData = String(data: udata, encoding: .utf8)
-            
-            debugPrint("Response: \(status) \(self.httpUrlResponse.statusCode) \(self.httpUrlResponse.url!) -d \(String(describing: currentData))")
+
+            debugPrint("Response: \(status) \(httpUrlResponse.statusCode) \(httpUrlResponse.url!) -d \(String(describing: currentData))")
         } else {
-            debugPrint("Response: \(status) \(self.httpUrlResponse.statusCode) \(self.httpUrlResponse.url!)")
+            debugPrint("Response: \(status) \(httpUrlResponse.statusCode) \(httpUrlResponse.url!)")
         }
-        //#endif
+        // #endif
         if let udata = data, !udata.isEmpty {
             return status.result().map { _ in data }
         } else {

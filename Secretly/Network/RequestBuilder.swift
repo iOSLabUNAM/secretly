@@ -26,6 +26,7 @@ struct RequestBuilder: CustomDebugStringConvertible {
             }
         }
     }
+
     private let urlComponents: URLComponents
     public var scheme: String = "https"
     public var method: String = "get"
@@ -43,7 +44,7 @@ struct RequestBuilder: CustomDebugStringConvertible {
             return "Request to: \(method.uppercased()) - \(currentUrl) -H \(currentHeaders)"
         }
     }
-    
+
     static func build(method: String, baseUrl: String, path: String, body: Data?) -> URLRequest? {
         var builder = RequestBuilder(baseUrl: baseUrl)
         builder.method = method
@@ -53,17 +54,17 @@ struct RequestBuilder: CustomDebugStringConvertible {
             builder.headers = ["Authorization": "Bearer \(token)"]
         }
         #if DEBUD
-        debugPrint(builder.debugDescription)
+            debugPrint(builder.debugDescription)
         #endif
         return builder.request()
     }
-    
+
     init(baseUrl: String) {
-        self.urlComponents = URLComponents(string: baseUrl)!
+        urlComponents = URLComponents(string: baseUrl)!
     }
 
     func url() -> URL? {
-        var comps = self.urlComponents
+        var comps = urlComponents
         comps.scheme = scheme
         comps.path = path
         return comps.url

@@ -6,8 +6,8 @@
 //  Copyright © 2020 3zcurdia. All rights reserved.
 //
 
-import XCTest
 @testable import Secretly
+import XCTest
 
 class SecretlyTests: XCTestCase {
     func testExample() {

@@ -15,7 +15,7 @@ struct CreatePostService {
         endpoint = RestClient<Post>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts")
     }
 
-    func create(_ model: Post, complete: @escaping (Result<Post?, Error>) -> Void ) {
+    func create(_ model: Post, complete: @escaping (Result<Post?, Error>) -> Void) {
         try? endpoint.create(model: model) { result in
             DispatchQueue.main.async { complete(result) }
         }

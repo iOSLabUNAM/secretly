@@ -13,14 +13,12 @@ struct Credentials: Restable {
     let password: String?
     let token: String?
 
-    var id: String {
-        get { "" }
-    }
+    var id: String { "" }
 
     init(username: String, password: String) {
         self.username = username
         self.password = password
-        self.token = nil
+        token = nil
     }
 
     enum CodingKeys: String, CodingKey {

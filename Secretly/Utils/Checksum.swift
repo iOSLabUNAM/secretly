@@ -6,8 +6,8 @@
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
 
-import Foundation
 import CryptoKit
+import Foundation
 
 struct Checksum {
     static func sha256(_ content: String) -> String {

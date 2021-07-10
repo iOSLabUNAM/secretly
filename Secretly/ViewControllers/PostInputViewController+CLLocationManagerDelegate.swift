@@ -6,12 +6,12 @@
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
 
-import UIKit
 import CoreLocation
+import UIKit
 
 extension PostInputViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let lastLocation = locations.last else { return }
-        self.currentLocation = lastLocation.coordinate
+        currentLocation = lastLocation.coordinate
     }
 }

@@ -9,13 +9,10 @@
 import UIKit
 
 struct NSFWContentError: Error, Titleable {
-    var title: String {
-        get { "The image contains nudity" }
-    }
+    var title: String { "The image contains nudity" }
 
-    var localizedDescription: String {
-        get { "The image has a \(prob)% of NSFW contnet." }
-    }
+    var localizedDescription: String { "The image has a \(prob)% of NSFW contnet." }
+
     let prob: Double
 
     init(_ prob: Double?) {
@@ -32,8 +29,8 @@ struct NudityChecker {
 
         let result = try model.prediction(data: buffer)
         #if DEBUG
-        debugPrint(result.classLabel)
-        debugPrint(result.prob)
+            debugPrint(result.classLabel)
+            debugPrint(result.prob)
         #endif
 
         if result.classLabel == "NSFW" || (result.prob["NSFW"] ?? 0) > 0.55 {

@@ -58,30 +58,30 @@ class AuthorView: UIView {
     }
 
     /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+     // Only override draw() if you perform custom drawing.
+     // An empty implementation adversely affects performance during animation.
+     override func draw(_ rect: CGRect) {
+         // Drawing code
+     }
+     */
 
     func setupConstraints() {
-        self.backgroundColor = .clear
+        backgroundColor = .clear
         addSubview(stack)
         stack.addArrangedSubview(avatarImg)
         stack.addArrangedSubview(usernameLbl)
 
         NSLayoutConstraint.activate([
-            stack.topAnchor.constraint(equalTo: self.topAnchor, constant: 3),
-            stack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 3),
-            stack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 3),
-            stack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 3)
+            stack.topAnchor.constraint(equalTo: topAnchor, constant: 3),
+            stack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 3),
+            stack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 3),
+            stack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 3),
         ])
 
         NSLayoutConstraint.activate([
-            avatarImg.widthAnchor.constraint(equalTo: avatarImg.heightAnchor)
+            avatarImg.widthAnchor.constraint(equalTo: avatarImg.heightAnchor),
         ])
-        avatarImg.layer.cornerRadius = self.frame.height / 2.0
+        avatarImg.layer.cornerRadius = frame.height / 2.0
     }
 
     func updateContent() {
@@ -89,5 +89,4 @@ class AuthorView: UIView {
         usernameLbl.text = author.username
         ImageLoader.load(author.avatarUrl) { [unowned self] img in self.avatarImg.image = img }
     }
-
 }
