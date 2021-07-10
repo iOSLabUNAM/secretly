@@ -55,10 +55,10 @@ class PostCollectionViewCell: UICollectionViewCell {
                     print("Like borrado")
                     self.likePostState=false
                     self.updatePost(id: id, sum: -1,state: self.likePostState!)
-                   
                 case .failure:
                     print("Like NO borrado")
                     self.bigLikeState.isHidden=true
+                    self.likeState.tintColor = .white
                 }
             }
             
