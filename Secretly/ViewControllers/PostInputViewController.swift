@@ -141,7 +141,9 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
             content: postText,
             backgroundColor: previewPost.backgroundColor?.hexString ?? "#3366CC",
             latitude: currentLocation?.latitude,
-            longitude: currentLocation?.longitude
+            longitude: currentLocation?.longitude,
+            likesCount: 0,
+            liked:false
         )
         if let uimage = previewPost.image {
             post.imageData = uimage.encodeBase64()
