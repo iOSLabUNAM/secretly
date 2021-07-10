@@ -58,7 +58,8 @@ class PostCollectionViewCell: UICollectionViewCell {
                 case .failure:
                     print("Like NO borrado")
                     self.bigLikeState.isHidden=true
-                    self.likeState.tintColor = .white
+                    self.likeState.tintColor = .red
+
                 }
             }
             
@@ -72,11 +73,13 @@ class PostCollectionViewCell: UICollectionViewCell {
                     self.likePostState=true
                     self.updatePost(id: id, sum: 1,state: self.likePostState!)
                     self.bigLikeState.isHidden=false
+                    self.likeState.tintColor = .white
                 case .failure:
                     print("Like NO creado")
                 }
             }
         }
+        updateView()
     }
     func updatePost(id:Int,sum:Int,state:Bool) {
         self.likePostState=state
