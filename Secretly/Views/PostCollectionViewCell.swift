@@ -16,6 +16,7 @@ class PostCollectionViewCell: UICollectionViewCell {
         didSet {
            updateView()
            likeService = LikeService(post: post)
+           updatePostService = UpdatePostService(post: post)
         }
     }
     @IBOutlet weak var authorView: AuthorView!
@@ -31,6 +32,11 @@ class PostCollectionViewCell: UICollectionViewCell {
         let tapLikeState = UITapGestureRecognizer(target: self, action: #selector(tapLike))
         self.likeState.isUserInteractionEnabled = true
         self.likeState.addGestureRecognizer(tapLikeState)
+        
+        let doubleTapImageView = UITapGestureRecognizer(target: self, action: #selector(doubleTapImageViewLike))
+        doubleTapImageView.numberOfTapsRequired = 2
+        self.imageView.isUserInteractionEnabled = true
+        self.imageView.addGestureRecognizer(doubleTapImageView)
     }
 
     func updateView() {
@@ -59,6 +65,14 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     @objc private func tapLike(){
+        self.like()
+    }
+    
+    @objc private func doubleTapImageViewLike(_ gesture: UITapGestureRecognizer){
+        self.like()
+    }
+    
+    private func like(){
         guard let post = post, let id = post.id else {return}
         let updateLike = Like(id: id, createdAt: Date(), updatedAt: Date())
         if !post.liked {
