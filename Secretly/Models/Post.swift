@@ -24,7 +24,7 @@ struct Post: Restable {
     var likesCount: Int?
     var liked: Bool
 
-    init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil) {
+    init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil, liked: Bool) {
         self.content = content
         self.backgroundColor = backgroundColor
         self.id = nil
