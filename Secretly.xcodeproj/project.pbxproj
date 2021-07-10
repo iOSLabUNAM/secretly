@@ -56,6 +56,7 @@
 		30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB5266AF48300A888DC /* CurrentUser.swift */; };
 		30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB7266BD44300A888DC /* CreatePostViewController.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
+		5B89708B269A491D0080C464 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89708A269A491D0080C464 /* Like.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -125,6 +126,7 @@
 		30C77CB5266AF48300A888DC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		30C77CB7266BD44300A888DC /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
+		5B89708A269A491D0080C464 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				307A30572661AD540020DF8B /* User.swift */,
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
+				5B89708A269A491D0080C464 /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */,
 				3072FBDF2680FA5A00B35C8C /* ImageProcessor.swift in Sources */,
 				302BB622267E38E800FD74F5 /* PostInputViewController+UIImagePickerControllerDelegate.swift in Sources */,
+				5B89708B269A491D0080C464 /* Like.swift in Sources */,
 				302B5845267E658E007133E6 /* HttpResponse.swift in Sources */,
 				302B584A267E658E007133E6 /* RestClient.swift in Sources */,
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
