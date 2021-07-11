@@ -98,7 +98,6 @@ class NewCommentViewController: UIViewController {
         commentService.create(comment) { [unowned self] result in
             switch result {
             case .success(let comment):
-               // delegate?.didCreateComment(comment:comment)
                 print("se subió chido")
             case .failure(let err):
                 self.errorAlert(err)
