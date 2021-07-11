@@ -56,6 +56,14 @@
 		30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB5266AF48300A888DC /* CurrentUser.swift */; };
 		30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB7266BD44300A888DC /* CreatePostViewController.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
+		3B7AC01C26867F920055B340 /* ComentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AC01B26867F920055B340 /* ComentService.swift */; };
+		3B7AC020268952B40055B340 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AC01F268952B40055B340 /* Comment.swift */; };
+		3B7AC037268C35D90055B340 /* NewCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AC036268C35D90055B340 /* NewCommentViewController.swift */; };
+		3B7AC03D268D89FD0055B340 /* FeedCommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AC03C268D89FD0055B340 /* FeedCommentService.swift */; };
+		3B7AC048268F6D0B0055B340 /* CommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AC046268F6D0B0055B340 /* CommentCollectionViewCell.swift */; };
+		3B7AC049268F6D0B0055B340 /* CommentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7AC047268F6D0B0055B340 /* CommentCollectionViewCell.xib */; };
+		3B7AC059269A8B090055B340 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AC058269A8B080055B340 /* Author.swift */; };
+		3B7AC05D269A94B50055B340 /* AuthorCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7AC05C269A94B50055B340 /* AuthorCommentView.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -125,6 +133,14 @@
 		30C77CB5266AF48300A888DC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		30C77CB7266BD44300A888DC /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
+		3B7AC01B26867F920055B340 /* ComentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentService.swift; sourceTree = "<group>"; };
+		3B7AC01F268952B40055B340 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		3B7AC036268C35D90055B340 /* NewCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentViewController.swift; sourceTree = "<group>"; };
+		3B7AC03C268D89FD0055B340 /* FeedCommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCommentService.swift; sourceTree = "<group>"; };
+		3B7AC046268F6D0B0055B340 /* CommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCollectionViewCell.swift; sourceTree = "<group>"; };
+		3B7AC047268F6D0B0055B340 /* CommentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCollectionViewCell.xib; sourceTree = "<group>"; };
+		3B7AC058269A8B080055B340 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		3B7AC05C269A94B50055B340 /* AuthorCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorCommentView.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -174,11 +190,13 @@
 				3033795A267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift */,
 				3033795C267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift */,
 				302BB61D267E316900FD74F5 /* PostInputViewController.swift */,
-				302BB61E267E316900FD74F5 /* PostInputViewController.xib */,
+				307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */,
 				30337954267536980066D94A /* PostInputViewController+CLLocationManagerDelegate.swift */,
 				302BB621267E38E800FD74F5 /* PostInputViewController+UIImagePickerControllerDelegate.swift */,
 				302BB623267E3A8700FD74F5 /* PostInputViewController+UIColorPickerViewControllerDelegate.swift */,
 				302BB625267E447900FD74F5 /* PostInputViewController+UITextFieldDelegate.swift */,
+				3B7AC036268C35D90055B340 /* NewCommentViewController.swift */,
+				3B7AC046268F6D0B0055B340 /* CommentCollectionViewCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -197,9 +215,11 @@
 		307A306326629B590020DF8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */,
+				302BB61E267E316900FD74F5 /* PostInputViewController.xib */,
+				3B7AC047268F6D0B0055B340 /* CommentCollectionViewCell.xib */,
 				307A305D2661CD510020DF8B /* PostCollectionViewCell.xib */,
 				307A306426629B990020DF8B /* AuthorView.swift */,
+				3B7AC05C269A94B50055B340 /* AuthorCommentView.swift */,
 				302BB61B267D7CC800FD74F5 /* PreviewPostVIew.swift */,
 			);
 			path = Views;
@@ -222,6 +242,8 @@
 				30C77CAF266AD69700A888DC /* CurrentUserService.swift */,
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
+				3B7AC01B26867F920055B340 /* ComentService.swift */,
+				3B7AC03C268D89FD0055B340 /* FeedCommentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,6 +270,8 @@
 				307A30572661AD540020DF8B /* User.swift */,
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
+				3B7AC01F268952B40055B340 /* Comment.swift */,
+				3B7AC058269A8B080055B340 /* Author.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -401,6 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7AC049268F6D0B0055B340 /* CommentCollectionViewCell.xib in Resources */,
 				307A305F2661CD510020DF8B /* PostCollectionViewCell.xib in Resources */,
 				302BB610267C658600FD74F5 /* Amaca.plist in Resources */,
 				E021985323FA35E20025C28E /* LaunchScreen.storyboard in Resources */,
@@ -424,6 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B7AC048268F6D0B0055B340 /* CommentCollectionViewCell.swift in Sources */,
 				30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */,
 				E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */,
 				3072FBDF2680FA5A00B35C8C /* ImageProcessor.swift in Sources */,
@@ -439,20 +465,24 @@
 				304E06C626741A5100A99128 /* UIColor+theme.swift in Sources */,
 				304E06C826742BDA00A99128 /* CreatePostService.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
+				3B7AC05D269A94B50055B340 /* AuthorCommentView.swift in Sources */,
 				30337955267536980066D94A /* PostInputViewController+CLLocationManagerDelegate.swift in Sources */,
 				307A30562661AD480020DF8B /* Image.swift in Sources */,
 				307A30582661AD540020DF8B /* User.swift in Sources */,
 				302B5849267E658E007133E6 /* RequestError.swift in Sources */,
 				302B5846267E658E007133E6 /* AmacaConfig.swift in Sources */,
+				3B7AC03D268D89FD0055B340 /* FeedCommentService.swift in Sources */,
 				302BB61C267D7CC800FD74F5 /* PreviewPostVIew.swift in Sources */,
 				3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */,
 				30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */,
+				3B7AC01C26867F920055B340 /* ComentService.swift in Sources */,
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
 				30B9B939268CA989007B1942 /* Nudity.mlmodel in Sources */,
 				30337957267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift in Sources */,
 				307A305E2661CD510020DF8B /* PostCollectionViewCell.swift in Sources */,
 				302BB626267E447900FD74F5 /* PostInputViewController+UITextFieldDelegate.swift in Sources */,
 				30BC8BA02662B8A700F7E6A5 /* StorageType.swift in Sources */,
+				3B7AC037268C35D90055B340 /* NewCommentViewController.swift in Sources */,
 				307A305B2661B7A20020DF8B /* FeedCollectionViewController.swift in Sources */,
 				304E06CC2674442800A99128 /* UIImage+encodeBase64.swift in Sources */,
 				30BC8BA62662C02300F7E6A5 /* CacheImage.swift in Sources */,
@@ -461,6 +491,7 @@
 				307A306526629B990020DF8B /* AuthorView.swift in Sources */,
 				30C77CB4266AF47300A888DC /* Credentials.swift in Sources */,
 				30BC8BA22662BB0000F7E6A5 /* DataContainer.swift in Sources */,
+				3B7AC059269A8B090055B340 /* Author.swift in Sources */,
 				E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */,
 				30C77CB0266AD69700A888DC /* CurrentUserService.swift in Sources */,
 				30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */,
@@ -468,6 +499,7 @@
 				304E06CF267468DA00A99128 /* UIColor+Pastel.swift in Sources */,
 				304E06C42674133D00A99128 /* String+isBlank.swift in Sources */,
 				30BC8BA42662BDEF00F7E6A5 /* ImageStore.swift in Sources */,
+				3B7AC020268952B40055B340 /* Comment.swift in Sources */,
 				3033795B267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				30B9B93B268CA9E6007B1942 /* UIImage+PixelBuffer.swift in Sources */,
 				303379592675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift in Sources */,

@@ -54,7 +54,9 @@ struct HttpClient {
         builder.body = body
         if let token = AmacaConfig.shared.apiToken {
             builder.headers = ["Authorization": "Bearer \(token)"]
+            
         }
+       
         return builder.request()
     }
 }
