@@ -10,6 +10,7 @@ import UIKit
 
 extension CommentViewController: UITextFieldDelegate{
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.commentTextField.text = ""
         self.commentTextField.endEditing(true)
     }
 

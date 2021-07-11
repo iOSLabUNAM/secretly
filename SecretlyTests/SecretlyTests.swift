@@ -19,4 +19,14 @@ class SecretlyTests: XCTestCase {
         XCTAssertEqual(currentUser, username)
     }
     
+    func testCreateLike() {
+        let createLike = CommentService(post: Post(content: "Hola", backgroundColor: "#FFFFFF"))
+             XCTAssertNoThrow(createLike)
+    }
+    
+    func checkSumComments(){
+        CommentService.countByID(id: 78) { comments in
+            XCTAssertEqual(comments.count, 13)
+        }
+    }
 }
