@@ -21,7 +21,7 @@ struct UpdatePostService {
     
     func update(_ model: Post, complete: @escaping (Result<Post?, Error>) -> Void) {
         try? endpoint?.update(model: model) { result in
-            DispatchQueue.main.async { complete(result) }
+            DispatchQueue.main.async { complete(result)}
         }
     }
     

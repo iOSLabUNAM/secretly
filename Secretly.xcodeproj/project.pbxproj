@@ -206,8 +206,8 @@
 			children = (
 				307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */,
 				307A305D2661CD510020DF8B /* PostCollectionViewCell.xib */,
-				307A306426629B990020DF8B /* AuthorView.swift */,
 				302BB61B267D7CC800FD74F5 /* PreviewPostVIew.swift */,
+				307A306426629B990020DF8B /* AuthorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
