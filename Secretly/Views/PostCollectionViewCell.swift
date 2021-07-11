@@ -11,12 +11,10 @@ import UIKit
 class PostCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "feedPostCell"
     var likeService: LikeService?
-    var updatePostService: UpdatePostService?
     var post: Post? {
         didSet {
            updateView()
            likeService = LikeService(post: post)
-           updatePostService = UpdatePostService(post: post)
         }
     }
     @IBOutlet weak var authorView: AuthorView!
@@ -77,32 +75,17 @@ class PostCollectionViewCell: UICollectionViewCell {
         let updateLike = Like(id: id, createdAt: Date(), updatedAt: Date())
         if !post.liked {
             likeService?.create(updateLike) { result in
-                self.updatePost(id: id, sum: 1, state: true)
+                self.post?.liked = true
                 self.likeState.image = UIImage(systemName: "heart.fill")
                 self.likeCounter.text = String(describing: post.likesCount! + 1)
             }
         } else {
             likeService?.delete(updateLike) { result in
-                self.updatePost(id: id, sum: -1, state: false)
+                self.post?.liked = false
                 self.likeState.image = UIImage(systemName: "heart")
-                self.likeCounter.text = String(describing: post.likesCount! - 1)
+                self.likeCounter.text = String(describing: post.likesCount ?? 0 - 1)
             }
         }
     }
-    
-    func updatePost(id: Int, sum: Int, state: Bool) {
-        guard let post = post else {return}
-        var newPost = post
-        newPost.likesCount = post.likesCount ?? 0 + sum
-        newPost.liked = state
-        updatePostService?.update(newPost) { result in
-            switch result {
-            case .success:
-                print("Success update \(result)")
-            case .failure:
-                print("Failure update \(result)")
-            }
-        }
-    }
-    
+        
 }
