@@ -57,13 +57,6 @@ class NewCommentViewController: UIViewController {
         }
     }
     
-    @IBAction func buttonReload(_ sender: Any) {
-        self.commentCollection?.reloadData()
-        commentCollection.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(self.loadComments), for: .allTouchEvents)
-    }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadSetUp()

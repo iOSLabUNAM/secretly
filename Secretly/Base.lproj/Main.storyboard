@@ -204,14 +204,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ROp-GJ-yKm">
-                                <rect key="frame" x="20" y="39" width="47" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="arrow.counterclockwise" catalog="system"/>
-                                <connections>
-                                    <action selector="buttonReload:" destination="V5i-tY-Kn3" eventType="touchUpInside" id="Vly-1G-PQe"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qtH-ja-uUi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -268,7 +260,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.counterclockwise" catalog="system" width="115" height="128"/>
         <image name="logo-white" width="256" height="256"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
