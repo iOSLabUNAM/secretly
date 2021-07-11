@@ -8,14 +8,15 @@
 
 import UIKit
 
-protocol goCommentDelegate: AnyObject{
+protocol PostCollecionViewCellDelegate: AnyObject{
     func goComment(post: Post)
 }
 
 class PostCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "feedPostCell"
     
-    weak var delegate:goCommentDelegate?
+    weak var delegate:PostCollecionViewCellDelegate?
+    var likeService: LikeService?
     
     var post: Post? {
         didSet {
@@ -28,6 +29,7 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likeState: UIImageView!
     @IBOutlet var commentButton: UIButton!
+    @IBOutlet var numLikes: UILabel!
     
     @IBAction func onCommentPressed(_ sender: UIButton) {
         guard let unwrapPost = post else { return }
@@ -37,7 +39,11 @@ class PostCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(setLike))
+        tapGesture.numberOfTapsRequired = 2
+        self.imageView.addGestureRecognizer(tapGesture)
     }
+
     
     func updateCountedLikes(numLikes:Int){
         commentButton.setTitle("\(numLikes)", for: .normal)
@@ -53,5 +59,23 @@ class PostCollectionViewCell: UICollectionViewCell {
             ImageLoader.load(postImg.mediumUrl) { img in self.imageView.image = img }
         }
         self.authorView.author = post.user
+        
+    }
+    
+    @objc func setLike(){
+        self.numLikes.text = "\(post?.numLikes ?? 0 + 1)"
+        self.likeState.tintColor = .red
+        likeService?.create(Like()) { [unowned self] result in
+            switch result{
+                case .success(_):
+                    self.numLikes.text = "\(post?.numLikes ?? 0 + 1)"
+                    self.likeState.tintColor = .red
+                    break
+                        
+                case .failure(let error):
+                    print(error)
+                    
+            }
+        }
     }
 }
