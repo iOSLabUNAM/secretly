@@ -58,7 +58,7 @@
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
 		5B89708B269A491D0080C464 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89708A269A491D0080C464 /* Like.swift */; };
 		5B89708D269A4A3E0080C464 /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89708C269A4A3E0080C464 /* LikeService.swift */; };
-		5B89708E269A4A3E0080C464 /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89708C269A4A3E0080C464 /* LikeService.swift */; };
+		5B897092269A913A0080C464 /* LikeServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B897091269A913A0080C464 /* LikeServiceTest.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -130,6 +130,7 @@
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		5B89708A269A491D0080C464 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		5B89708C269A4A3E0080C464 /* LikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeService.swift; sourceTree = "<group>"; };
+		5B897091269A913A0080C464 /* LikeServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeServiceTest.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -306,6 +307,7 @@
 			children = (
 				E021985D23FA35E20025C28E /* SecretlyTests.swift */,
 				E021985F23FA35E20025C28E /* Info.plist */,
+				5B897091269A913A0080C464 /* LikeServiceTest.swift */,
 			);
 			path = SecretlyTests;
 			sourceTree = "<group>";
@@ -489,8 +491,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B89708E269A4A3E0080C464 /* LikeService.swift in Sources */,
 				E021985E23FA35E20025C28E /* SecretlyTests.swift in Sources */,
+				5B897092269A913A0080C464 /* LikeServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,7 +684,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D3XL2U7DQC;
+				DEVELOPMENT_TEAM = CF8GW6MT8Z;
 				INFOPLIST_FILE = SecretlyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -704,7 +706,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D3XL2U7DQC;
+				DEVELOPMENT_TEAM = CF8GW6MT8Z;
 				INFOPLIST_FILE = SecretlyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
