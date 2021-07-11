@@ -56,6 +56,9 @@
 		30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB5266AF48300A888DC /* CurrentUser.swift */; };
 		30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB7266BD44300A888DC /* CreatePostViewController.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
+		5B89708B269A491D0080C464 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89708A269A491D0080C464 /* Like.swift */; };
+		5B89708D269A4A3E0080C464 /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B89708C269A4A3E0080C464 /* LikeService.swift */; };
+		5B897092269A913A0080C464 /* LikeServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B897091269A913A0080C464 /* LikeServiceTest.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -125,6 +128,9 @@
 		30C77CB5266AF48300A888DC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		30C77CB7266BD44300A888DC /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
+		5B89708A269A491D0080C464 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		5B89708C269A4A3E0080C464 /* LikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeService.swift; sourceTree = "<group>"; };
+		5B897091269A913A0080C464 /* LikeServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeServiceTest.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,8 +205,8 @@
 			children = (
 				307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */,
 				307A305D2661CD510020DF8B /* PostCollectionViewCell.xib */,
-				307A306426629B990020DF8B /* AuthorView.swift */,
 				302BB61B267D7CC800FD74F5 /* PreviewPostVIew.swift */,
+				307A306426629B990020DF8B /* AuthorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 				30C77CAF266AD69700A888DC /* CurrentUserService.swift */,
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
+				5B89708C269A4A3E0080C464 /* LikeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,6 +255,7 @@
 				307A30572661AD540020DF8B /* User.swift */,
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
+				5B89708A269A491D0080C464 /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +307,7 @@
 			children = (
 				E021985D23FA35E20025C28E /* SecretlyTests.swift */,
 				E021985F23FA35E20025C28E /* Info.plist */,
+				5B897091269A913A0080C464 /* LikeServiceTest.swift */,
 			);
 			path = SecretlyTests;
 			sourceTree = "<group>";
@@ -428,6 +437,7 @@
 				E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */,
 				3072FBDF2680FA5A00B35C8C /* ImageProcessor.swift in Sources */,
 				302BB622267E38E800FD74F5 /* PostInputViewController+UIImagePickerControllerDelegate.swift in Sources */,
+				5B89708B269A491D0080C464 /* Like.swift in Sources */,
 				302B5845267E658E007133E6 /* HttpResponse.swift in Sources */,
 				302B584A267E658E007133E6 /* RestClient.swift in Sources */,
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
@@ -466,6 +476,7 @@
 				30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */,
 				302BB624267E3A8700FD74F5 /* PostInputViewController+UIColorPickerViewControllerDelegate.swift in Sources */,
 				304E06CF267468DA00A99128 /* UIColor+Pastel.swift in Sources */,
+				5B89708D269A4A3E0080C464 /* LikeService.swift in Sources */,
 				304E06C42674133D00A99128 /* String+isBlank.swift in Sources */,
 				30BC8BA42662BDEF00F7E6A5 /* ImageStore.swift in Sources */,
 				3033795B267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift in Sources */,
@@ -481,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E021985E23FA35E20025C28E /* SecretlyTests.swift in Sources */,
+				5B897092269A913A0080C464 /* LikeServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,13 +647,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D3XL2U7DQC;
+				DEVELOPMENT_TEAM = CF8GW6MT8Z;
 				INFOPLIST_FILE = Secretly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.ioslab.Secretly;
+				PRODUCT_BUNDLE_IDENTIFIER = fernando.Secretly;
 				PRODUCT_NAME = Secretly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -653,13 +665,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D3XL2U7DQC;
+				DEVELOPMENT_TEAM = CF8GW6MT8Z;
 				INFOPLIST_FILE = Secretly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = mx.unam.ioslab.Secretly;
+				PRODUCT_BUNDLE_IDENTIFIER = fernando.Secretly;
 				PRODUCT_NAME = Secretly;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -672,7 +684,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D3XL2U7DQC;
+				DEVELOPMENT_TEAM = CF8GW6MT8Z;
 				INFOPLIST_FILE = SecretlyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -694,7 +706,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = D3XL2U7DQC;
+				DEVELOPMENT_TEAM = CF8GW6MT8Z;
 				INFOPLIST_FILE = SecretlyTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (

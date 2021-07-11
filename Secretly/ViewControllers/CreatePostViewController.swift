@@ -19,7 +19,7 @@ class CreatePostViewController: UIViewController {
 
     @IBAction
     func createPost(_ sender: Any?) {
-        let post = Post(content: contentField.text!, backgroundColor: colorField.text!)
+        let post = Post(content: contentField.text!, backgroundColor: colorField.text!, liked: false, likesCount: 0)
         let postsEndpoint = RestClient<Post>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts")
 
         do {
