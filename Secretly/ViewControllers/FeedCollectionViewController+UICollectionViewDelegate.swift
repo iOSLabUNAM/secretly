@@ -16,12 +16,10 @@ extension FeedCollectionViewController: UICollectionViewDelegate {
     }
     */
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
+    
+//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
 
     /*
     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
@@ -37,4 +35,16 @@ extension FeedCollectionViewController: UICollectionViewDelegate {
     
     }
     */
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //TODO: TAP To Like
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "commentSegue"{
+            let vc = segue.destination as! CommentViewController
+            vc.post = sender as? Post
+        }
+    }
+    
 }

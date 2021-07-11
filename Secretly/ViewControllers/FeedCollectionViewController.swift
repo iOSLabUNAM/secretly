@@ -10,7 +10,10 @@ import UIKit
 import CoreLocation
 
 class FeedCollectionViewController: UIViewController {
+    
     let feedService = FeedService()
+    var commentService:CommentService?
+    
     var posts: [Post]? {
         didSet {
             self.collectionView.reloadData()
@@ -51,6 +54,7 @@ class FeedCollectionViewController: UIViewController {
         postInputView.clear()
         present(postInputView, animated: true)
     }
+    
 }
 
 extension FeedCollectionViewController: PostInputViewDelegate {

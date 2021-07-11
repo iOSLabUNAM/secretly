@@ -163,3 +163,4 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
         previewPost?.clear()
     }
 }
+
