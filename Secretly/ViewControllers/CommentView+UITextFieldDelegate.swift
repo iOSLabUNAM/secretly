@@ -15,6 +15,7 @@ extension CommentViewController: UITextFieldDelegate{
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
             textField.resignFirstResponder()
+            print("Tecla return presionada")
             return true
     }
 }

@@ -16,6 +16,10 @@ import UIKit
 class CommentViewController: UIViewController{
 
     var commentService:CommentService? = nil
+    var isEditingComment: Bool = false
+    
+    var commentEditing: Comment?
+
     var currentUserService:CurrentUserService? = nil
     let fakeEndpoint = RestClient<Faker>(client: AmacaConfig.shared.httpClient, path: "/api/v1/fake")
     
@@ -37,7 +41,7 @@ class CommentViewController: UIViewController{
         commentService?.load { [unowned self] comments in
            self.comments = comments
             comments.forEach({ comn in
-                print(comn.autor)
+                print(comn.autor) //CREO QUE EL BACK no está reconociento user en comments
             })
         }
     }
@@ -63,7 +67,11 @@ class CommentViewController: UIViewController{
     
     @IBAction func didTapSendComment(_ sender: Any) {
         do {
-            try self.createComment()
+            if isEditingComment{
+                try self.updateComment()
+            }else{
+                try self.createComment()
+            }
         } catch let err {
             self.errorAlert(err)
         }
@@ -91,6 +99,24 @@ class CommentViewController: UIViewController{
                 self.errorAlert(err)
             }
         }
+    }
+    
+    private func updateComment() throws {
+        if var commentEditing = commentEditing {
+            commentEditing.content = commentTextField.text ?? ""
+            self.commentService?.update(commentEditing, complete: {  [unowned self] result in
+                    switch result {
+                        case .success(let comment):
+                            self.showAlert(title: "Comentario actualizado", message: "\(comment?.content ?? "")")
+                            isEditingComment = false
+                            self.reloadComments()
+                        case .failure(let err):
+                            isEditingComment = false
+                            self.errorAlert(err)
+                        }
+                    })
+        }
+        
     }
     
     private func buildComment() throws -> Comment? {

@@ -9,24 +9,20 @@
 import UIKit
 
 extension CommentViewController{
+    
 func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
     let editAction = UIContextualAction(style: .normal, title: "Editar") { [unowned self] (action, view, completion) in
         
-            let cell = tableView.cellForRow(at: indexPath) as? CommentViewCellTableViewCell
-            if var unwrapComment = cell?.comment{
-                unwrapComment.content = commentTextField.text ?? ""
-                self.commentService?.update(unwrapComment, complete: {  [unowned self] result in
-                switch result {
-                    case .success(let comment):
-                        self.showAlert(title: "Comentario actualizado", message: "\(comment?.content ?? "")")
-                        self.reloadComments()
-                        completion(true)
-                    case .failure(let err):
-                        self.errorAlert(err)
-                        completion(false)
-                    }
-                })
-              }
+        let cell = tableView.cellForRow(at: indexPath) as? CommentViewCellTableViewCell
+        
+        isEditingComment = true
+        commentEditing = cell?.comment
+        
+        tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
+        commentTextField.becomeFirstResponder()
+        commentTextField.text = cell?.comment?.content
+        tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+        completion(isEditingComment)
     }
     editAction.backgroundColor = .systemYellow
     return UISwipeActionsConfiguration(actions: [editAction])
