@@ -9,8 +9,13 @@
 import UIKit
 import CoreLocation
 
-class FeedCollectionViewController: UIViewController {
+class FeedCollectionViewController: UIViewController{
+    
     let feedService = FeedService()
+    let refreshControl = UIRefreshControl()
+    let postInputView = PostInputViewController()
+
+    
     var posts: [Post]? {
         didSet {
             self.collectionView.reloadData()
@@ -18,9 +23,7 @@ class FeedCollectionViewController: UIViewController {
         }
     }
 
-    let refreshControl = UIRefreshControl()
-    let postInputView = PostInputViewController()
-
+   
     @IBOutlet weak var collectionView: UICollectionView!
 
     override func viewDidLoad() {
@@ -39,11 +42,13 @@ class FeedCollectionViewController: UIViewController {
         collectionView.addSubview(refreshControl)
 
         refreshControl.addTarget(self, action: #selector(self.loadPosts), for: UIControl.Event.valueChanged)
+        
     }
 
     @objc
     func loadPosts() {
         feedService.load { [unowned self] posts in self.posts = posts }
+        print("dani mi amor:\(posts?.count)")
     }
 
     @IBAction
@@ -54,6 +59,7 @@ class FeedCollectionViewController: UIViewController {
 }
 
 extension FeedCollectionViewController: PostInputViewDelegate {
+    
     func didCreatePost(post: Post?) {
         guard let upost = post else { return }
         self.posts?.insert(upost, at: 0)

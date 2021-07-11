@@ -9,10 +9,16 @@
 import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
+    
     static let reuseIdentifier = "feedPostCell"
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let coomentview = NewCommentViewController()
+    
+    weak var viewControlle: UIViewController?
+    lazy var loggedInView: NewCommentViewController = storyboard.instantiateViewController(withIdentifier: "NewCommentViewController") as! NewCommentViewController
     var post: Post? {
         didSet {
-           updateView()
+             updateView()
         }
     }
     @IBOutlet weak var authorView: AuthorView!
@@ -20,14 +26,24 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likeState: UIImageView!
     @IBOutlet weak var commentCounter: UILabel!
+    
+    @IBAction func commentsView(_ sender: UIStoryboardSegue) {
+        
+        loggedInView.commentCollection = nil
+        loggedInView.comments = []
+        loggedInView.postSelected = post
+        viewControlle?.modalPresentationStyle = .fullScreen
+        viewControlle?.present(loggedInView, animated: true, completion: nil)
+        
 
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
-    func updateView() {
+    func updateView()  {
         imageView.image = nil
-        guard let post = post else { return }
+        guard let post = post else {return }
         if let color = UIColor(hex: post.backgroundColor) {
             self.backgroundColor = color
         }
@@ -39,3 +55,10 @@ class PostCollectionViewCell: UICollectionViewCell {
         self.authorView.author = post.user
     }
 }
+
+
+
+    
+    
+
+

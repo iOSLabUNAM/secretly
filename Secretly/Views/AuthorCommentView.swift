@@ -1,15 +1,15 @@
 //
-//  AuthorView.swift
+//  AuthorCommentView.swift
 //  Secretly
 //
-//  Created by Luis Ezcurdia on 29/05/21.
+//  Created by Fernanda Hernandez on 10/07/21.
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
 
 import UIKit
 
-class AuthorView: UIView {
-    var author: User? {
+class AuthorCommentView: UIView {
+    var author: Author? {
         didSet {
             updateContent()
         }
@@ -38,7 +38,7 @@ class AuthorView: UIView {
         let lbl = UILabel()
         lbl.text = "Jane Doe"
         lbl.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        lbl.textColor = .white
+        lbl.textColor = .black
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -78,7 +78,7 @@ class AuthorView: UIView {
 
     func updateContent() {
         guard let author = author else { return }
-        usernameLbl.text = author.username
+        usernameLbl.text = author.name
         ImageLoader.load(author.avatarUrl) { [unowned self] img in self.avatarImg.image = img }
     }
 

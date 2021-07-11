@@ -27,6 +27,7 @@ struct CurrentUserService {
         fakeEndpoint.show { result in
             guard let fake = try? result.get() else { return }
             let currentUser = CurrentUser(username: fake.username)
+            
             signUp(currentUser) { completion($0) }
         }
     }
@@ -48,5 +49,6 @@ struct CurrentUserService {
     fileprivate func storeToken(_ result: Result<Credentials?, Error>) {
         guard let res = try? result.get(), let token = res.token else { return }
         AmacaConfig.shared.setApiToken(token)
+        print("tokeeen: \(token)")
     }
 }
