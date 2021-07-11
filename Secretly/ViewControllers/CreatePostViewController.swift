@@ -20,8 +20,7 @@ class CreatePostViewController: UIViewController {
     @IBAction
     func createPost(_ sender: Any?) {
         let post = Post(content: contentField.text!, backgroundColor: colorField.text!)
-        let client = HttpClient(session: URLSession.shared, baseUrl: ApiConfig.baseURL.get()!)
-        let postsEndpoint = RestClient<Post>(client: client, path: "/api/v1/posts")
+        let postsEndpoint = RestClient<Post>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts")
 
         do {
             try postsEndpoint.create(model: post) { [unowned self] result in
@@ -41,7 +40,7 @@ class CreatePostViewController: UIViewController {
 
     func errorAlert(_ error: Error) {
         let err = error as? Titleable
-        let alert = UIAlertController(title: (err?.title ?? "Server Error"), message: error.localizedDescription, preferredStyle: .alert)
+        let alert = UIAlertController(title: (err?.title ?? "Error"), message: error.localizedDescription, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)

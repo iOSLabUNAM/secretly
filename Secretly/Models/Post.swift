@@ -14,7 +14,7 @@ struct Post: Restable {
     let content: String
     let backgroundColor: String
     let image: Image?
-    let imageData: String?
+    var imageData: String?
     let user: User?
     let commentsCount: Int?
     let latitude: Double?

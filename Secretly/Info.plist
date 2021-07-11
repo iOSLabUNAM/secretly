@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To add some context to your posts </string>
+	<key>NSCameraUsageDescription</key>
+	<string>To add some context to your posts</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To georeference posts within a region </string>
 	<key>CFBundleDevelopmentRegion</key>
