@@ -10,8 +10,8 @@ import UIKit
 import CoreLocation
 
 class FeedCollectionViewController: UIViewController {
-    let feedService = FeedService()
     
+    let feedService = FeedService()
     var commentService:CommentService?
     
     var posts: [Post]? {

@@ -57,6 +57,9 @@
 		30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB7266BD44300A888DC /* CreatePostViewController.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
 		5416A04926913C65009A3FA9 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5416A04826913C65009A3FA9 /* ActivityIndicator.swift */; };
+		545F459A269B7E2C007191CC /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545F4599269B7E2C007191CC /* Like.swift */; };
+		545F459C269B7E6A007191CC /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545F459B269B7E6A007191CC /* LikeService.swift */; };
+		545F459E269B81CB007191CC /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545F459D269B81CB007191CC /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift */; };
 		54A1CC55268F8D7800E2B643 /* CommentViewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1CC54268F8D7800E2B643 /* CommentViewCellTableViewCell.swift */; };
 		54A1CC57268FA72A00E2B643 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1CC56268FA72A00E2B643 /* CommentViewController.swift */; };
 		54A1CC59268FB44F00E2B643 /* CommentViewControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54A1CC58268FB44F00E2B643 /* CommentViewControllerDataSource.swift */; };
@@ -136,6 +139,9 @@
 		30C77CB7266BD44300A888DC /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		5416A04826913C65009A3FA9 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		545F4599269B7E2C007191CC /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		545F459B269B7E6A007191CC /* LikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeService.swift; sourceTree = "<group>"; };
+		545F459D269B81CB007191CC /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedCollectionViewController+PostCollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
 		54A1CC54268F8D7800E2B643 /* CommentViewCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewCellTableViewCell.swift; sourceTree = "<group>"; };
 		54A1CC56268FA72A00E2B643 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		54A1CC58268FB44F00E2B643 /* CommentViewControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewControllerDataSource.swift; sourceTree = "<group>"; };
@@ -193,6 +199,7 @@
 				303379582675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift */,
 				3033795A267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift */,
 				3033795C267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift */,
+				545F459D269B81CB007191CC /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift */,
 				302BB61D267E316900FD74F5 /* PostInputViewController.swift */,
 				302BB61E267E316900FD74F5 /* PostInputViewController.xib */,
 				30337954267536980066D94A /* PostInputViewController+CLLocationManagerDelegate.swift */,
@@ -202,8 +209,8 @@
 				54A1CC56268FA72A00E2B643 /* CommentViewController.swift */,
 				54C7AAF32698C84400A6340E /* CommentView+UITextFieldDelegate.swift */,
 				54A1CC58268FB44F00E2B643 /* CommentViewControllerDataSource.swift */,
-				54A1CC5A268FD21E00E2B643 /* CommentViewControllerDelegate.swift */,
 				54C7AAF52698CD2500A6340E /* CommentView+UISwipeGestures.swift */,
+				54A1CC5A268FD21E00E2B643 /* CommentViewControllerDelegate.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -249,6 +256,7 @@
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
 				54A1CC5E268FED3800E2B643 /* CommentService.swift */,
+				545F459B269B7E6A007191CC /* LikeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -277,6 +285,7 @@
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
 				54A1CC5C268FD55900E2B643 /* Comment.swift */,
+				545F4599269B7E2C007191CC /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -464,6 +473,7 @@
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
 				30B9B93D268CB063007B1942 /* NudityChecker.swift in Sources */,
 				54C7AAF42698C84400A6340E /* CommentView+UITextFieldDelegate.swift in Sources */,
+				545F459A269B7E2C007191CC /* Like.swift in Sources */,
 				30BC8B9D2662ACBC00F7E6A5 /* ImageLoader.swift in Sources */,
 				54A1CC57268FA72A00E2B643 /* CommentViewController.swift in Sources */,
 				302B5859267E720B007133E6 /* ResponseError.swift in Sources */,
@@ -486,6 +496,7 @@
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
 				30B9B939268CA989007B1942 /* Nudity.mlmodel in Sources */,
 				30337957267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift in Sources */,
+				545F459E269B81CB007191CC /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift in Sources */,
 				307A305E2661CD510020DF8B /* PostCollectionViewCell.swift in Sources */,
 				302BB626267E447900FD74F5 /* PostInputViewController+UITextFieldDelegate.swift in Sources */,
 				30BC8BA02662B8A700F7E6A5 /* StorageType.swift in Sources */,
@@ -499,6 +510,7 @@
 				30C77CB4266AF47300A888DC /* Credentials.swift in Sources */,
 				30BC8BA22662BB0000F7E6A5 /* DataContainer.swift in Sources */,
 				E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */,
+				545F459C269B7E6A007191CC /* LikeService.swift in Sources */,
 				30C77CB0266AD69700A888DC /* CurrentUserService.swift in Sources */,
 				30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */,
 				302BB624267E3A8700FD74F5 /* PostInputViewController+UIColorPickerViewControllerDelegate.swift in Sources */,

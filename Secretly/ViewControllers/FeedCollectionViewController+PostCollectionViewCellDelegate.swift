@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+extension FeedCollectionViewController: PostCollecionViewCellDelegate{
+    
+    
+    func goComment(post: Post) {
+        performSegue(withIdentifier: "commentSegue", sender: post)
+    }
+    
+}

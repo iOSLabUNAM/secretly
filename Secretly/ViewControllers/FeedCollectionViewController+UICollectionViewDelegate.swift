@@ -48,10 +48,3 @@ extension FeedCollectionViewController: UICollectionViewDelegate {
     }
     
 }
-extension FeedCollectionViewController: goCommentDelegate{
-    
-    func goComment(post: Post) {
-        performSegue(withIdentifier: "commentSegue", sender: post)
-    }
-    
-}
