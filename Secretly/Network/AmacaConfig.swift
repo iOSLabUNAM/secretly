@@ -19,12 +19,13 @@ struct AmacaConfig {
 
     var apiToken: String? {
         get {
-            UserDefaults.standard.string(forKey: "amaca.apitoken")
+            try? KeychainStore.common.getItem(forKey: "amaca.apitoken")
+            
         }
     }
 
     func setApiToken(_ value: String) {
-        UserDefaults.standard.set(value, forKey: "amaca.apitoken")
+        _ = KeychainStore.common.setItem(key: "amaca.apitoken", value: value)
     }
 
     private var filepath: String {

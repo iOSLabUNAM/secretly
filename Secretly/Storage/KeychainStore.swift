@@ -9,29 +9,24 @@
 import Foundation
 
 
-
-
-enum KeychainError: Error {
-    case noItem
-    case unexpectedItemData
-    case unhandledError(status: OSStatus)
-}
-
-
-
-
-
-struct KeychainService{
+struct KeychainStore{
     
     public let serviceName:String?
     
-    private let defaultServiceName: String = {
+    private static let defaultServiceName: String = {
            return Bundle.main.bundleIdentifier ?? "com.secretly.ioslab"
     }()
+    
+    public static let common = KeychainStore()
     
     public init(serviceName:String? = nil){
         self.serviceName = serviceName
     }
+    
+    private init(){
+        self.init(serviceName: KeychainStore.defaultServiceName)
+    }
+    
     
 
     public func setItem(key :String, value: String, accesibility: CFString? = nil) -> Bool {
@@ -108,7 +103,7 @@ struct KeychainService{
     public func deleteAllItems() -> Bool {
         var query = [String:Any]()
         query[kSecClass as String] = kSecClassInternetPassword
-        query[kSecAttrServer as String] = self.serviceName ?? self.defaultServiceName
+        query[kSecAttrServer as String] = self.serviceName ??  KeychainStore.defaultServiceName
         
         let status: OSStatus = SecItemDelete(query as CFDictionary)
         if status == errSecSuccess {
@@ -125,7 +120,7 @@ struct KeychainService{
         keychainQueryDictionary[kSecClass as String] = kSecClassInternetPassword
         keychainQueryDictionary[kSecAttrDescription as String] = encodedIdentifier
         keychainQueryDictionary[kSecAttrAccount as String] = encodedIdentifier
-        keychainQueryDictionary[kSecAttrServer as String] = self.serviceName ?? self.defaultServiceName
+        keychainQueryDictionary[kSecAttrServer as String] = self.serviceName ??  KeychainStore.defaultServiceName
         
         if let accessString = accesibility {
             keychainQueryDictionary[kSecAttrAccessible as String] = accessString

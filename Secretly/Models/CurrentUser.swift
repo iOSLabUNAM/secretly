@@ -10,7 +10,7 @@ import Foundation
 
 class CurrentUser {
     static func load() -> CurrentUser? {
-        guard let username = UserDefaults.standard.string(forKey: "secretly.username") else {
+        guard let username = try? KeychainStore.common.getItem(forKey: "secretly.username") else {
             return nil
         }
         return CurrentUser(username: username)
@@ -20,7 +20,7 @@ class CurrentUser {
 
     init(username: String) {
         self.username = username
-        UserDefaults.standard.set(username, forKey: "secretly.username")
+        _ = KeychainStore.common.setItem(key: "secretly.username", value: username)
     }
 
     func credentials() -> Credentials {
@@ -32,12 +32,12 @@ class CurrentUser {
     }
 
     private func password() -> String? {
-        return UserDefaults.standard.string(forKey: "secretly.password")
+        return try? KeychainStore.common.getItem(forKey: "secretly.password")
     }
 
     private func genPassword() -> String {
         let newPsswd = UUID().uuidString
-        UserDefaults.standard.set(newPsswd, forKey: "secretly.password")
+        _ = KeychainStore.common.setItem(key: "secretly.password", value: newPsswd)
         return newPsswd
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3013628D269A91E50001580D /* KeychainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3013628C269A91E50001580D /* KeychainError.swift */; };
+		301649F7268F967E00F26F4D /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301649F6268F967E00F26F4D /* KeychainStore.swift */; };
 		302B5845267E658E007133E6 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583D267E658E007133E6 /* HttpResponse.swift */; };
 		302B5846267E658E007133E6 /* AmacaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583E267E658E007133E6 /* AmacaConfig.swift */; };
 		302B5847267E658E007133E6 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583F267E658E007133E6 /* StatusCode.swift */; };
@@ -52,6 +54,7 @@
 		30C77CB4266AF47300A888DC /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB3266AF47300A888DC /* Credentials.swift */; };
 		30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB5266AF48300A888DC /* CurrentUser.swift */; };
 		30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB7266BD44300A888DC /* CreatePostViewController.swift */; };
+		30FBE8602690E26D00557F41 /* KeychainStoreServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FBE85F2690E26D00557F41 /* KeychainStoreServiceTest.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
@@ -73,6 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3013628C269A91E50001580D /* KeychainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainError.swift; sourceTree = "<group>"; };
+		301649F6268F967E00F26F4D /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
 		302B583D267E658E007133E6 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		302B583E267E658E007133E6 /* AmacaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmacaConfig.swift; sourceTree = "<group>"; };
 		302B583F267E658E007133E6 /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
@@ -118,6 +123,7 @@
 		30C77CB3266AF47300A888DC /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		30C77CB5266AF48300A888DC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		30C77CB7266BD44300A888DC /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
+		30FBE85F2690E26D00557F41 /* KeychainStoreServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStoreServiceTest.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,9 +213,11 @@
 			isa = PBXGroup;
 			children = (
 				30BC8BA32662BDEF00F7E6A5 /* ImageStore.swift */,
+				301649F6268F967E00F26F4D /* KeychainStore.swift */,
 				30BC8BA52662C02300F7E6A5 /* CacheImage.swift */,
 				30BC8BA12662BB0000F7E6A5 /* DataContainer.swift */,
 				30BC8B9F2662B8A700F7E6A5 /* StorageType.swift */,
+				3013628C269A91E50001580D /* KeychainError.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -282,6 +290,7 @@
 			children = (
 				E021985D23FA35E20025C28E /* SecretlyTests.swift */,
 				E021985F23FA35E20025C28E /* Info.plist */,
+				30FBE85F2690E26D00557F41 /* KeychainStoreServiceTest.swift */,
 			);
 			path = SecretlyTests;
 			sourceTree = "<group>";
@@ -411,6 +420,7 @@
 				E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */,
 				3072FBDF2680FA5A00B35C8C /* ImageProcessor.swift in Sources */,
 				302BB622267E38E800FD74F5 /* PostInputViewController+UIImagePickerControllerDelegate.swift in Sources */,
+				3013628D269A91E50001580D /* KeychainError.swift in Sources */,
 				302B5845267E658E007133E6 /* HttpResponse.swift in Sources */,
 				302B584A267E658E007133E6 /* RestClient.swift in Sources */,
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
@@ -430,6 +440,7 @@
 				3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */,
 				30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */,
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
+				301649F7268F967E00F26F4D /* KeychainStore.swift in Sources */,
 				30337957267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift in Sources */,
 				307A305E2661CD510020DF8B /* PostCollectionViewCell.swift in Sources */,
 				302BB626267E447900FD74F5 /* PostInputViewController+UITextFieldDelegate.swift in Sources */,
@@ -461,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E021985E23FA35E20025C28E /* SecretlyTests.swift in Sources */,
+				30FBE8602690E26D00557F41 /* KeychainStoreServiceTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

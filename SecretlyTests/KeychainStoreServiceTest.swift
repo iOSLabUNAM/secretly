@@ -11,7 +11,7 @@ import XCTest
 @testable import Secretly
 
 
-class KeychainServiceTest: XCTestCase {
+class KeychainStoreTest: XCTestCase {
     let serviceName = "test.secretly"
     let testString = "testString"
     
@@ -41,7 +41,7 @@ class KeychainServiceTest: XCTestCase {
     
     func testSaveValueToKeychain(){
         let test = "string1"
-        let keychain = KeychainService(serviceName:self.serviceName)
+        let keychain = KeychainStore(serviceName:self.serviceName)
         
         let result = keychain.setItem(key:test, value:test)
         
@@ -50,7 +50,7 @@ class KeychainServiceTest: XCTestCase {
     
     
     func testReadValueFromKeyChain(){
-        let keychain = KeychainService(serviceName:self.serviceName)
+        let keychain = KeychainStore(serviceName:self.serviceName)
         
         
         let result = try? keychain.getItem(forKey: self.testString)
@@ -60,7 +60,7 @@ class KeychainServiceTest: XCTestCase {
     
     func testUpdateValueInKeychain(){
         let value = "test2"
-        let keychain = KeychainService(serviceName:self.serviceName)
+        let keychain = KeychainStore(serviceName:self.serviceName)
         
         let updated = keychain.setItem(key: self.testString, value: value)
         
@@ -72,7 +72,7 @@ class KeychainServiceTest: XCTestCase {
     
     
     func testReadNoValueFromKeyChain(){
-        let keychain = KeychainService(serviceName:self.serviceName)
+        let keychain = KeychainStore(serviceName:self.serviceName)
         let key = "test2"
         
         XCTAssertThrowsError(try keychain.getItem(forKey: key)) {
@@ -87,7 +87,7 @@ class KeychainServiceTest: XCTestCase {
     
     
     func testDeleteAnItemFromKeyChain(){
-        let keychain = KeychainService(serviceName:self.serviceName)
+        let keychain = KeychainStore(serviceName:self.serviceName)
         
         let result = keychain.deleteItem(forKey:self.testString)
         
@@ -97,7 +97,7 @@ class KeychainServiceTest: XCTestCase {
     
     
     func testDeleteAllValuesFromKeyChain(){
-        let keychain = KeychainService(serviceName:self.serviceName)
+        let keychain = KeychainStore(serviceName:self.serviceName)
         
         let result = keychain.deleteAllItems()
         XCTAssertTrue(result)
