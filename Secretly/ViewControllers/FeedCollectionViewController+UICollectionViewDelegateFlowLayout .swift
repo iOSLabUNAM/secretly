@@ -9,7 +9,15 @@
 import UIKit
 
 extension FeedCollectionViewController: UICollectionViewDelegateFlowLayout {
+
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.width, height: 300)
+        let numberOfItemsPerRow:CGFloat = 1
+        let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
+              
+        let totalSpacing = Int(flowLayout.sectionInset.left) + Int(flowLayout.sectionInset.right) + Int((numberOfItemsPerRow-1) * flowLayout.minimumInteritemSpacing)
+        let width = (Int(collectionView.bounds.width) - totalSpacing)/Int(numberOfItemsPerRow)
+        return CGSize(width: width, height: 300)
     }
+    
 }

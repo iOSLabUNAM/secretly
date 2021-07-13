@@ -11,7 +11,7 @@ import Foundation
 struct AmacaConfig {
     static let shared = AmacaConfig()
     var host: String {
-        values["host"] as! String
+        return values["host"] as! String
     }
     var httpClient: HttpClient {
         HttpClient(session: URLSession.shared, baseUrl: host)

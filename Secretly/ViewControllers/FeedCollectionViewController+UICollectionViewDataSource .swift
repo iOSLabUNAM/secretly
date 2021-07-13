@@ -23,4 +23,5 @@ extension FeedCollectionViewController: UICollectionViewDataSource {
         cell.post = self.posts?[indexPath.row]
         return cell
     }
+    
 }

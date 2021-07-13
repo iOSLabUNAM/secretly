@@ -23,6 +23,12 @@
                             <constraint firstAttribute="height" constant="300" id="FVk-cX-Y87"/>
                             <constraint firstAttribute="width" secondItem="LcI-IM-E3b" secondAttribute="height" multiplier="4:3" id="IcI-he-Eb8"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="FVk-cX-Y87"/>
+                                <exclude reference="IcI-he-Eb8"/>
+                            </mask>
+                        </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorem ipsum dolor quet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mh0-Gr-U1B">
                         <rect key="frame" x="20" y="135.5" width="360" height="29"/>
