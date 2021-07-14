@@ -14,7 +14,7 @@ struct UserProfileService {
     init() {
         endpoint = RestClient<User>(client: AmacaConfig.shared.httpClient, path: "/api/v1/profile")
     }
-    
+
     func showProfile(completion: @escaping (User) -> Void) {
         endpoint?.show { result in
             guard let userProfile = try? result.get() else { return }

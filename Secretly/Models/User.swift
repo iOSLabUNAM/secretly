@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct User: Restable {
     let id: Int
     let username: String
