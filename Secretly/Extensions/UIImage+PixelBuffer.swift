@@ -10,18 +10,18 @@ import UIKit
 
 extension UIImage {
     func resize(to newSize: CGSize) -> UIImage? {
-        guard self.size != newSize else { return self }
+        guard size != newSize else { return self }
 
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
 
         defer { UIGraphicsEndImageContext() }
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     func pixelBuffer() -> CVPixelBuffer? {
-        let width = Int(self.size.width)
-        let height = Int(self.size.height)
+        let width = Int(size.width)
+        let height = Int(size.height)
 
         let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
         var pixelBuffer: CVPixelBuffer?
@@ -42,7 +42,7 @@ extension UIImage {
         context.scaleBy(x: 1.0, y: -1.0)
 
         UIGraphicsPushContext(context)
-        self.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+        draw(in: CGRect(x: 0, y: 0, width: width, height: height))
         UIGraphicsPopContext()
         CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
 

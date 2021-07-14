@@ -9,7 +9,7 @@
 import UIKit
 
 class WelcomeViewController: UIViewController {
-    @IBOutlet weak var helloLbl: UILabel!
+    @IBOutlet var helloLbl: UILabel!
     let service = CurrentUserService()
 
     override func viewDidLoad() {

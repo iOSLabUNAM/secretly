@@ -11,14 +11,16 @@ import UIKit
 class PreviewPostView: UIView {
     public var content: String? {
         didSet {
-            self.contentLbl.text = content
+            contentLbl.text = content
         }
     }
+
     public var image: UIImage? {
         didSet {
-            self.imgView.image = image
+            imgView.image = image
         }
     }
+
     let imgView: UIImageView = {
         let iv = UIImageView()
         iv.backgroundColor = .clear
@@ -47,23 +49,23 @@ class PreviewPostView: UIView {
     }
 
     func clear() {
-        self.imgView.image = nil
-        self.image = nil
-        self.contentLbl.text = nil
-        self.content = nil
+        imgView.image = nil
+        image = nil
+        contentLbl.text = nil
+        content = nil
     }
 
     private func setupLayout() {
         addSubview(imgView)
         addSubview(contentLbl)
         NSLayoutConstraint.activate([
-            imgView.topAnchor.constraint(equalTo: self.topAnchor),
-            imgView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            imgView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imgView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            contentLbl.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            contentLbl.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            contentLbl.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            imgView.topAnchor.constraint(equalTo: topAnchor),
+            imgView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imgView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imgView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentLbl.centerYAnchor.constraint(equalTo: centerYAnchor),
+            contentLbl.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentLbl.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
     }
 }

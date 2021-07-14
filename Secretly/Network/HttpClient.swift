@@ -31,30 +31,33 @@ struct HttpClient {
     }
 
     private func request(method: String, path: String, body: Data?, complete: @escaping ResultResponse) {
-        guard let req = buildRequest(method: method, path: path, body: body) else {
+        guard let req = RequestBuilder.build(method: method, baseUrl: baseUrl, path: path, body: body) else {
             complete(.failure(RequestError.invalidRequest))
             return
         }
 
-        session.dataTask(with: req) { (data, response, error) in
+        session.dataTask(with: req) { data, response, error in
             if let error = error {
                 complete(.failure(error))
                 return
             }
             let response = HttpResponse(response: response)
-            let result   = response.result(for: data)
+            let result = response.result(for: data)
             complete(result)
         }.resume()
     }
 
-    private func buildRequest(method: String, path: String, body: Data?) -> URLRequest? {
-        var builder = RequestBuilder(baseUrl: self.baseUrl)
-        builder.method = method
-        builder.path = path
-        builder.body = body
-        if let token = AmacaConfig.shared.apiToken {
-            builder.headers = ["Authorization": "Bearer \(token)"]
-        }
-        return builder.request()
-    }
+    /* private func buildRequest(method: String, path: String, body: Data?) -> URLRequest? {
+         var builder = RequestBuilder(baseUrl: self.baseUrl)
+         builder.method = method
+         builder.path = path
+         builder.body = body
+         if let token = AmacaConfig.shared.apiToken {
+             builder.headers = ["Authorization": "Bearer \(token)"]
+         }
+         #if DEBUD
+         debugPrint(builder.debugDescription)
+         #endif
+         return builder.request()
+     } */
 }

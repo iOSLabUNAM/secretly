@@ -27,6 +27,7 @@ struct RestClient<T: Restable> {
         decoder.dateDecodingStrategy = .iso8601
         return decoder
     }()
+
     public var encoder: JSONEncoder = {
         let encoder = JSONEncoder()
         encoder.keyEncodingStrategy = .convertToSnakeCase
@@ -51,6 +52,13 @@ struct RestClient<T: Restable> {
         }
     }
 
+    func create(complete: @escaping (Result<T?, Error>) -> Void) throws {
+        client.post(path: path, body: nil) { result in
+            let newResult = result.flatMap { parse(data: $0) }
+            complete(newResult)
+        }
+    }
+
     func create(model: T, complete: @escaping (Result<T?, Error>) -> Void) throws {
         let data = try encoder.encode(model)
         client.post(path: path, body: data) { result in
@@ -62,6 +70,13 @@ struct RestClient<T: Restable> {
     func update(model: T, complete: @escaping (Result<T?, Error>) -> Void) throws {
         let data = try encoder.encode(model)
         client.put(path: "\(path)/\(model.id)", body: data) { result in
+            let newResult = result.flatMap { parse(data: $0) }
+            complete(newResult)
+        }
+    }
+
+    func delete(complete: @escaping (Result<T?, Error>) -> Void) {
+        client.delete(path: path) { result in
             let newResult = result.flatMap { parse(data: $0) }
             complete(newResult)
         }

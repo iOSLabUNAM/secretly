@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct User: Codable {
+struct User: Restable {
+    let id: Int
     let username: String
     let avatarUrl: String
 }

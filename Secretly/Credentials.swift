@@ -18,7 +18,7 @@ enum Credentials {
         }
     }
 
-    func set(value: String) -> Bool {
+    func set(value _: String) -> Bool {
         switch self {
         case .userToken:
             return true

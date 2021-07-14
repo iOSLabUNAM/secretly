@@ -6,8 +6,8 @@
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
 
-import UIKit
 import CoreLocation
+import UIKit
 
 struct EmptyPostError: Error {}
 
@@ -17,10 +17,10 @@ protocol PostInputViewDelegate {
 
 class PostInputViewController: UIViewController, UINavigationControllerDelegate {
     let createPostService = CreatePostService()
-    @IBOutlet weak var contentTxt: UITextField!
-    @IBOutlet weak var imgPickerButton: UIButton!
-    @IBOutlet weak var colorPickerButton: UIButton!
-    @IBOutlet weak var previewPost: PreviewPostView!
+    @IBOutlet var contentTxt: UITextField!
+    @IBOutlet var imgPickerButton: UIButton!
+    @IBOutlet var colorPickerButton: UIButton!
+    @IBOutlet var previewPost: PreviewPostView!
     var source: Post?
     var delegate: PostInputViewDelegate?
 
@@ -32,6 +32,7 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
         view.mediaTypes = ["public.image"]
         return view
     }()
+
     let colorPicker = UIColorPickerViewController()
 
     override func viewDidLoad() {
@@ -69,22 +70,22 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
     }
 
     @IBAction
-    func didTapPublish(_ sender: Any) {
+    func didTapPublish(_: Any) {
         do {
-            try self.createPost()
-            self.dismiss(animated: true)
+            try createPost()
+            dismiss(animated: true)
         } catch let err {
             self.errorAlert(err)
         }
     }
 
     @IBAction
-    func didTapCancel(_ sender: Any) {
-        self.dismiss(animated: true)
+    func didTapCancel(_: Any) {
+        dismiss(animated: true)
     }
 
     @IBAction
-    func didTapImagePicker(_ sender: Any) {
+    func didTapImagePicker(_: Any) {
         present(imageSourceSelectAlert, animated: true)
     }
 
@@ -101,33 +102,33 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
         return alert
     }()
 
-    private func openCamera(_ sender: Any) {
+    private func openCamera(_: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            self.imgPicker.sourceType = .camera
+            imgPicker.sourceType = .camera
         } else {
-            self.imgPicker.sourceType = .photoLibrary
+            imgPicker.sourceType = .photoLibrary
         }
-        self.present(imgPicker, animated: true)
+        present(imgPicker, animated: true)
     }
 
-    private func openLibrary(_ sender: Any) {
-        self.imgPicker.sourceType = .savedPhotosAlbum
-        self.present(imgPicker, animated: true)
+    private func openLibrary(_: Any) {
+        imgPicker.sourceType = .savedPhotosAlbum
+        present(imgPicker, animated: true)
     }
 
     @IBAction
-    func didTapColorPicker(_ sender: Any) {
+    func didTapColorPicker(_: Any) {
         colorPicker.selectedColor = previewPost.backgroundColor ?? .clear
         present(colorPicker, animated: true)
     }
 
     private func createPost() throws {
-        let post = try self.buildPost()
+        let post = try buildPost()
         createPostService.create(post) { [unowned self] result in
             switch result {
-            case .success(let post):
+            case let .success(post):
                 delegate?.didCreatePost(post: post)
-            case .failure(let err):
+            case let .failure(err):
                 self.errorAlert(err)
             }
         }
@@ -151,10 +152,10 @@ class PostInputViewController: UIViewController, UINavigationControllerDelegate 
 
     func errorAlert(_ error: Error) {
         let err = error as? Titleable
-        let alert = UIAlertController(title: (err?.title ?? "Server Error"), message: error.localizedDescription, preferredStyle: .alert)
+        let alert = UIAlertController(title: err?.title ?? "Server Error", message: error.localizedDescription, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(okAction)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 
     public func clear() {

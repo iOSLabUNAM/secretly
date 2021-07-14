@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RequestBuilder {
+struct RequestBuilder: CustomDebugStringConvertible {
     enum ContentMode {
         case jsonApp
 
@@ -26,6 +26,7 @@ struct RequestBuilder {
             }
         }
     }
+
     private let urlComponents: URLComponents
     public var scheme: String = "https"
     public var method: String = "get"
@@ -34,12 +35,36 @@ struct RequestBuilder {
     public var headers: [String: String]?
     public var contentMode: ContentMode = .jsonApp
 
+    var debugDescription: String {
+        let currentUrl = url()?.debugDescription ?? "Not valid URL"
+        let currentHeaders = headers?.debugDescription ?? ""
+        if let ubody = body, let currentBody = String(data: ubody, encoding: .utf8) {
+            return "Request to: \(method.uppercased()) - \(currentUrl) -H \(currentHeaders) -d \(currentBody)"
+        } else {
+            return "Request to: \(method.uppercased()) - \(currentUrl) -H \(currentHeaders)"
+        }
+    }
+
+    static func build(method: String, baseUrl: String, path: String, body: Data?) -> URLRequest? {
+        var builder = RequestBuilder(baseUrl: baseUrl)
+        builder.method = method
+        builder.path = path
+        builder.body = body
+        if let token = AmacaConfig.shared.apiToken {
+            builder.headers = ["Authorization": "Bearer \(token)"]
+        }
+        #if DEBUD
+            debugPrint(builder.debugDescription)
+        #endif
+        return builder.request()
+    }
+
     init(baseUrl: String) {
-        self.urlComponents = URLComponents(string: baseUrl)!
+        urlComponents = URLComponents(string: baseUrl)!
     }
 
     func url() -> URL? {
-        var comps = self.urlComponents
+        var comps = urlComponents
         comps.scheme = scheme
         comps.path = path
         return comps.url

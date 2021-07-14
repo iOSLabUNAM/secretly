@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImage {
     func encodeBase64() -> String? {
-        guard let data = self.jpegData(compressionQuality: 0.85) else { return nil }
+        guard let data = jpegData(compressionQuality: 0.85) else { return nil }
         return "data:image/jpeg;base64,\(data.base64EncodedString())"
     }
 }

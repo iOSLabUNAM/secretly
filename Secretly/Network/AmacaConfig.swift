@@ -13,14 +13,13 @@ struct AmacaConfig {
     var host: String {
         values["host"] as! String
     }
+
     var httpClient: HttpClient {
         HttpClient(session: URLSession.shared, baseUrl: host)
     }
 
     var apiToken: String? {
-        get {
-            UserDefaults.standard.string(forKey: "amaca.apitoken")
-        }
+        UserDefaults.standard.string(forKey: "amaca.apitoken")
     }
 
     func setApiToken(_ value: String) {

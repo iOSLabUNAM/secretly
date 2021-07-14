@@ -9,8 +9,8 @@
 import UIKit
 
 extension PostInputViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        self.previewPost.content = textField.text
+    func textField(_ textField: UITextField, shouldChangeCharactersIn _: NSRange, replacementString _: String) -> Bool {
+        previewPost.content = textField.text
         return true
     }
 }

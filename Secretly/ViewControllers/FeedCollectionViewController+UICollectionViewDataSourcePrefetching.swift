@@ -9,7 +9,7 @@
 import UIKit
 
 extension FeedCollectionViewController: UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+    func collectionView(_: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         guard let indexPath = indexPaths.last else { return }
         print("================\(indexPath.row)=================")
     }

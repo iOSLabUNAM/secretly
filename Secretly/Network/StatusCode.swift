@@ -37,7 +37,7 @@ enum StatusCode: Int {
     func result() -> Result<Int?, Error> {
         switch self {
         case .success:
-            return .success(self.rawValue)
+            return .success(rawValue)
         case .clientError:
             return .failure(ResponseError.clientError)
         case .serverError:
