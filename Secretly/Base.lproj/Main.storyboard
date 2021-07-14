@@ -56,7 +56,7 @@
         <!--Profile-->
         <scene sceneID="ttH-kE-4uU">
             <objects>
-                <viewController id="nLm-Ey-ej5" sceneMemberID="viewController">
+                <viewController id="nLm-Ey-ej5" customClass="UserProfileViewController" customModule="Secretly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V90-5c-tV2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
