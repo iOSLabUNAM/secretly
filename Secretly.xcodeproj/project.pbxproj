@@ -56,6 +56,8 @@
 		30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB5266AF48300A888DC /* CurrentUser.swift */; };
 		30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB7266BD44300A888DC /* CreatePostViewController.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
+		712C6E80269FE46C00713DDA /* Likes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C6E7F269FE46C00713DDA /* Likes.swift */; };
+		712C6E84269FE4CA00713DDA /* LikesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C6E83269FE4CA00713DDA /* LikesService.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -125,6 +127,8 @@
 		30C77CB5266AF48300A888DC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		30C77CB7266BD44300A888DC /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
+		712C6E7F269FE46C00713DDA /* Likes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Likes.swift; sourceTree = "<group>"; };
+		712C6E83269FE4CA00713DDA /* LikesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesService.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				30C77CAF266AD69700A888DC /* CurrentUserService.swift */,
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
+				712C6E83269FE4CA00713DDA /* LikesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				307A30572661AD540020DF8B /* User.swift */,
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
+				712C6E7F269FE46C00713DDA /* Likes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */,
 				3072FBDF2680FA5A00B35C8C /* ImageProcessor.swift in Sources */,
 				302BB622267E38E800FD74F5 /* PostInputViewController+UIImagePickerControllerDelegate.swift in Sources */,
+				712C6E80269FE46C00713DDA /* Likes.swift in Sources */,
 				302B5845267E658E007133E6 /* HttpResponse.swift in Sources */,
 				302B584A267E658E007133E6 /* RestClient.swift in Sources */,
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
@@ -471,6 +478,7 @@
 				3033795B267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift in Sources */,
 				30B9B93B268CA9E6007B1942 /* UIImage+PixelBuffer.swift in Sources */,
 				303379592675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift in Sources */,
+				712C6E84269FE4CA00713DDA /* LikesService.swift in Sources */,
 				304E06CA26742CC500A99128 /* FeedService.swift in Sources */,
 				302BB61F267E316900FD74F5 /* PostInputViewController.swift in Sources */,
 			);

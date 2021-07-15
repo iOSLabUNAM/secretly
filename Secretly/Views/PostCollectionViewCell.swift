@@ -9,12 +9,17 @@
 import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
+    
     static let reuseIdentifier = "feedPostCell"
+    var likesService: LikesService?
+    
     var post: Post? {
         didSet {
-           updateView()
+            updateView()
+            likesService = LikesService(post: post)
         }
     }
+    
     @IBOutlet weak var authorView: AuthorView!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -22,7 +27,6 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var commentCounter: UILabel!
     @IBOutlet weak var likeCounter: UILabel!
    
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -48,12 +52,32 @@ class PostCollectionViewCell: UICollectionViewCell {
             ImageLoader.load(postImg.mediumUrl) { img in self.imageView.image = img }
         }
         self.authorView.author = post.user
+        if (post.likesCount ?? 0 > 0){
+            self.likeCounter.text = "\(post.likesCount ?? 0) Me gusta"
+        }else{
+            self.likeCounter.text = ""
+        }
+        if post.liked{
+            likeState.image = UIImage(systemName: "heart.fill")
+        }else{
+            likeState.image = UIImage(systemName: "heart")
+        }
     }
     
     @objc func changeLikeState(sender: UITapGestureRecognizer){
-        if sender.state == .ended{
-            likeCounter.text = "1"
-            likeState.image = UIImage(systemName: "heart.fill")
+        print("LIKE!")
+        likesService?.like(Likes()){ [unowned self] result in
+            switch result{
+                case .success(_):
+                    var count = post?.likesCount ?? 0
+                    count += 1
+                    self.likeCounter.text = "\(count) Me gusta"
+                    self.likeState.image = UIImage(systemName: "heart.fill")
+                    
+                case .failure(let error):
+                    print(error)
+                    
+            }
         }
     }   
     
