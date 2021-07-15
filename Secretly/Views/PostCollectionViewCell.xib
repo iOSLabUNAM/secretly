@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -62,6 +62,12 @@
                             <constraint firstAttribute="height" constant="40" id="FP9-i4-4aV"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Du7-q4-ew7">
+                        <rect key="frame" x="26" y="279" width="8" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -69,8 +75,10 @@
                 <constraint firstAttribute="trailing" secondItem="gUg-yt-vKP" secondAttribute="trailing" id="1Ox-jh-Fdw"/>
                 <constraint firstItem="LcI-IM-E3b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ALT-n0-JLg"/>
                 <constraint firstAttribute="trailing" secondItem="ier-Sw-bbQ" secondAttribute="trailing" constant="3" id="Chd-rw-tMw"/>
+                <constraint firstAttribute="bottom" secondItem="Du7-q4-ew7" secondAttribute="bottom" constant="6" id="GzZ-oW-Acj"/>
                 <constraint firstItem="LcI-IM-E3b" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Saq-lM-0ue"/>
                 <constraint firstAttribute="trailing" secondItem="Mh0-Gr-U1B" secondAttribute="trailing" constant="20" id="TmC-rH-rgp"/>
+                <constraint firstItem="Du7-q4-ew7" firstAttribute="leading" secondItem="qBu-h3-372" secondAttribute="trailing" constant="3" id="U9T-Qd-Dnr"/>
                 <constraint firstItem="gUg-yt-vKP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Udj-7I-U3z"/>
                 <constraint firstItem="qBu-h3-372" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="Wk2-tC-y2S"/>
                 <constraint firstItem="Mh0-Gr-U1B" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="cdi-uV-CwA"/>
@@ -89,6 +97,7 @@
                 <outlet property="commentCounter" destination="ier-Sw-bbQ" id="Kr2-a4-New"/>
                 <outlet property="contentLabel" destination="Mh0-Gr-U1B" id="tTs-p1-j7k"/>
                 <outlet property="imageView" destination="LcI-IM-E3b" id="vWk-OE-zm9"/>
+                <outlet property="likeCounter" destination="Du7-q4-ew7" id="uyz-FC-uGn"/>
                 <outlet property="likeState" destination="qBu-h3-372" id="Qyd-rc-8ZQ"/>
             </connections>
             <point key="canvasLocation" x="389.85507246376812" y="182.8125"/>

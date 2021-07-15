@@ -20,9 +20,20 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likeState: UIImageView!
     @IBOutlet weak var commentCounter: UILabel!
-
+    @IBOutlet weak var likeCounter: UILabel!
+   
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        let tapHeart = UITapGestureRecognizer(target: self, action: #selector(self.changeLikeState))
+        likeState.addGestureRecognizer(tapHeart)
+        likeState.isUserInteractionEnabled = true
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(self.changeLikeState))
+        doubleTap.numberOfTapsRequired = 2
+        imageView.addGestureRecognizer(doubleTap)
+        imageView.isUserInteractionEnabled = true
     }
 
     func updateView() {
@@ -38,4 +49,12 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
         self.authorView.author = post.user
     }
+    
+    @objc func changeLikeState(sender: UITapGestureRecognizer){
+        if sender.state == .ended{
+            likeCounter.text = "1"
+            likeState.image = UIImage(systemName: "heart.fill")
+        }
+    }   
+    
 }
