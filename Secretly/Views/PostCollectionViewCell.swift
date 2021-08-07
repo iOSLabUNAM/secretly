@@ -20,7 +20,8 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likeState: UIImageView!
     @IBOutlet weak var commentCounter: UILabel!
-
+    @IBOutlet weak var likesCounter: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -37,5 +38,6 @@ class PostCollectionViewCell: UICollectionViewCell {
             ImageLoader.load(postImg.mediumUrl) { img in self.imageView.image = img }
         }
         self.authorView.author = post.user
+        self.likesCounter.text = "\(post.likesCount ?? 0) Likes"
     }
 }
