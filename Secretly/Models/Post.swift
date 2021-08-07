@@ -21,7 +21,7 @@ struct Post: Restable {
     let longitude: Double?
     let createdAt: Date?
     let updatedAt: Date?
-    let liked: Bool?
+    var liked: Bool?
 
     init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil, liked:Bool? = nil) {
         self.content = content
