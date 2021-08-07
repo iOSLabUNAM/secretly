@@ -56,6 +56,8 @@
 		30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB5266AF48300A888DC /* CurrentUser.swift */; };
 		30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB7266BD44300A888DC /* CreatePostViewController.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
+		657AE4DF26BE032B00953718 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AE4DE26BE032B00953718 /* Author.swift */; };
+		657AE4E126BE037300953718 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657AE4E026BE037300953718 /* Like.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -125,6 +127,8 @@
 		30C77CB5266AF48300A888DC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		30C77CB7266BD44300A888DC /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
+		657AE4DE26BE032B00953718 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		657AE4E026BE037300953718 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -248,6 +252,8 @@
 				307A30572661AD540020DF8B /* User.swift */,
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
+				657AE4DE26BE032B00953718 /* Author.swift */,
+				657AE4E026BE037300953718 /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -445,6 +451,7 @@
 				302B5849267E658E007133E6 /* RequestError.swift in Sources */,
 				302B5846267E658E007133E6 /* AmacaConfig.swift in Sources */,
 				302BB61C267D7CC800FD74F5 /* PreviewPostVIew.swift in Sources */,
+				657AE4E126BE037300953718 /* Like.swift in Sources */,
 				3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */,
 				30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */,
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
@@ -458,6 +465,7 @@
 				30BC8BA62662C02300F7E6A5 /* CacheImage.swift in Sources */,
 				302B5847267E658E007133E6 /* StatusCode.swift in Sources */,
 				302B584B267E658E007133E6 /* RequestBuilder.swift in Sources */,
+				657AE4DF26BE032B00953718 /* Author.swift in Sources */,
 				307A306526629B990020DF8B /* AuthorView.swift in Sources */,
 				30C77CB4266AF47300A888DC /* Credentials.swift in Sources */,
 				30BC8BA22662BB0000F7E6A5 /* DataContainer.swift in Sources */,
