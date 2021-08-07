@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 struct Post: Restable {
     var id: Int?
     let content: String
