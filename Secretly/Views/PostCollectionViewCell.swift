@@ -50,7 +50,7 @@ class PostCollectionViewCell: UICollectionViewCell {
             
             
         }
-    
+    //captura el tap
     @objc func likeStateTapped(tapGestureRecognizer: UITapGestureRecognizer){
         print("tocando")
         guard let delegate = likeDelegate else {return}
