@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 struct Post: Restable {
     var id: Int?
     let content: String
@@ -21,8 +22,9 @@ struct Post: Restable {
     let longitude: Double?
     let createdAt: Date?
     let updatedAt: Date?
+    var liked: Bool?
 
-    init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil) {
+    init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil, liked:Bool? = nil) {
         self.content = content
         self.backgroundColor = backgroundColor
         self.id = nil
@@ -34,6 +36,8 @@ struct Post: Restable {
         self.commentsCount = nil
         self.createdAt = nil
         self.updatedAt = nil
+        self.liked = nil
+        
     }
 
     func encode(to encoder: Encoder) throws {

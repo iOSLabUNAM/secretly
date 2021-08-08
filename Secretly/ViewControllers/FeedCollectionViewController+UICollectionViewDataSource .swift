@@ -21,6 +21,7 @@ extension FeedCollectionViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCollectionViewCell.reuseIdentifier, for: indexPath) as! PostCollectionViewCell
 
         cell.post = self.posts?[indexPath.row]
+        cell.likeDelegate = self
         return cell
     }
 }
