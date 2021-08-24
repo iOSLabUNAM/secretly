@@ -5,7 +5,6 @@
 //  Created by Luis Ezcurdia on 28/05/21.
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
-
 import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
@@ -26,7 +25,8 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var likeState: UIImageView!
     @IBOutlet weak var commentCounter: UILabel!
     @IBOutlet weak var likeCounter: UILabel!
-   
+    @IBOutlet weak var commentState: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -38,6 +38,10 @@ class PostCollectionViewCell: UICollectionViewCell {
         doubleTap.numberOfTapsRequired = 2
         imageView.addGestureRecognizer(doubleTap)
         imageView.isUserInteractionEnabled = true
+        
+        let tapComment = UITapGestureRecognizer(target: self, action: #selector(self.showComments))
+        commentState.addGestureRecognizer(tapComment)
+        commentState.isUserInteractionEnabled = true
     }
 
     func updateView() {
@@ -64,21 +68,33 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    @objc func showComments(sender: UITapGestureRecognizer){
+        print("COMMENTS")
+    }
+    
     @objc func changeLikeState(sender: UITapGestureRecognizer){
-        print("LIKE!")
-        likesService?.like(Likes()){ [unowned self] result in
-            switch result{
-                case .success(_):
-                    var count = post?.likesCount ?? 0
-                    count += 1
-                    self.likeCounter.text = "\(count) Me gusta"
-                    self.likeState.image = UIImage(systemName: "heart.fill")
-                    
-                case .failure(let error):
-                    print(error)
-                    
+        likesService?.setLike { [unowned self] result in
+            switch result {
+            case .success(nil):
+                likeState.image = UIImage(systemName: "heart")
+                post?.unlike()
+                if (post?.likesCount ?? 0 > 0){
+                    self.likeCounter.text = "\(post?.likesCount ?? 0) Me gusta"
+                }else{
+                    self.likeCounter.text = ""
+                }
+            case .success:
+                likeState.image = UIImage(systemName: "heart.fill")
+                post?.like()
+                if (post?.likesCount ?? 0 > 0){
+                    self.likeCounter.text = "\(post?.likesCount ?? 0) Me gusta"
+                }else{
+                    self.likeCounter.text = ""
+                }
+            case .failure:
+                print("Request fail \(result)")
             }
         }
-    }   
+    }
     
 }

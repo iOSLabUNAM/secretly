@@ -5,7 +5,6 @@
 //  Created by Maria Lacayo on 14/07/21.
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
-
 import Foundation
 
 struct Likes: Restable {

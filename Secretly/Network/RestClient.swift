@@ -5,14 +5,12 @@
 //  Created by Luis Ezcurdia on 22/05/21.
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
-
 // REST API ->
 // GET    /api/v1/posts(.:format)     #list
 // POST   /api/v1/posts(.:format)     #create
 // GET    /api/v1/posts/:id(.:format) #show
 // PUT    /api/v1/posts/:id(.:format) #update
 // DELETE /api/v1/posts/:id(.:format) #destroy
-
 import Foundation
 
 typealias Restable = Codable & Identifiable
@@ -87,6 +85,22 @@ struct RestClient<T: Restable> {
             return Result { try self.decoder.decode(T.self, from: data) }
         } else {
             return .success(nil)
+        }
+    }
+    
+    func create(complete: @escaping (Result<T?, Error>) -> Void) throws {
+        print("\(path)")
+        client.post(path: path, body: nil) { result in
+            let newResult = result.flatMap { parse(data: $0) }
+            complete(newResult)
+        }
+    }
+    
+    func delete(complete: @escaping (Result<T?, Error>) -> Void) {
+        print("\(path)")
+        client.delete(path: path) { result in
+            let newResult = result.flatMap { parse(data: $0) }
+            complete(newResult)
         }
     }
 }

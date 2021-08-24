@@ -5,7 +5,6 @@
 //  Created by Luis Ezcurdia on 28/05/21.
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
-
 import Foundation
 import UIKit
 
@@ -49,4 +48,14 @@ struct Post: Restable {
         try container.encode(longitude, forKey: .longitude)
     }
 
+    mutating func like() {
+        likesCount = (likesCount ?? 0) + 1
+        liked = true
+    }
+
+    mutating func unlike() {
+        likesCount = (likesCount ?? 0) - 1
+        liked = false
+    }
+    
 }
