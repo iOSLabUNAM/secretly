@@ -56,18 +56,83 @@
         <!--Profile-->
         <scene sceneID="ttH-kE-4uU">
             <objects>
-                <viewController id="nLm-Ey-ej5" sceneMemberID="viewController">
+                <viewController id="nLm-Ey-ej5" customClass="ProfileViewController" customModule="Secretly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V90-5c-tV2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90a-LZ-jOd">
+                                <rect key="frame" x="147.5" y="348" width="119.5" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUM-GI-vqk">
+                                <rect key="frame" x="122" y="410.5" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPj-yL-7Dp">
+                                <rect key="frame" x="281" y="410.5" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lpx-qP-1Or">
+                                <rect key="frame" x="107.5" y="461.5" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3qY-2B-iiz">
+                                <rect key="frame" x="245" y="466.5" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pivote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfF-Nf-Zm5">
+                                <rect key="frame" x="183" y="410.5" width="48" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="notfound" translatesAutoresizingMaskIntoConstraints="NO" id="VG9-Sv-jpN">
+                                <rect key="frame" x="20" y="50" width="374" height="248"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5bK-am-FFO"/>
-                        <color key="backgroundColor" name="Cadet gray"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="90a-LZ-jOd" firstAttribute="top" secondItem="VG9-Sv-jpN" secondAttribute="bottom" constant="50" id="0Rd-al-VPg"/>
+                            <constraint firstItem="3qY-2B-iiz" firstAttribute="centerX" secondItem="XPj-yL-7Dp" secondAttribute="centerX" id="4TC-YQ-CaT"/>
+                            <constraint firstItem="VfF-Nf-Zm5" firstAttribute="centerY" secondItem="NUM-GI-vqk" secondAttribute="centerY" id="7ZD-Eh-Lgu"/>
+                            <constraint firstItem="VG9-Sv-jpN" firstAttribute="top" secondItem="5bK-am-FFO" secondAttribute="top" constant="50" id="EYx-Ob-TZP"/>
+                            <constraint firstItem="VfF-Nf-Zm5" firstAttribute="centerX" secondItem="V90-5c-tV2" secondAttribute="centerX" id="F2h-6a-m9E"/>
+                            <constraint firstItem="5bK-am-FFO" firstAttribute="trailing" secondItem="VG9-Sv-jpN" secondAttribute="trailing" constant="20" id="IQq-us-xSb"/>
+                            <constraint firstItem="90a-LZ-jOd" firstAttribute="centerX" secondItem="V90-5c-tV2" secondAttribute="centerX" id="JTH-Ot-aK9"/>
+                            <constraint firstItem="VG9-Sv-jpN" firstAttribute="leading" secondItem="5bK-am-FFO" secondAttribute="leading" constant="20" id="SLm-Ey-Yei"/>
+                            <constraint firstItem="lpx-qP-1Or" firstAttribute="top" secondItem="NUM-GI-vqk" secondAttribute="bottom" constant="30" id="bYs-YV-fo2"/>
+                            <constraint firstItem="VfF-Nf-Zm5" firstAttribute="leading" secondItem="NUM-GI-vqk" secondAttribute="trailing" constant="50" id="ep6-xv-4sE"/>
+                            <constraint firstItem="VfF-Nf-Zm5" firstAttribute="centerY" secondItem="V90-5c-tV2" secondAttribute="centerY" id="kPi-NV-NyL"/>
+                            <constraint firstItem="XPj-yL-7Dp" firstAttribute="centerY" secondItem="NUM-GI-vqk" secondAttribute="centerY" id="mkL-uc-dpc"/>
+                            <constraint firstItem="VfF-Nf-Zm5" firstAttribute="top" secondItem="90a-LZ-jOd" secondAttribute="bottom" constant="30" id="td2-yk-nWs"/>
+                            <constraint firstItem="XPj-yL-7Dp" firstAttribute="leading" secondItem="VfF-Nf-Zm5" secondAttribute="trailing" constant="50" id="vtp-XO-Yd6"/>
+                            <constraint firstItem="lpx-qP-1Or" firstAttribute="centerX" secondItem="NUM-GI-vqk" secondAttribute="centerX" id="xF3-Ko-8j9"/>
+                            <constraint firstItem="3qY-2B-iiz" firstAttribute="top" secondItem="XPj-yL-7Dp" secondAttribute="bottom" constant="35" id="y3z-5x-jPg"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="person.fill" catalog="system" id="giq-zc-Ami"/>
+                    <connections>
+                        <outlet property="commentsCounter" destination="XPj-yL-7Dp" id="4mc-xw-d8C"/>
+                        <outlet property="likesCounter" destination="xF3-Ko-8j9" id="WXM-gD-oZJ"/>
+                        <outlet property="userImage" destination="VG9-Sv-jpN" id="Bhf-nO-dJT"/>
+                        <outlet property="userName" destination="90a-LZ-jOd" id="FSK-oa-Zm5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HW-0M-ikL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1167" y="879"/>
+            <point key="canvasLocation" x="1166.6666666666667" y="878.57142857142856"/>
         </scene>
         <!--Feed-->
         <scene sceneID="gKD-R1-dE4">
@@ -170,14 +235,12 @@
     </scenes>
     <resources>
         <image name="logo-white" width="256" height="256"/>
+        <image name="notfound" width="166.5" height="125"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="text.bubble.fill" catalog="system" width="128" height="110"/>
         <namedColor name="Black chocolate">
             <color red="0.14499999582767487" green="0.11800000071525574" blue="0.093999996781349182" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Cadet gray">
-            <color red="0.53333333333333333" green="0.63921568627450975" blue="0.72941176470588232" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Champagne pink">
             <color red="0.85882352941176465" green="0.792156862745098" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

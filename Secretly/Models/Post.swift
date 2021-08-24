@@ -5,7 +5,6 @@
 //  Created by Luis Ezcurdia on 28/05/21.
 //  Copyright © 2021 3zcurdia. All rights reserved.
 //
-
 import Foundation
 import UIKit
 
@@ -21,6 +20,8 @@ struct Post: Restable {
     let longitude: Double?
     let createdAt: Date?
     let updatedAt: Date?
+    var likesCount: Int?
+    var liked: Bool
 
     init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil) {
         self.content = content
@@ -34,6 +35,8 @@ struct Post: Restable {
         self.commentsCount = nil
         self.createdAt = nil
         self.updatedAt = nil
+        self.likesCount = 0
+        self.liked = false
     }
 
     func encode(to encoder: Encoder) throws {
@@ -44,4 +47,15 @@ struct Post: Restable {
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
     }
+
+    mutating func like() {
+        likesCount = (likesCount ?? 0) + 1
+        liked = true
+    }
+
+    mutating func unlike() {
+        likesCount = (likesCount ?? 0) - 1
+        liked = false
+    }
+    
 }
