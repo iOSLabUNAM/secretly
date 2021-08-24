@@ -58,6 +58,9 @@
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
 		712C6E80269FE46C00713DDA /* Likes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C6E7F269FE46C00713DDA /* Likes.swift */; };
 		712C6E84269FE4CA00713DDA /* LikesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712C6E83269FE4CA00713DDA /* LikesService.swift */; };
+		71C3890526D496680078F61B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3890426D496680078F61B /* ProfileViewController.swift */; };
+		71C3890726D4992A0078F61B /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3890626D4992A0078F61B /* ProfileService.swift */; };
+		71C3890926D499CA0078F61B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3890826D499CA0078F61B /* Profile.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -129,6 +132,9 @@
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
 		712C6E7F269FE46C00713DDA /* Likes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Likes.swift; sourceTree = "<group>"; };
 		712C6E83269FE4CA00713DDA /* LikesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesService.swift; sourceTree = "<group>"; };
+		71C3890426D496680078F61B /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		71C3890626D4992A0078F61B /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		71C3890826D499CA0078F61B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +189,7 @@
 				302BB621267E38E800FD74F5 /* PostInputViewController+UIImagePickerControllerDelegate.swift */,
 				302BB623267E3A8700FD74F5 /* PostInputViewController+UIColorPickerViewControllerDelegate.swift */,
 				302BB625267E447900FD74F5 /* PostInputViewController+UITextFieldDelegate.swift */,
+				71C3890426D496680078F61B /* ProfileViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -227,6 +234,7 @@
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
 				712C6E83269FE4CA00713DDA /* LikesService.swift */,
+				71C3890626D4992A0078F61B /* ProfileService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
 				712C6E7F269FE46C00713DDA /* Likes.swift */,
+				71C3890826D499CA0078F61B /* Profile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,6 +449,7 @@
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
 				30B9B93D268CB063007B1942 /* NudityChecker.swift in Sources */,
 				30BC8B9D2662ACBC00F7E6A5 /* ImageLoader.swift in Sources */,
+				71C3890526D496680078F61B /* ProfileViewController.swift in Sources */,
 				302B5859267E720B007133E6 /* ResponseError.swift in Sources */,
 				307A30622661E8A90020DF8B /* UIColor+Hex.swift in Sources */,
 				307A30542661ABD60020DF8B /* Post.swift in Sources */,
@@ -454,6 +464,7 @@
 				302BB61C267D7CC800FD74F5 /* PreviewPostVIew.swift in Sources */,
 				3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */,
 				30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */,
+				71C3890926D499CA0078F61B /* Profile.swift in Sources */,
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
 				30B9B939268CA989007B1942 /* Nudity.mlmodel in Sources */,
 				30337957267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift in Sources */,
@@ -465,6 +476,7 @@
 				30BC8BA62662C02300F7E6A5 /* CacheImage.swift in Sources */,
 				302B5847267E658E007133E6 /* StatusCode.swift in Sources */,
 				302B584B267E658E007133E6 /* RequestBuilder.swift in Sources */,
+				71C3890726D4992A0078F61B /* ProfileService.swift in Sources */,
 				307A306526629B990020DF8B /* AuthorView.swift in Sources */,
 				30C77CB4266AF47300A888DC /* Credentials.swift in Sources */,
 				30BC8BA22662BB0000F7E6A5 /* DataContainer.swift in Sources */,

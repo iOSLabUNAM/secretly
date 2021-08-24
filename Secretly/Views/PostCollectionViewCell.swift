@@ -66,6 +66,7 @@ class PostCollectionViewCell: UICollectionViewCell {
         }else{
             likeState.image = UIImage(systemName: "heart")
         }
+        
     }
     
     @objc func showComments(sender: UITapGestureRecognizer){
