@@ -12,6 +12,7 @@ struct Like: Restable {
     var id: Int
     let likeableType: String
     let likeableId: Int
-    let createdAt, updatedAt: String
+    let createdAt: String
+    let updatedAt: String
     var user: User
 }
