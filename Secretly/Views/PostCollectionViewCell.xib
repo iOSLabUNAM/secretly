@@ -68,6 +68,12 @@
                             <action selector="likeOnTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="3zQ-qs-Wg8"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000 likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HyU-Gz-t62">
+                        <rect key="frame" x="26" y="281" width="49" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
@@ -80,6 +86,8 @@
                 <constraint firstAttribute="trailing" secondItem="Mh0-Gr-U1B" secondAttribute="trailing" constant="20" id="TmC-rH-rgp"/>
                 <constraint firstAttribute="bottom" secondItem="NKD-wH-ehQ" secondAttribute="bottom" constant="2" id="Twa-PG-939"/>
                 <constraint firstItem="gUg-yt-vKP" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Udj-7I-U3z"/>
+                <constraint firstItem="HyU-Gz-t62" firstAttribute="leading" secondItem="NKD-wH-ehQ" secondAttribute="trailing" constant="3" id="X1w-9U-g3e"/>
+                <constraint firstAttribute="bottom" secondItem="HyU-Gz-t62" secondAttribute="bottom" constant="7" id="YVi-Hd-1GC"/>
                 <constraint firstItem="Mh0-Gr-U1B" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="cdi-uV-CwA"/>
                 <constraint firstAttribute="bottom" secondItem="ier-Sw-bbQ" secondAttribute="bottom" constant="6" id="dEi-5s-5Xo"/>
                 <constraint firstItem="ier-Sw-bbQ" firstAttribute="leading" secondItem="Zus-SL-Va3" secondAttribute="trailing" constant="3" id="dc0-TJ-Axz"/>
@@ -95,6 +103,7 @@
                 <outlet property="commentCounter" destination="ier-Sw-bbQ" id="Kr2-a4-New"/>
                 <outlet property="contentLabel" destination="Mh0-Gr-U1B" id="tTs-p1-j7k"/>
                 <outlet property="imageView" destination="LcI-IM-E3b" id="vWk-OE-zm9"/>
+                <outlet property="likeCounter" destination="HyU-Gz-t62" id="aCE-DI-VBS"/>
                 <outlet property="likeState" destination="NKD-wH-ehQ" id="79Q-RO-Sms"/>
             </connections>
             <point key="canvasLocation" x="389.85507246376812" y="182.8125"/>

@@ -22,7 +22,8 @@ class PostCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var likeState: UIButton!
     @IBOutlet weak var commentCounter: UILabel!
-   
+    @IBOutlet weak var likeCounter: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -42,6 +43,8 @@ class PostCollectionViewCell: UICollectionViewCell {
         
         let imageName = post.liked ?? false ? "heart.fill" : "heart"
         likeState.setImage(UIImage(systemName: imageName), for: .normal)
+        
+        self.likeCounter.text = "\(self.post?.likesCount ?? 0 ) likes"
         
     }
     
