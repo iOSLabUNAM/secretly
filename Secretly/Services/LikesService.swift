@@ -9,29 +9,29 @@
 import Foundation
 
 struct LikesService {
-    private var likesEndpoint: RestClient<Like>
+    private var likesEndpoint: RestClient<Like>?
+    var liked = false
     
-    init(postId: Int){
-        likesEndpoint = RestClient<Like>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(postId)/like")
-    }
-    
-    func get(completion: @escaping ([Like]) -> Void) {
-        likesEndpoint.list { result in
-            guard let likes = try? result.get() else { return }
-            DispatchQueue.main.async { completion(likes) }
+    init(post: Post?){
+        guard let post = post, let postId = post.id else {
+            likesEndpoint = nil
+            return
         }
+        likesEndpoint = RestClient<Like>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(postId)/likes")
+        liked = post.isLiked ?? false
     }
     
-    func add(_ model: Like, complete: @escaping (Result<Like?, Error>) -> Void ) {
-        try? likesEndpoint.create(model: model) {
-            result in
-            DispatchQueue.main.async { complete(result) }
-        }
-    }
-    
-    func delete(_ model: Like, complete: @escaping (Result<Like?, Error>) -> Void ) {
-        likesEndpoint.delete(model: model) { result in
-            DispatchQueue.main.async { complete(result) }
+    mutating func toggleLike(complete: @escaping (Result<Like?, Error>) -> Void) {
+        if liked {
+            liked = !liked
+            likesEndpoint?.delete { result in
+                DispatchQueue.main.async { complete(result) }
+            }
+        } else {
+            liked = !liked
+            try? likesEndpoint?.create { result in
+                DispatchQueue.main.async { complete(result) }
+            }
         }
     }
 }
