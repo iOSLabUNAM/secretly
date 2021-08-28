@@ -10,16 +10,20 @@ import Foundation
 
 struct HttpResponse {
     let httpUrlResponse: HTTPURLResponse
-
+    
     init(response: URLResponse?) {
-        self.httpUrlResponse = (response as? HTTPURLResponse) ?? HTTPURLResponse()
+        httpUrlResponse = (response as? HTTPURLResponse) ?? HTTPURLResponse()
     }
-
+    
     var status: StatusCode {
-        return StatusCode(rawValue: self.httpUrlResponse.statusCode)
+        return StatusCode(rawValue: httpUrlResponse.statusCode)
     }
-
+    
     func result(for data: Data?) -> Result<Data?, Error> {
-        return status.result().map { _ in data }
+        if let udata = data, !udata.isEmpty {
+            return status.result().map { _ in data }
+        } else {
+            return status.result().map { _ in nil }
+        }
     }
 }
