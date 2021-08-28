@@ -12,14 +12,24 @@ struct HttpResponse {
     let httpUrlResponse: HTTPURLResponse
 
     init(response: URLResponse?) {
-        self.httpUrlResponse = (response as? HTTPURLResponse) ?? HTTPURLResponse()
+        httpUrlResponse = (response as? HTTPURLResponse) ?? HTTPURLResponse()
     }
 
     var status: StatusCode {
-        return StatusCode(rawValue: self.httpUrlResponse.statusCode)
+        return StatusCode(rawValue: httpUrlResponse.statusCode)
     }
 
     func result(for data: Data?) -> Result<Data?, Error> {
-        return status.result().map { _ in data }
+        if let udata = data, !udata.isEmpty {
+            let currentData = String(data: udata, encoding: .utf8)
+            debugPrint("Response: \(status) \(httpUrlResponse.statusCode) \(httpUrlResponse.url!) -d \(String(describing: currentData))")
+        } else {
+            debugPrint("Response: \(status) \(httpUrlResponse.statusCode) \(httpUrlResponse.url!)")
+        }
+        if let udata = data, !udata.isEmpty {
+            return status.result().map { _ in data }
+        } else {
+            return status.result().map { _ in nil }
+        }
     }
 }

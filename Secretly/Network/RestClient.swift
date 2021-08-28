@@ -51,6 +51,13 @@ struct RestClient<T: Restable> {
         }
     }
 
+    func create(complete: @escaping (Result<T?, Error>) -> Void) throws {
+        client.post(path: path, body: nil) { result in
+            let newResult = result.flatMap { parse(data: $0) }
+            complete(newResult)
+        }
+    }
+    
     func create(model: T, complete: @escaping (Result<T?, Error>) -> Void) throws {
         let data = try encoder.encode(model)
         client.post(path: path, body: data) { result in
@@ -67,6 +74,13 @@ struct RestClient<T: Restable> {
         }
     }
 
+    func delete(complete: @escaping (Result<T?, Error>) -> Void) {
+        client.delete(path: path) { result in
+            let newResult = result.flatMap { parse(data: $0) }
+            complete(newResult)
+        }
+    }
+    
     func delete(model: T, complete: @escaping (Result<T?, Error>) -> Void) {
         client.delete(path: "\(path)/\(model.id)") { result in
             let newResult = result.flatMap { parse(data: $0) }
