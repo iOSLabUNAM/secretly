@@ -10,22 +10,24 @@ import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "feedPostCell"
+    var likesService: LikesService?
     var post: Post? {
         didSet {
-           updateView()
+            updateView()
+            likesService = LikesService(post: post)
         }
     }
     @IBOutlet weak var authorView: AuthorView!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var likeState: UIImageView!
     @IBOutlet weak var commentCounter: UILabel!
     @IBOutlet weak var likesCounter: UILabel!
+    @IBOutlet weak var btnLike: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     func updateView() {
         imageView.image = nil
         guard let post = post else { return }
@@ -38,6 +40,42 @@ class PostCollectionViewCell: UICollectionViewCell {
             ImageLoader.load(postImg.mediumUrl) { img in self.imageView.image = img }
         }
         self.authorView.author = post.user
-        self.likesCounter.text = "\(post.likesCount ?? 0) Likes"
+        // Update likes counter label
+        if (post.likesCount ?? 0 > 0){
+            self.likesCounter.text = "\(post.likesCount ?? 0) Me gusta"
+        }else{
+            self.likesCounter.text = ""
+        }
+        // Update like image
+        if post.isLiked ?? false{
+            btnLike.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else{
+            btnLike.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
     }
+    @IBAction func toggleLike(_ sender: UIButton) {
+        likesService?.toggleLike { [unowned self] result in
+            switch result {
+            case .success(nil):
+                btnLike.setImage(UIImage(systemName: "heart"), for: .normal)
+                post?.dislike()
+                if (post?.likesCount ?? 0 > 0){
+                    self.likesCounter.text = "\(post?.likesCount ?? 0) Me gusta"
+                }else{
+                    self.likesCounter.text = ""
+                }
+            case .success:
+                btnLike.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+                post?.like()
+                if (post?.likesCount ?? 0 > 0){
+                    self.likesCounter.text = "\(post?.likesCount ?? 0) Me gusta"
+                }else{
+                    self.likesCounter.text = ""
+                }
+            case .failure:
+                print("Request fail \(result)")
+            }
+        }
+    }
+    
 }
