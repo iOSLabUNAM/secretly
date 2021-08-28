@@ -41,11 +41,7 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
         self.authorView.author = post.user
         // Update likes counter label
-        if (post.likesCount ?? 0 > 0){
-            self.likesCounter.text = "\(post.likesCount ?? 0) Me gusta"
-        }else{
-            self.likesCounter.text = ""
-        }
+        self.likesCounter.text = "\(post.likesCount ?? 0) Me gusta"
         // Update like image
         if post.isLiked ?? false{
             btnLike.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -53,28 +49,20 @@ class PostCollectionViewCell: UICollectionViewCell {
             btnLike.setImage(UIImage(systemName: "heart"), for: .normal)
         }
     }
+    
     @IBAction func toggleLike(_ sender: UIButton) {
         likesService?.toggleLike { [unowned self] result in
             switch result {
             case .success(nil):
                 btnLike.setImage(UIImage(systemName: "heart"), for: .normal)
-                post?.dislike()
-                if (post?.likesCount ?? 0 > 0){
-                    self.likesCounter.text = "\(post?.likesCount ?? 0) Me gusta"
-                }else{
-                    self.likesCounter.text = ""
-                }
+                post?.toggleLike(isLiked: false)
             case .success:
                 btnLike.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                post?.like()
-                if (post?.likesCount ?? 0 > 0){
-                    self.likesCounter.text = "\(post?.likesCount ?? 0) Me gusta"
-                }else{
-                    self.likesCounter.text = ""
-                }
+                post?.toggleLike(isLiked: true)
             case .failure:
-                print("Request fail \(result)")
+                print("Failure request \(result)")
             }
+            self.likesCounter.text = "\(post?.likesCount ?? 0) Me gusta"
         }
     }
     

@@ -23,7 +23,7 @@ struct Post: Restable {
     let updatedAt: Date?
     var likesCount: Int?
     var isLiked: Bool?
-
+    
     init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil, likesCount: Int? = nil, isLiked: Bool? = nil) {
         self.content = content
         self.backgroundColor = backgroundColor
@@ -39,7 +39,7 @@ struct Post: Restable {
         self.likesCount = likesCount
         self.isLiked = isLiked
     }
-
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(content, forKey: .content)
@@ -49,14 +49,9 @@ struct Post: Restable {
         try container.encode(longitude, forKey: .longitude)
     }
     
-    mutating func like() {
-        likesCount = (likesCount ?? 0) + 1
-        isLiked = true
+    mutating func toggleLike(isLiked:Bool){
+        likesCount = isLiked ? (likesCount ?? 0) + 1 : (likesCount ?? 0) - 1
+        self.isLiked = isLiked
     }
-
-    mutating func dislike() {
-        likesCount = (likesCount ?? 0) - 1
-        isLiked = false
-    }
-
+    
 }

@@ -20,7 +20,7 @@ typealias Restable = Codable & Identifiable
 struct RestClient<T: Restable> {
     let client: HttpClient
     let path: String
-
+    
     public var decoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -32,25 +32,25 @@ struct RestClient<T: Restable> {
         encoder.keyEncodingStrategy = .convertToSnakeCase
         return encoder
     }()
-
+    
     func list(complete: @escaping (Result<[T], Error>) -> Void) {
         client.get(path: path) { result in
             let newResult = result.flatMap { parseList(data: $0) }
             complete(newResult)
         }
     }
-
+    
     func show(complete: @escaping (Result<T?, Error>) -> Void) {
         show("", complete: complete)
     }
-
+    
     func show(_ identifier: String, complete: @escaping (Result<T?, Error>) -> Void) {
         client.get(path: "\(path)/\(identifier)") { result in
             let newResult = result.flatMap { parse(data: $0) }
             complete(newResult)
         }
     }
-
+    
     func create(complete: @escaping (Result<T?, Error>) -> Void) throws {
         client.post(path: path, body: nil) { result in
             let newResult = result.flatMap { parse(data: $0) }
@@ -65,7 +65,7 @@ struct RestClient<T: Restable> {
             complete(newResult)
         }
     }
-
+    
     func update(model: T, complete: @escaping (Result<T?, Error>) -> Void) throws {
         let data = try encoder.encode(model)
         client.put(path: "\(path)/\(model.id)", body: data) { result in
@@ -73,7 +73,7 @@ struct RestClient<T: Restable> {
             complete(newResult)
         }
     }
-
+    
     func delete(complete: @escaping (Result<T?, Error>) -> Void) {
         client.delete(path: path) { result in
             let newResult = result.flatMap { parse(data: $0) }
@@ -87,7 +87,7 @@ struct RestClient<T: Restable> {
             complete(newResult)
         }
     }
-
+    
     private func parseList(data: Data?) -> Result<[T], Error> {
         if let data = data {
             return Result { try self.decoder.decode([T].self, from: data) }
@@ -95,7 +95,7 @@ struct RestClient<T: Restable> {
             return .success([])
         }
     }
-
+    
     private func parse(data: Data?) -> Result<T?, Error> {
         if let data = data {
             return Result { try self.decoder.decode(T.self, from: data) }
