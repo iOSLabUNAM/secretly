@@ -43,7 +43,7 @@ class PostCollectionViewCell: UICollectionViewCell {
         // Update likes counter label
         self.likesCounter.text = "\(post.likesCount ?? 0) Me gusta"
         // Update like image
-        if post.isLiked ?? false{
+        if post.liked ?? false{
             btnLike.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         } else{
             btnLike.setImage(UIImage(systemName: "heart"), for: .normal)

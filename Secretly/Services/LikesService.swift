@@ -18,7 +18,7 @@ struct LikesService {
             return
         }
         likesEndpoint = RestClient<Like>(client: AmacaConfig.shared.httpClient, path: "/api/v1/posts/\(postId)/likes")
-        liked = post.isLiked ?? false
+        liked = post.liked ?? false
     }
     
     mutating func toggleLike(complete: @escaping (Result<Like?, Error>) -> Void) {

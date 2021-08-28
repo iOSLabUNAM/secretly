@@ -13,6 +13,7 @@ struct Like: Restable {
     let id: Int
     let likeableType: String
     let likeableId: Int
-    let createdAt, updatedAt: String
+    let createdAt: String
+    let updatedAt: String
     let user: User
 }

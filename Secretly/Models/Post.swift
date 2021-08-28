@@ -22,9 +22,9 @@ struct Post: Restable {
     let createdAt: Date?
     let updatedAt: Date?
     var likesCount: Int?
-    var isLiked: Bool?
+    var liked: Bool?
     
-    init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil, likesCount: Int? = nil, isLiked: Bool? = nil) {
+    init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil, likesCount: Int? = nil, liked:Bool?=false) {
         self.content = content
         self.backgroundColor = backgroundColor
         self.id = nil
@@ -37,7 +37,7 @@ struct Post: Restable {
         self.createdAt = nil
         self.updatedAt = nil
         self.likesCount = likesCount
-        self.isLiked = isLiked
+        self.liked = liked
     }
     
     func encode(to encoder: Encoder) throws {
@@ -51,7 +51,7 @@ struct Post: Restable {
     
     mutating func toggleLike(isLiked:Bool){
         likesCount = isLiked ? (likesCount ?? 0) + 1 : (likesCount ?? 0) - 1
-        self.isLiked = isLiked
+        self.liked = isLiked
     }
     
 }
