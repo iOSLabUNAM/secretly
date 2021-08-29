@@ -10,6 +10,7 @@ import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier = "feedPostCell"
+    var delegate: PostCollectionViewCellDelegate?
     var post: Post? {
         didSet {
            updateView()
@@ -38,4 +39,12 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
         self.authorView.author = post.user
     }
+    
+    @IBAction func showComments(_ sender: UIButton) {
+        delegate?.didButtonPressed()
+    }
+}
+
+protocol PostCollectionViewCellDelegate {
+    func didButtonPressed()
 }
