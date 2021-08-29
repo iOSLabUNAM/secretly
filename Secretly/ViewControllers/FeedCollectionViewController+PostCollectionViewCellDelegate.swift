@@ -9,9 +9,13 @@
 import Foundation
 
 extension FeedCollectionViewController: PostCollectionViewCellDelegate {
-      func didButtonPressed() {
+    func didButtonPressed(post: Post) {
         let commentsViewController = self.storyboard?.instantiateViewController(withIdentifier: "CommentsViewController") as! CommentsViewController
-        self.navigationController?.pushViewController(commentsViewController, animated: true)
-      }
-
+        commentsViewController.post = post
+        //callBack block will execute when user back from SecondViewController.
+        commentsViewController.callBack = { (reload: Bool) in
+            self.reload = reload
+        }
+        // self.navigationController?.pushViewController(commentsViewController, animated: true)
+    }
 }

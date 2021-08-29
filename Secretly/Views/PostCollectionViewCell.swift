@@ -41,10 +41,10 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func showComments(_ sender: UIButton) {
-        delegate?.didButtonPressed()
+        delegate?.didButtonPressed(post: post!)
     }
 }
 
 protocol PostCollectionViewCellDelegate {
-    func didButtonPressed()
+    func didButtonPressed(post: Post)
 }

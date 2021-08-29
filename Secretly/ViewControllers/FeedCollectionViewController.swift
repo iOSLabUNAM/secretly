@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 
 class FeedCollectionViewController: UIViewController {
+    var reload: Bool = false
     let feedService = FeedService()
     var posts: [Post]? {
         didSet {
@@ -50,6 +51,13 @@ class FeedCollectionViewController: UIViewController {
     func onTapAdd(_ sender: Any) {
         postInputView.clear()
         present(postInputView, animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if reload {
+            loadPosts()
+            reload = false
+        }
     }
 }
 

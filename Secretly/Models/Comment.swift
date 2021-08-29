@@ -13,7 +13,7 @@ struct Comment: Restable {
     let content: String
     let createdAt: Date?
     let updatedAt: Date?
-    let author: Author?
+    var author: Author?
     
     init(content: String) {
         self.id = nil

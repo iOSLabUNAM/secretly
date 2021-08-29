@@ -9,12 +9,21 @@
 import UIKit
 
 class CommentsViewController: UIViewController {
-
+    var commentService:CommentService? = nil
+    var post : Post?
+    var callBack: ((_ reloadPosts: Bool)-> Void)?
+    var comments:[Comment] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     @IBOutlet weak var tableView: UITableView!
-    var comments = [Comment]()
+    @IBOutlet weak var commentTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        commentService = CommentService(post: post!)
         // set title
         title = "Post Comments"
         setupTable()
@@ -34,17 +43,64 @@ class CommentsViewController: UIViewController {
     }
     
     func fetchData() {
-        comments = getAll()
-        tableView.reloadData()
+        commentService?.load { [unowned self] comments in
+            self.comments = comments
+        }
     }
     
-    
-    func getAll() -> [Comment] {
-        let date: NSDate = NSDate()
-        var all = [Comment(content: "Esto es un mensaje"),Comment(content: "Esto es un mensaje 1"),]
-        return all
+    @IBAction func sendComment(_ sender: UIButton) {
+        do{
+            try createComment()
+        } catch let err {
+            self.errorAlert(err)
+        }
     }
     
+    private func createComment() throws {
+        let text:String? = commentTextField.text
+        guard let safeText = text else { return }
+        let comment = try self.buildComment(comment: safeText)
+        guard let safeComment = comment else { return }
+        
+        commentService?.create(safeComment) { [unowned self] result in
+            switch result {
+            case .success(let newComment):
+                commentTextField.text = ""
+                self.showAlert(title: "Comentario publicado", message: newComment?.content ?? "")
+                self.fetchData()
+                callBack?(true)
+            case .failure(let err):
+                self.errorAlert(err)
+            }
+        }
+    }
+    
+    private func buildComment(comment: String) throws -> Comment? {
+        if (comment.isBlank || comment.count<4 ) {
+            let alert = UIAlertController(title: "Comentario invalido", message: "El comentario no puede estar vacío y debe tener al menos 4 caracteres", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+            return nil
+        } else {
+            return Comment(content: comment)
+        }
+    }
+    
+    func showAlert(title: String, message: String){
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alertVC.addAction(okAction)
+        present(alertVC, animated: true, completion: nil)
+    }
+    
+    func errorAlert(_ error: Error) {
+        let err = error as? Titleable
+        let alert = UIAlertController(title: (err?.title ?? "Ocurrio un error en el servidor"), message: error.localizedDescription, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension CommentsViewController: UITableViewDataSource {
@@ -54,8 +110,8 @@ extension CommentsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let comment = comments[indexPath.row]
-        
-        if comment.author != nil {
+        let isCurrentUser = CurrentUser.load()?.username == comment.author?.name
+        if !isCurrentUser {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LeftViewCell") as! LeftViewCell
             cell.configureCell(comment: comment)
             return cell

@@ -65,6 +65,7 @@
 		6510160426DB1B460047C3EB /* LeftViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6510160326DB1B460047C3EB /* LeftViewCell.xib */; };
 		6510160626DB20030047C3EB /* UIView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6510160526DB20030047C3EB /* UIView+Rounded.swift */; };
 		6510160826DB2EF60047C3EB /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6510160726DB2EF60047C3EB /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift */; };
+		6510160A26DB399B0047C3EB /* CommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6510160926DB399B0047C3EB /* CommentsService.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -143,6 +144,7 @@
 		6510160326DB1B460047C3EB /* LeftViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewCell.xib; sourceTree = "<group>"; };
 		6510160526DB20030047C3EB /* UIView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Rounded.swift"; path = "../../../../../UIView+Rounded.swift"; sourceTree = "<group>"; };
 		6510160726DB2EF60047C3EB /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedCollectionViewController+PostCollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
+		6510160926DB399B0047C3EB /* CommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsService.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				30C77CAF266AD69700A888DC /* CurrentUserService.swift */,
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
+				6510160926DB399B0047C3EB /* CommentsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				30337957267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift in Sources */,
 				307A305E2661CD510020DF8B /* PostCollectionViewCell.swift in Sources */,
 				302BB626267E447900FD74F5 /* PostInputViewController+UITextFieldDelegate.swift in Sources */,
+				6510160A26DB399B0047C3EB /* CommentsService.swift in Sources */,
 				30BC8BA02662B8A700F7E6A5 /* StorageType.swift in Sources */,
 				307A305B2661B7A20020DF8B /* FeedCollectionViewController.swift in Sources */,
 				304E06CC2674442800A99128 /* UIImage+encodeBase64.swift in Sources */,

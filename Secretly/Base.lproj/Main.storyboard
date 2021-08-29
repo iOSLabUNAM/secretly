@@ -190,6 +190,9 @@
                                         <rect key="frame" x="362" y="17" width="36" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendComment:" destination="0iC-b6-UeU" eventType="touchUpInside" id="oRt-ih-gwA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
@@ -221,6 +224,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="aOq-oY-4kC"/>
                     <connections>
+                        <outlet property="commentTextField" destination="KLE-X8-A8a" id="vLu-LS-oeO"/>
                         <outlet property="tableView" destination="aIu-KY-EoR" id="ARO-7w-d2f"/>
                     </connections>
                 </viewController>
