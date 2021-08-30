@@ -19,6 +19,8 @@ class PostCollectionViewCell: UICollectionViewCell {
         }
     }
 //    New IBOutlet from like's
+//
+//
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var labelLikeButton: UILabel!
     
