@@ -21,6 +21,9 @@ struct Post: Restable {
     let longitude: Double?
     let createdAt: Date?
     let updatedAt: Date?
+//    New
+    var likesCount: Int?
+    var liked: Bool?
 
     init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil) {
         self.content = content
@@ -34,6 +37,9 @@ struct Post: Restable {
         self.commentsCount = nil
         self.createdAt = nil
         self.updatedAt = nil
+//        New
+        self.likesCount = nil
+        self.liked = nil
     }
 
     func encode(to encoder: Encoder) throws {
@@ -43,5 +49,18 @@ struct Post: Restable {
         try container.encode(imageData, forKey: .imageData)
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
+//        New
+        try container.encode(liked, forKey: .liked)
+        try container.encode(likesCount, forKey: .likesCount)
+    }
+//    New function to Like
+    mutating func newLike(state:String){
+         if state == "inc"{
+             likesCount = (likesCount ?? 0) + 1
+             liked = true
+         } else if state == "dec"{
+             likesCount = (likesCount ?? 0) - 1
+             liked = false
+         }
     }
 }

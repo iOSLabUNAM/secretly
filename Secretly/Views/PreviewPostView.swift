@@ -26,6 +26,14 @@ class PreviewPostView: UIView {
         iv.translatesAutoresizingMaskIntoConstraints = false
         return iv
     }()
+    
+    let imgView2: UIImageView = {
+        let iv2 = UIImageView()
+        iv2.backgroundColor = .clear
+        iv2.contentMode = .scaleToFill
+        iv2.translatesAutoresizingMaskIntoConstraints = false
+        return iv2
+    }()
 
     let contentLbl: UILabel = {
         let lbl = UILabel()
@@ -51,16 +59,18 @@ class PreviewPostView: UIView {
         self.image = nil
         self.contentLbl.text = nil
         self.content = nil
+        self.imgView2.image = nil
     }
 
     private func setupLayout() {
         addSubview(imgView)
         addSubview(contentLbl)
+        addSubview(imgView2)
         NSLayoutConstraint.activate([
-            imgView.topAnchor.constraint(equalTo: self.topAnchor),
-            imgView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            imgView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            imgView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            imgView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
+            imgView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
+            imgView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 4),
+            imgView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 4),
             contentLbl.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             contentLbl.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             contentLbl.trailingAnchor.constraint(equalTo: self.trailingAnchor)
