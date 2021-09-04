@@ -17,10 +17,12 @@ struct Post: Restable {
     var imageData: String?
     let user: User?
     let commentsCount: Int?
+    let likesCount: Int?
     let latitude: Double?
     let longitude: Double?
     let createdAt: Date?
     let updatedAt: Date?
+    var liked: Bool?
 
     init(content: String, backgroundColor: String, latitude: Double? = nil, longitude: Double? = nil, image: UIImage? = nil) {
         self.content = content
@@ -32,8 +34,10 @@ struct Post: Restable {
         self.longitude = longitude
         self.user = nil
         self.commentsCount = nil
+        self.likesCount = nil
         self.createdAt = nil
         self.updatedAt = nil
+        self.liked = nil
     }
 
     func encode(to encoder: Encoder) throws {

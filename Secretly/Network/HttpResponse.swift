@@ -20,6 +20,10 @@ struct HttpResponse {
     }
 
     func result(for data: Data?) -> Result<Data?, Error> {
-        return status.result().map { _ in data }
+        if let udata = data, !udata.isEmpty {
+            return status.result().map { _ in data }
+        } else {
+            return status.result().map { _ in nil }
+        }
     }
 }
