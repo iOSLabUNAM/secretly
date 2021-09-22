@@ -56,6 +56,16 @@
 		30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB5266AF48300A888DC /* CurrentUser.swift */; };
 		30C77CB8266BD44300A888DC /* CreatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C77CB7266BD44300A888DC /* CreatePostViewController.swift */; };
 		30FD0E722659645A006E309A /* Faker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FD0E712659645A006E309A /* Faker.swift */; };
+		651015F826DB17460047C3EB /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651015F726DB17460047C3EB /* CommentsViewController.swift */; };
+		651015FA26DB17D40047C3EB /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651015F926DB17D40047C3EB /* Comment.swift */; };
+		651015FC26DB18090047C3EB /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651015FB26DB18090047C3EB /* Author.swift */; };
+		651015FE26DB19620047C3EB /* LeftViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651015FD26DB19620047C3EB /* LeftViewCell.swift */; };
+		6510160026DB19AE0047C3EB /* RightViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 651015FF26DB19AE0047C3EB /* RightViewCell.swift */; };
+		6510160226DB1B3C0047C3EB /* RightViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6510160126DB1B3C0047C3EB /* RightViewCell.xib */; };
+		6510160426DB1B460047C3EB /* LeftViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6510160326DB1B460047C3EB /* LeftViewCell.xib */; };
+		6510160626DB20030047C3EB /* UIView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6510160526DB20030047C3EB /* UIView+Rounded.swift */; };
+		6510160826DB2EF60047C3EB /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6510160726DB2EF60047C3EB /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift */; };
+		6510160A26DB399B0047C3EB /* CommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6510160926DB399B0047C3EB /* CommentsService.swift */; };
 		E021984723FA35E00025C28E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984623FA35E00025C28E /* AppDelegate.swift */; };
 		E021984923FA35E00025C28E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984823FA35E00025C28E /* SceneDelegate.swift */; };
 		E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E021984A23FA35E00025C28E /* WelcomeViewController.swift */; };
@@ -125,6 +135,16 @@
 		30C77CB5266AF48300A888DC /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		30C77CB7266BD44300A888DC /* CreatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewController.swift; sourceTree = "<group>"; };
 		30FD0E712659645A006E309A /* Faker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faker.swift; sourceTree = "<group>"; };
+		651015F726DB17460047C3EB /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
+		651015F926DB17D40047C3EB /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		651015FB26DB18090047C3EB /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		651015FD26DB19620047C3EB /* LeftViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftViewCell.swift; sourceTree = "<group>"; };
+		651015FF26DB19AE0047C3EB /* RightViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightViewCell.swift; sourceTree = "<group>"; };
+		6510160126DB1B3C0047C3EB /* RightViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RightViewCell.xib; sourceTree = "<group>"; };
+		6510160326DB1B460047C3EB /* LeftViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewCell.xib; sourceTree = "<group>"; };
+		6510160526DB20030047C3EB /* UIView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Rounded.swift"; path = "../../../../../UIView+Rounded.swift"; sourceTree = "<group>"; };
+		6510160726DB2EF60047C3EB /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedCollectionViewController+PostCollectionViewCellDelegate.swift"; sourceTree = "<group>"; };
+		6510160926DB399B0047C3EB /* CommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsService.swift; sourceTree = "<group>"; };
 		E021984323FA35E00025C28E /* Secretly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Secretly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E021984623FA35E00025C28E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E021984823FA35E00025C28E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +186,8 @@
 		307A30592661B73A0020DF8B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				651015F726DB17460047C3EB /* CommentsViewController.swift */,
+				6510160726DB2EF60047C3EB /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift */,
 				E021984A23FA35E00025C28E /* WelcomeViewController.swift */,
 				30C77CB7266BD44300A888DC /* CreatePostViewController.swift */,
 				307A305A2661B7A20020DF8B /* FeedCollectionViewController.swift */,
@@ -197,10 +219,14 @@
 		307A306326629B590020DF8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6510160326DB1B460047C3EB /* LeftViewCell.xib */,
+				6510160126DB1B3C0047C3EB /* RightViewCell.xib */,
 				307A305C2661CD510020DF8B /* PostCollectionViewCell.swift */,
 				307A305D2661CD510020DF8B /* PostCollectionViewCell.xib */,
 				307A306426629B990020DF8B /* AuthorView.swift */,
 				302BB61B267D7CC800FD74F5 /* PreviewPostVIew.swift */,
+				651015FD26DB19620047C3EB /* LeftViewCell.swift */,
+				651015FF26DB19AE0047C3EB /* RightViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +248,7 @@
 				30C77CAF266AD69700A888DC /* CurrentUserService.swift */,
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
+				6510160926DB399B0047C3EB /* CommentsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -235,6 +262,7 @@
 				304E06CB2674442800A99128 /* UIImage+encodeBase64.swift */,
 				30B9B93A268CA9E6007B1942 /* UIImage+PixelBuffer.swift */,
 				304E06CE267468DA00A99128 /* UIColor+Pastel.swift */,
+				6510160526DB20030047C3EB /* UIView+Rounded.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +276,8 @@
 				307A30572661AD540020DF8B /* User.swift */,
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
+				651015F926DB17D40047C3EB /* Comment.swift */,
+				651015FB26DB18090047C3EB /* Author.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -406,7 +436,9 @@
 				E021985323FA35E20025C28E /* LaunchScreen.storyboard in Resources */,
 				302BB620267E316900FD74F5 /* PostInputViewController.xib in Resources */,
 				E021985023FA35E20025C28E /* Assets.xcassets in Resources */,
+				6510160226DB1B3C0047C3EB /* RightViewCell.xib in Resources */,
 				E021984E23FA35E00025C28E /* Main.storyboard in Resources */,
+				6510160426DB1B460047C3EB /* LeftViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +463,7 @@
 				302B5845267E658E007133E6 /* HttpResponse.swift in Sources */,
 				302B584A267E658E007133E6 /* RestClient.swift in Sources */,
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
+				6510160626DB20030047C3EB /* UIView+Rounded.swift in Sources */,
 				30B9B93D268CB063007B1942 /* NudityChecker.swift in Sources */,
 				30BC8B9D2662ACBC00F7E6A5 /* ImageLoader.swift in Sources */,
 				302B5859267E720B007133E6 /* ResponseError.swift in Sources */,
@@ -439,23 +472,29 @@
 				304E06C626741A5100A99128 /* UIColor+theme.swift in Sources */,
 				304E06C826742BDA00A99128 /* CreatePostService.swift in Sources */,
 				E021984723FA35E00025C28E /* AppDelegate.swift in Sources */,
+				651015FE26DB19620047C3EB /* LeftViewCell.swift in Sources */,
 				30337955267536980066D94A /* PostInputViewController+CLLocationManagerDelegate.swift in Sources */,
+				6510160826DB2EF60047C3EB /* FeedCollectionViewController+PostCollectionViewCellDelegate.swift in Sources */,
 				307A30562661AD480020DF8B /* Image.swift in Sources */,
 				307A30582661AD540020DF8B /* User.swift in Sources */,
 				302B5849267E658E007133E6 /* RequestError.swift in Sources */,
 				302B5846267E658E007133E6 /* AmacaConfig.swift in Sources */,
 				302BB61C267D7CC800FD74F5 /* PreviewPostVIew.swift in Sources */,
 				3033795D267537B40066D94A /* FeedCollectionViewController+UICollectionViewDelegateFlowLayout .swift in Sources */,
+				651015FC26DB18090047C3EB /* Author.swift in Sources */,
+				651015FA26DB17D40047C3EB /* Comment.swift in Sources */,
 				30BC8BA82662CEBA00F7E6A5 /* Checksum.swift in Sources */,
 				30FD0E722659645A006E309A /* Faker.swift in Sources */,
 				30B9B939268CA989007B1942 /* Nudity.mlmodel in Sources */,
 				30337957267536E30066D94A /* FeedCollectionViewController+UICollectionViewDelegate.swift in Sources */,
 				307A305E2661CD510020DF8B /* PostCollectionViewCell.swift in Sources */,
 				302BB626267E447900FD74F5 /* PostInputViewController+UITextFieldDelegate.swift in Sources */,
+				6510160A26DB399B0047C3EB /* CommentsService.swift in Sources */,
 				30BC8BA02662B8A700F7E6A5 /* StorageType.swift in Sources */,
 				307A305B2661B7A20020DF8B /* FeedCollectionViewController.swift in Sources */,
 				304E06CC2674442800A99128 /* UIImage+encodeBase64.swift in Sources */,
 				30BC8BA62662C02300F7E6A5 /* CacheImage.swift in Sources */,
+				6510160026DB19AE0047C3EB /* RightViewCell.swift in Sources */,
 				302B5847267E658E007133E6 /* StatusCode.swift in Sources */,
 				302B584B267E658E007133E6 /* RequestBuilder.swift in Sources */,
 				307A306526629B990020DF8B /* AuthorView.swift in Sources */,
@@ -472,6 +511,7 @@
 				30B9B93B268CA9E6007B1942 /* UIImage+PixelBuffer.swift in Sources */,
 				303379592675371C0066D94A /* FeedCollectionViewController+UICollectionViewDataSource .swift in Sources */,
 				304E06CA26742CC500A99128 /* FeedService.swift in Sources */,
+				651015F826DB17460047C3EB /* CommentsViewController.swift in Sources */,
 				302BB61F267E316900FD74F5 /* PostInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

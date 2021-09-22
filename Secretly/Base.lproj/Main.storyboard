@@ -167,6 +167,71 @@
             </objects>
             <point key="canvasLocation" x="2073.913043478261" y="135.9375"/>
         </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="2qh-XX-RId">
+            <objects>
+                <viewController storyboardIdentifier="CommentsViewController" id="0iC-b6-UeU" customClass="CommentsViewController" customModule="Secretly" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pr2-cd-qab">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ML2-ne-qzp">
+                                <rect key="frame" x="0.0" y="798" width="414" height="64"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KLE-X8-A8a">
+                                        <rect key="frame" x="16" y="12" width="330" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="pgJ-vB-Tb0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zm-2Q-AL1">
+                                        <rect key="frame" x="362" y="17" width="36" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendComment:" destination="0iC-b6-UeU" eventType="touchUpInside" id="oRt-ih-gwA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="KLE-X8-A8a" firstAttribute="leading" secondItem="ML2-ne-qzp" secondAttribute="leading" constant="16" id="9cm-85-jMI"/>
+                                    <constraint firstItem="2zm-2Q-AL1" firstAttribute="leading" secondItem="KLE-X8-A8a" secondAttribute="trailing" constant="16" id="GpD-OU-uED"/>
+                                    <constraint firstAttribute="height" constant="64" id="Hhc-po-m9U"/>
+                                    <constraint firstItem="KLE-X8-A8a" firstAttribute="centerY" secondItem="ML2-ne-qzp" secondAttribute="centerY" id="RTs-uw-axP"/>
+                                    <constraint firstAttribute="trailing" secondItem="2zm-2Q-AL1" secondAttribute="trailing" constant="16" id="SLf-iB-Xic"/>
+                                    <constraint firstItem="2zm-2Q-AL1" firstAttribute="centerY" secondItem="ML2-ne-qzp" secondAttribute="centerY" id="vOt-wE-60z"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aIu-KY-EoR">
+                                <rect key="frame" x="0.0" y="44" width="414" height="754"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AQJ-3T-5sn"/>
+                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="AQJ-3T-5sn" firstAttribute="trailing" secondItem="aIu-KY-EoR" secondAttribute="trailing" id="5R1-h5-TGF"/>
+                            <constraint firstItem="aIu-KY-EoR" firstAttribute="top" secondItem="AQJ-3T-5sn" secondAttribute="top" id="622-Wi-h2f"/>
+                            <constraint firstItem="ML2-ne-qzp" firstAttribute="leading" secondItem="AQJ-3T-5sn" secondAttribute="leading" id="N73-FI-28U"/>
+                            <constraint firstItem="ML2-ne-qzp" firstAttribute="trailing" secondItem="AQJ-3T-5sn" secondAttribute="trailing" id="OUD-Fr-Erh"/>
+                            <constraint firstItem="aIu-KY-EoR" firstAttribute="leading" secondItem="AQJ-3T-5sn" secondAttribute="leading" id="SXH-s3-zQ8"/>
+                            <constraint firstItem="AQJ-3T-5sn" firstAttribute="bottom" secondItem="ML2-ne-qzp" secondAttribute="bottom" id="dTO-eb-mJJ"/>
+                            <constraint firstItem="ML2-ne-qzp" firstAttribute="top" secondItem="aIu-KY-EoR" secondAttribute="bottom" id="qtE-u4-qOl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aOq-oY-4kC"/>
+                    <connections>
+                        <outlet property="commentTextField" destination="KLE-X8-A8a" id="vLu-LS-oeO"/>
+                        <outlet property="tableView" destination="aIu-KY-EoR" id="ARO-7w-d2f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9Ab-wT-T0q" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2074" y="879"/>
+        </scene>
     </scenes>
     <resources>
         <image name="logo-white" width="256" height="256"/>
@@ -182,6 +247,9 @@
         <namedColor name="Champagne pink">
             <color red="0.85882352941176465" green="0.792156862745098" blue="0.74117647058823533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
