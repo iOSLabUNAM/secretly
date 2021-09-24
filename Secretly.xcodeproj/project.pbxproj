@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1445C8C226EAD8C600769390 /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445C8C126EAD8C600769390 /* Like.swift */; };
+		1445C8C626EAD9F700769390 /* LikeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1445C8C526EAD9F700769390 /* LikeService.swift */; };
 		302B5845267E658E007133E6 /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583D267E658E007133E6 /* HttpResponse.swift */; };
 		302B5846267E658E007133E6 /* AmacaConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583E267E658E007133E6 /* AmacaConfig.swift */; };
 		302B5847267E658E007133E6 /* StatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302B583F267E658E007133E6 /* StatusCode.swift */; };
@@ -76,6 +78,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1445C8C126EAD8C600769390 /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
+		1445C8C526EAD9F700769390 /* LikeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeService.swift; sourceTree = "<group>"; };
 		302B583D267E658E007133E6 /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
 		302B583E267E658E007133E6 /* AmacaConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmacaConfig.swift; sourceTree = "<group>"; };
 		302B583F267E658E007133E6 /* StatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCode.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				30C77CAF266AD69700A888DC /* CurrentUserService.swift */,
 				304E06C726742BDA00A99128 /* CreatePostService.swift */,
 				304E06C926742CC500A99128 /* FeedService.swift */,
+				1445C8C526EAD9F700769390 /* LikeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 				307A30572661AD540020DF8B /* User.swift */,
 				30C77CB3266AF47300A888DC /* Credentials.swift */,
 				30C77CB5266AF48300A888DC /* CurrentUser.swift */,
+				1445C8C126EAD8C600769390 /* Like.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -428,6 +434,7 @@
 				E021984B23FA35E00025C28E /* WelcomeViewController.swift in Sources */,
 				3072FBDF2680FA5A00B35C8C /* ImageProcessor.swift in Sources */,
 				302BB622267E38E800FD74F5 /* PostInputViewController+UIImagePickerControllerDelegate.swift in Sources */,
+				1445C8C226EAD8C600769390 /* Like.swift in Sources */,
 				302B5845267E658E007133E6 /* HttpResponse.swift in Sources */,
 				302B584A267E658E007133E6 /* RestClient.swift in Sources */,
 				302B5848267E658E007133E6 /* HttpClient.swift in Sources */,
@@ -466,6 +473,7 @@
 				30C77CB6266AF48300A888DC /* CurrentUser.swift in Sources */,
 				302BB624267E3A8700FD74F5 /* PostInputViewController+UIColorPickerViewControllerDelegate.swift in Sources */,
 				304E06CF267468DA00A99128 /* UIColor+Pastel.swift in Sources */,
+				1445C8C626EAD9F700769390 /* LikeService.swift in Sources */,
 				304E06C42674133D00A99128 /* String+isBlank.swift in Sources */,
 				30BC8BA42662BDEF00F7E6A5 /* ImageStore.swift in Sources */,
 				3033795B267537490066D94A /* FeedCollectionViewController+UICollectionViewDataSourcePrefetching.swift in Sources */,
